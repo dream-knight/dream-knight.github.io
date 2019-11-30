@@ -46,16 +46,18 @@
   };
 </script>
 
-  <meta name="description" content="personal_blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dre4m_Dr4g0n">
-<meta property="og:url" content="https:&#x2F;&#x2F;dream-knight.github.io&#x2F;categories&#x2F;Security&#x2F;index.html">
+  <meta name="description" content="i春秋 ctf大本营_web writeup被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下#爆破-1给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。 &amp;lt;?php include &amp;quot;flag.php&amp;quot;; $a = @$_REQUEST[&amp;apos;hello&amp;apos;]; if(!preg_match(&amp;apos;&#x2F;^\w*$&#x2F;&amp;apos;,$a )){">
+<meta name="keywords" content="ctf,web">
+<meta property="og:type" content="article">
+<meta property="og:title" content="i春秋writeup">
+<meta property="og:url" content="https:&#x2F;&#x2F;dream-knight.github.io&#x2F;2019&#x2F;11&#x2F;30&#x2F;i%E6%98%A5%E7%A7%8Bwriteup&#x2F;index.html">
 <meta property="og:site_name" content="Dre4m_Dr4g0n">
-<meta property="og:description" content="personal_blog">
+<meta property="og:description" content="i春秋 ctf大本营_web writeup被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下#爆破-1给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。 &amp;lt;?php include &amp;quot;flag.php&amp;quot;; $a = @$_REQUEST[&amp;apos;hello&amp;apos;]; if(!preg_match(&amp;apos;&#x2F;^\w*$&#x2F;&amp;apos;,$a )){">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-30T02:47:18.242Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://dream-knight.github.io/categories/Security/">
+<link rel="canonical" href="https://dream-knight.github.io/2019/11/30/i%E6%98%A5%E7%A7%8Bwriteup/">
 
 
 <script id="page-configurations">
@@ -63,13 +65,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Category: Security | Dre4m_Dr4g0n</title>
+  <title>i春秋writeup | Dre4m_Dr4g0n</title>
   
 
 
@@ -179,50 +181,120 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">Security
-          <small>Category</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://dream-knight.github.io/2019/11/30/i%E6%98%A5%E7%A7%8Bwriteup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dre4m_Dr4g0n">
+      <meta itemprop="description" content="personal_blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dre4m_Dr4g0n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          i春秋writeup
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-11-30 10:26:46 / Modified: 10:47:18" itemprop="dateCreated datePublished" datetime="2019-11-30T10:26:46+08:00">2019-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/writeup/" itemprop="url" rel="index">
+                    <span itemprop="name">writeup</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+        <h1 id="i春秋-ctf大本营-web-writeup"><a href="#i春秋-ctf大本营-web-writeup" class="headerlink" title="i春秋 ctf大本营_web writeup"></a>i春秋 ctf大本营_web writeup</h1><h2 id="被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"><a href="#被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下" class="headerlink" title="被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"></a>被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下</h2><p>#爆破-1<br>给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。</p>
+<pre><code>&lt;?php
+include &quot;flag.php&quot;;
+$a = @$_REQUEST[&apos;hello&apos;];
+if(!preg_match(&apos;/^\w*$/&apos;,$a )){
+  die(&apos;ERROR&apos;);
+}
+eval(&quot;var_dump($$a);&quot;);
+show_source(__FILE__);
+?&gt;</code></pre><p>/表示的是正则表达式的开始和结束，^或\A 匹配字符串开始位置，\w匹配任意数字或字母或下划线(a-z,A-Z,0-9,_)，*匹配0次、或1次、或多次其前面的字符(相当于可以输入多个字符、数字、或下划线)，$或者\Z匹配字符串的结束位置。所以在这里我们输入hello可以执行</p>
+<p>提示有说flag在某个变量中，还观察到var_dump($$a)，可以使用超全局变量$GLOBALS，直接在url中构造?hello=GLOBALS即可flag。</p>
+<pre><code>?hello=GLOBALS</code></pre><p>######做题小结：这道题之所以能够用超全局变量，就是因为输出时又多了一个$,利用它构造一系列超全局变量,得出我们想要的信息。</p>
+<pre><code>$_SERVER 这种超全局变量保存关于报头、路径和脚本位置的信息
+$_REQUEST 用于收集 HTML 表单提交的数据
+$_POST 广泛用于收集提交 method=&quot;post&quot; 的 HTML 表单后的表单数据。
+$_GET 也可用于收集提交 HTML 表单 (method=&quot;get&quot;) 之后的表单数据</code></pre><hr>
+<p>#爆破-2<br>提示说flag不在变量中，用$GLOBALS查看果然不在。</p>
+<pre><code>&lt;?php
+include &quot;flag.php&quot;;
+$a = @$_REQUEST[&apos;hello&apos;];
+eval( &quot;var_dump($a);&quot;);
+show_source(__FILE__);</code></pre><p>不在变量中，那就查flag.php文件，查到一个file_get_contents() 函数可以把整个文件读入一个字符串中。</p>
+<pre><code>/?hello=file_get_contents(&apos;flag.php&apos;)</code></pre><p>做题小结:可以利用三种不同的函数，都可以得出flag</p>
+<pre><code>file() 函数是把整个文件读入一个数组中，然后将文件作为一个数组返回。
+readfile() 函数读取一个文件，并写入到输出缓冲。如果成功，该函数返回从文件中读入的字节数。如果失败，该函数返回 FALSE 并附带错误信息。您可以通过在函数名前面添加一个 &apos;@&apos; 来隐藏错误输出。
+file_get_contents() 把整个文件读入一个字符串中。</code></pre>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-22T19:40:01+08:00"
-              content="2019-11-22">
-          11-22
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ctf/" rel="tag"># ctf</a>
+              <a href="/tags/web/" rel="tag"># web</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/11/22/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" itemprop="url">
-            <span itemprop="name">我的第一篇博客</span>
-          </a>
-      </h2>
+        
 
-    </header>
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/22/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="next" title="我的第一篇博客">
+                  <i class="fa fa-chevron-left"></i> 我的第一篇博客
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+            </div>
+          </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -251,6 +323,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#i春秋-ctf大本营-web-writeup"><span class="nav-number">1.</span> <span class="nav-text">i春秋 ctf大本营_web writeup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"><span class="nav-number">1.1.</span> <span class="nav-text">被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
