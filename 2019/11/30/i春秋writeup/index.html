@@ -46,15 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="i春秋 ctf大本营_web writeup被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下#爆破-1给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。 &amp;lt;?php include &amp;quot;flag.php&amp;quot;; $a = @$_REQUEST[&amp;apos;hello&amp;apos;]; if(!preg_match(&amp;apos;&#x2F;^\w*$&#x2F;&amp;apos;,$a )){">
+  <meta name="description" content="i春秋 ctf大本营_web writeup####被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下#爆破-1 #####给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。 &amp;lt;?php include &amp;quot;flag.php&amp;quot;; $a = @$_REQUEST[&amp;apos;hello&amp;apos;]; if(!preg_match(&amp;apos;&#x2F;^\w*$&#x2F;&amp;apo">
 <meta name="keywords" content="ctf,web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="i春秋writeup">
 <meta property="og:url" content="https:&#x2F;&#x2F;dream-knight.github.io&#x2F;2019&#x2F;11&#x2F;30&#x2F;i%E6%98%A5%E7%A7%8Bwriteup&#x2F;index.html">
 <meta property="og:site_name" content="Dre4m_Dr4g0n">
-<meta property="og:description" content="i春秋 ctf大本营_web writeup被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下#爆破-1给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。 &amp;lt;?php include &amp;quot;flag.php&amp;quot;; $a = @$_REQUEST[&amp;apos;hello&amp;apos;]; if(!preg_match(&amp;apos;&#x2F;^\w*$&#x2F;&amp;apos;,$a )){">
+<meta property="og:description" content="i春秋 ctf大本营_web writeup####被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下#爆破-1 #####给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。 &amp;lt;?php include &amp;quot;flag.php&amp;quot;; $a = @$_REQUEST[&amp;apos;hello&amp;apos;]; if(!preg_match(&amp;apos;&#x2F;^\w*$&#x2F;&amp;apo">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-30T02:47:18.242Z">
+<meta property="og:updated_time" content="2019-11-30T07:00:19.507Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://dream-knight.github.io/2019/11/30/i%E6%98%A5%E7%A7%8Bwriteup/">
@@ -210,7 +210,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-30 10:26:46 / Modified: 10:47:18" itemprop="dateCreated datePublished" datetime="2019-11-30T10:26:46+08:00">2019-11-30</time>
+              <time title="Created: 2019-11-30 10:26:46 / Modified: 15:00:19" itemprop="dateCreated datePublished" datetime="2019-11-30T10:26:46+08:00">2019-11-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,7 +235,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="i春秋-ctf大本营-web-writeup"><a href="#i春秋-ctf大本营-web-writeup" class="headerlink" title="i春秋 ctf大本营_web writeup"></a>i春秋 ctf大本营_web writeup</h1><h2 id="被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"><a href="#被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下" class="headerlink" title="被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"></a>被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下</h2><p>#爆破-1<br>给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。</p>
+        <h1 id="i春秋-ctf大本营-web-writeup"><a href="#i春秋-ctf大本营-web-writeup" class="headerlink" title="i春秋 ctf大本营_web writeup"></a>i春秋 ctf大本营_web writeup</h1><h2 id="被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"><a href="#被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下" class="headerlink" title="####被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"></a>####被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下</h2><p>#爆破-1</p>
+<p>#####给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下。</p>
 <pre><code>&lt;?php
 include &quot;flag.php&quot;;
 $a = @$_REQUEST[&apos;hello&apos;];
@@ -244,23 +245,29 @@ if(!preg_match(&apos;/^\w*$/&apos;,$a )){
 }
 eval(&quot;var_dump($$a);&quot;);
 show_source(__FILE__);
-?&gt;</code></pre><p>/表示的是正则表达式的开始和结束，^或\A 匹配字符串开始位置，\w匹配任意数字或字母或下划线(a-z,A-Z,0-9,_)，*匹配0次、或1次、或多次其前面的字符(相当于可以输入多个字符、数字、或下划线)，$或者\Z匹配字符串的结束位置。所以在这里我们输入hello可以执行</p>
-<p>提示有说flag在某个变量中，还观察到var_dump($$a)，可以使用超全局变量$GLOBALS，直接在url中构造?hello=GLOBALS即可flag。</p>
+?&gt;</code></pre><p>#####/表示的是正则表达式的开始和结束，^或\A 匹配字符串开始位置，\w匹配任意数字或字母或下划线(a-z,A-Z,0-9,_)，*匹配0次、或1次、或多次其前面的字符(相当于可以输入多个字符、数字、或下划线)，$或者\Z匹配字符串的结束位置。所以在这里我们输入hello可以执行</p>
+<p>#####提示有说flag在某个变量中，还观察到var_dump($$a)，可以使用超全局变量$GLOBALS，直接在url中构造?hello=GLOBALS即可flag。</p>
 <pre><code>?hello=GLOBALS</code></pre><p>######做题小结：这道题之所以能够用超全局变量，就是因为输出时又多了一个$,利用它构造一系列超全局变量,得出我们想要的信息。</p>
 <pre><code>$_SERVER 这种超全局变量保存关于报头、路径和脚本位置的信息
 $_REQUEST 用于收集 HTML 表单提交的数据
 $_POST 广泛用于收集提交 method=&quot;post&quot; 的 HTML 表单后的表单数据。
 $_GET 也可用于收集提交 HTML 表单 (method=&quot;get&quot;) 之后的表单数据</code></pre><hr>
-<p>#爆破-2<br>提示说flag不在变量中，用$GLOBALS查看果然不在。</p>
+<p>#爆破-2</p>
+<p>#####提示说flag不在变量中，用$GLOBALS查看果然不在。</p>
 <pre><code>&lt;?php
 include &quot;flag.php&quot;;
 $a = @$_REQUEST[&apos;hello&apos;];
 eval( &quot;var_dump($a);&quot;);
-show_source(__FILE__);</code></pre><p>不在变量中，那就查flag.php文件，查到一个file_get_contents() 函数可以把整个文件读入一个字符串中。</p>
-<pre><code>/?hello=file_get_contents(&apos;flag.php&apos;)</code></pre><p>做题小结:可以利用三种不同的函数，都可以得出flag</p>
+show_source(__FILE__);</code></pre><p>#####不在变量中，那就查flag.php文件，查到一个file_get_contents() 函数可以把整个文件读入一个字符串中。</p>
+<pre><code>/?hello=file_get_contents(&apos;flag.php&apos;)</code></pre><p>#####做题小结:可以利用三种不同的函数，都可以得出flag</p>
 <pre><code>file() 函数是把整个文件读入一个数组中，然后将文件作为一个数组返回。
 readfile() 函数读取一个文件，并写入到输出缓冲。如果成功，该函数返回从文件中读入的字节数。如果失败，该函数返回 FALSE 并附带错误信息。您可以通过在函数名前面添加一个 &apos;@&apos; 来隐藏错误输出。
-file_get_contents() 把整个文件读入一个字符串中。</code></pre>
+file_get_contents() 把整个文件读入一个字符串中。</code></pre><hr>
+<a id="more"></a>
+<hr>
+<p>#爆破<em>3<br>    &lt;?php<br>    error_reporting(0); //关闭错误报告<br>    session_start();    //开启session<br>    require(‘./flag.php’);    //引入flag文件<br>    if(!isset($<em>SESSION[‘nums’])){<br>      $_SESSION[‘nums’] = 0;<br>      $_SESSION[‘time’] = time();//time() 函数返回自 Unix 纪元（January 1 1970 00:00:00 GMT）起的当前时间的秒数。<br>      $_SESSION[‘whoami’] = ‘ea’;<br>    }<br>    if($_SESSION[‘time’]+120&lt;time()){<br>      session_destroy();//session_destroy() 将重置 session，您将失去所有已存储的 session 数据<br>    }<br>    $value = $_REQUEST[‘value’];//$_REQUEST 用于收集 HTML 表单提交的数据<br>    $str_rand = range(‘a’, ‘z’);<br>    $str_rands = $str_rand[mt_rand(0,25)].$str_rand[mt_rand(0,25)];//mt_rand() 使用 Mersenne Twister 算法返回随机整数<br>    if($_SESSION[‘whoami’]==<br>    ($value[0].$value[1]) &amp;&amp; substr(md5($value),5,4)==0){//a . b     并置     连接两个字符串     “Hi” . “Ha”     HiHa<br>    $_SESSION[‘nums’]++;//substr() 函数返回字符串的一部分。//如果 start 参数是负数且 length 小于或等于 start，则 length 为     0。<br>    $_SESSION[‘whoami’] = $str_rands;//subst    (string,start,length)<br>      echo $str_rands;<br>    }<br>    if($_SESSION[‘nums’]&gt;=10){<br>      echo $flag;<br>    }<br>    show_source(__FILE</em></em>);<br>    ?&gt;</p>
+<p>#####</p>
+
     </div>
 
     
@@ -285,6 +292,9 @@ file_get_contents() 把整个文件读入一个字符串中。</code></pre>
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2020/01/18/new-bugku-writeup/" rel="prev" title="new_bugku_writeup">
+                  new_bugku_writeup <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -323,7 +333,7 @@ file_get_contents() 把整个文件读入一个字符串中。</code></pre>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#i春秋-ctf大本营-web-writeup"><span class="nav-number">1.</span> <span class="nav-text">i春秋 ctf大本营_web writeup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"><span class="nav-number">1.1.</span> <span class="nav-text">被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#i春秋-ctf大本营-web-writeup"><span class="nav-number">1.</span> <span class="nav-text">i春秋 ctf大本营_web writeup</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下"><span class="nav-number">1.1.</span> <span class="nav-text">####被菜醒，ctf小菜鸡来刷题冷静一下，顺便记录一下</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -337,7 +347,7 @@ file_get_contents() 把整个文件读入一个字符串中。</code></pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -350,7 +360,7 @@ file_get_contents() 把整个文件读入一个字符串中。</code></pre>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -380,7 +390,7 @@ file_get_contents() 把整个文件读入一个字符串中。</code></pre>
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
