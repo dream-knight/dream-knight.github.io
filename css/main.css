@@ -1182,7 +1182,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffe306;
+  background: #ecc2fe;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2004,6 +2004,13 @@ pre .javascript .function {
 #qr p {
   text-align: center;
 }
+.post-copyright {
+  background: #f5f5f5;
+  border-left: 3px solid #ff2a2a;
+  list-style: none;
+  margin: 2em 0 0;
+  padding: 0.5em 1em;
+}
 .category-all-page .category-all-title {
   text-align: center;
 }
@@ -2760,5 +2767,37 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+/*这是设置底部文字, 看个人需要修改*/
+}
+body #footer > div > div {
+  color: #eee;
+}
+.post {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 25px;
+  background: rgba(255,255,255,0.8) none repeat scroll !important;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.sidebar {
+  background: url("/images/sidebar_background.jpg");
+  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+}
+.sidebar p,
+.sidebar span,
+.sidebar a {
+  color: rgba(0,191,255,0.8);
+}
+.content {
+  border-radius: 20px;
+  padding: 30px 60px 30px 60px;
+  background: rgba(255,255,255,0.8) none repeat scroll !important;
 }

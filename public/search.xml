@@ -8,8 +8,11 @@
 <p>服务器：Ubuntu 16.04</p>
 <p>开源平台：CTFd</p>
 <a id="more"></a>]]></content>
+      <categories>
+        <category>CTFd</category>
+      </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>ctf</tag>
       </tags>
   </entry>
   <entry>
@@ -88,7 +91,6 @@ admin</code></pre><p>在返回包的网页查看源码即可见到：</p>
       <tags>
         <tag>ctf</tag>
         <tag>web</tag>
-        <tag>writeup</tag>
       </tags>
   </entry>
   <entry>
