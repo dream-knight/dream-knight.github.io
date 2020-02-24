@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>计算机网络学习笔记[物理层]</title>
+    <url>/2020/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%89%A9%E7%90%86%E5%B1%82/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>计算机网络学习笔记[数据链路层]</title>
+    <url>/2020/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>环境搭建</title>
+    <url>/2020/02/11/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<p> CentOs 7 搭建Nginx+php-fpm+MySQL记录</p>
+<a id="more"></a>
+
+<h1 id="CentOs-7-搭建Nginx-php-fpm-MySQL记录"><a href="#CentOs-7-搭建Nginx-php-fpm-MySQL记录" class="headerlink" title="CentOs 7 搭建Nginx+php-fpm+MySQL记录"></a>CentOs 7 搭建Nginx+php-fpm+MySQL记录</h1><p>操作系统：</p>
+<h2 id="1-安装Nginx"><a href="#1-安装Nginx" class="headerlink" title="1.安装Nginx"></a>1.安装Nginx</h2><h3 id="1-1添加yum源"><a href="#1-1添加yum源" class="headerlink" title="1.1添加yum源"></a>1.1添加yum源</h3><p>由于Nginx不在默认的yum源中，所以可以使用epel或者官网的yum源。</p>
+<pre><code>rpm -ivh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre><p>安装好yum源后，可以查看一下。</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[<span class="symbol">root@</span>root ~]# yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds <span class="keyword">from</span> cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">repo id                                repo name                                                            status</span><br><span class="line">base/<span class="number">7</span>/x86_64                          CentOS<span class="number">-7</span> - Base - mirrors.aliyun.com                                 <span class="number">10</span>,<span class="number">097</span></span><br><span class="line">epel/x86_64                            Extra Packages <span class="keyword">for</span> Enterprise Linux <span class="number">7</span> - x86_64                       <span class="number">13</span>,<span class="number">524</span></span><br><span class="line">extras/<span class="number">7</span>/x86_64                        CentOS<span class="number">-7</span> - Extras - mirrors.aliyun.com                                  <span class="number">323</span></span><br><span class="line">nginx/x86_64                           nginx repo                                                              <span class="number">172</span></span><br><span class="line">updates/<span class="number">7</span>/x86_64                       CentOS<span class="number">-7</span> - Updates - mirrors.aliyun.com                               <span class="number">1</span>,<span class="number">446</span></span><br><span class="line">repolist: <span class="number">25</span>,<span class="number">562</span></span><br></pre></td></tr></table></figure>
+
+<p>可以发现Nginx repo 已经安装到本机了。</p>
+<h3 id="1-2安装"><a href="#1-2安装" class="headerlink" title="1.2安装"></a>1.2安装</h3><pre><code>yum install nginx</code></pre><h3 id="1-3配置"><a href="#1-3配置" class="headerlink" title="1.3配置"></a>1.3配置</h3><p>设置开机启动</p>
+<pre><code>systemctl enable nginx</code></pre><p>启动服务</p>
+<pre><code>systemctl start nginx</code></pre><p>停止服务</p>
+<pre><code>systemctl restart nginx</code></pre><p>重新加载</p>
+<pre><code>systemctl reload nginx</code></pre><h3 id="1-4打开防火墙端口"><a href="#1-4打开防火墙端口" class="headerlink" title="1.4打开防火墙端口"></a>1.4打开防火墙端口</h3><p>默认 CentOS7 使用的防火墙 firewalld 是关闭 http 服务的（打开 80 端口）。</p>
+<pre><code>firewall-cmd --zone=public --permanent --add-service=http
+firewall-cmd --reload</code></pre><p>这个时候就可以查看一下防火墙打开的所有的服务。</p>
+<pre><code>firewall-cmd --list-service</code></pre><p>这时候用浏览器访问目标服务器的IP就可以看到Nginx的默认界面了。</p>
+<h2 id="2-安装php"><a href="#2-安装php" class="headerlink" title="2.安装php"></a>2.安装php</h2><h3 id="2-1安装php"><a href="#2-1安装php" class="headerlink" title="2.1安装php"></a>2.1安装php</h3><pre><code>yum install php php-mysql php-fpm php-gd php-imap php-ldap php-mbstring php-odbc php-pear php-xml php-xmlrpc -y</code></pre><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[<span class="symbol">root@</span>root ~]# php -v</span><br><span class="line">PHP <span class="number">5.4</span><span class="number">.16</span> (cli) (built: Nov  <span class="number">1</span> <span class="number">2019</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">20</span>) </span><br><span class="line">Copyright (c) <span class="number">1997</span><span class="number">-2013</span> The PHP Group</span><br><span class="line">Zend Engine v2<span class="number">.4</span><span class="number">.0</span>, Copyright (c) <span class="number">1998</span><span class="number">-2013</span> Zend Technologies</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2配置"><a href="#2-2配置" class="headerlink" title="2.2配置"></a>2.2配置</h3><p>安装完成之后，我们需要对它进行一些配置。首先，我们打开配置文件:</p>
+<pre><code>vim /etc/php.ini</code></pre><p>打开文件后，我们找到 cgi.fix_pathinfo 并把它的值设置为 0</p>
+<p>接下来配置/etc/php-fpm.d/<a href="http://www.conf文件。" target="_blank" rel="noopener">www.conf文件。</a></p>
+<pre><code>vim /etc/php-fpm.d/www.conf</code></pre><p>将listen = 127.0.0.1:9000修改为：</p>
+<pre><code>listen = /var/run/php-fpm/php-fpm.sock</code></pre><p>然后找到下面两行，删掉前面的 ; 分号，取消注释。</p>
+<pre><code>listen.owner = nobody
+listen.group = nobody</code></pre><p>最后，我们找到下面两行</p>
+<pre><code>user = apache
+group = apache</code></pre><p>将 apache 换成 nginx，如下所示：</p>
+<pre><code>user = nginx
+group = nginx</code></pre><h3 id="2-3启动"><a href="#2-3启动" class="headerlink" title="2.3启动"></a>2.3启动</h3><p>启动PHP</p>
+<pre><code>systemctl start php-fpm</code></pre><p> 将它设置为开机启动</p>
+<pre><code>systemctl enable php-fpm</code></pre><h3 id="2-4配置Ngin使其能够支持php"><a href="#2-4配置Ngin使其能够支持php" class="headerlink" title="2.4配置Ngin使其能够支持php"></a>2.4配置Ngin使其能够支持php</h3><p>实现打开Ngin的配置文件：</p>
+<pre><code>vim /etc/nginx/nginx.conf</code></pre><p>？？？没有server模块！！问度娘得知server模块和location模块，能在conf.d里面的default.cof能找到</p>
+<h3 id="2-5重启-nginx-服务"><a href="#2-5重启-nginx-服务" class="headerlink" title="2.5重启 nginx 服务"></a>2.5重启 nginx 服务</h3><p>systemctl restart nginx</p>
+<h2 id="安装php5-6"><a href="#安装php5-6" class="headerlink" title="安装php5.6"></a>安装php5.6</h2><pre><code>rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+yum install --enablerepo=remi --enablerepo=remi-php56 php php-fpm
+yum install --enablerepo=remi --enablerepo=remi-php56 php-opcache php-mbstring php-mysql* php-gd php-redis php-mcrypt php-xml php-redis</code></pre><h2 id="安装mysql"><a href="#安装mysql" class="headerlink" title="安装mysql"></a>安装mysql</h2><p>下载mysql的repo源</p>
+<pre><code>wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</code></pre><p>安装mysql-community-release-el7-5.noarch.rpm包</p>
+<pre><code>rpm -ivh mysql-community-release-el7-5.noarch.rpm</code></pre><p>安装MYSQL:</p>
+<pre><code>yum install -y mysql-server</code></pre><p>更改MYSQL用户权限：</p>
+<pre><code>chown -R root:root /var/lib/mysql</code></pre><p>重启服务：</p>
+<pre><code>systemctl restart mysql.service</code></pre>]]></content>
+      <categories>
+        <category>LNMP</category>
+      </categories>
+      <tags>
+        <tag>训练靶机</tag>
+        <tag>环境</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>搭建CTF平台</title>
     <url>/2020/01/28/%E6%90%AD%E5%BB%BACTF%E5%B9%B3%E5%8F%B0/</url>
     <content><![CDATA[<p>想搭一个CTF平台给大家刷题，顺便记录一下搭建过程：</p>
