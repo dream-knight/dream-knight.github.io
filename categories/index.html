@@ -46,12 +46,10 @@
   };
 </script>
 
-  <meta name="description" content="personal_blog">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="categories">
 <meta property="og:url" content="https:&#x2F;&#x2F;dream-knight.github.io&#x2F;categories&#x2F;index.html">
 <meta property="og:site_name" content="Dre4m_Dr4g0n">
-<meta property="og:description" content="personal_blog">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-11-22T11:37:46.574Z">
 <meta name="twitter:card" content="summary">
@@ -158,6 +156,11 @@
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-bangumis">
+
+    <a href="/bangumis/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>追番</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -292,7 +295,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -324,7 +327,6 @@
 
 
       </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1491585&auto=0&height=66"></iframe>
 
     </div>
   </aside>
@@ -355,7 +357,7 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
@@ -393,11 +395,69 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
 <script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.getAttribute('pjax') !== null) {
+      element.setAttribute('pjax', '');
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
 
   <script defer src="/lib/three/three.min.js"></script>
     <script defer src="true"></script>
@@ -421,6 +481,7 @@
 
 
 
+    <div id="pjax">
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
 
@@ -436,5 +497,27 @@
 
   
 
+    </div>
+  
+  
+  <!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+<div class="aplayer" 
+	data-id="2981938569" 
+	data-server="netease" 
+	data-type="playlist" 
+	data-fixed="true"	
+	data-order="random"
+	data-volume="0.65"
+	data-autoplay="false"   
+	date-preload="auto"
+	data-theme="#cc543a">
+</div>
+
 </html>
