@@ -4,6 +4,9 @@
     <title>IOT学习笔记(下)</title>
     <url>/2020/03/16/IOT%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%8B/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Day-4"><a href="#Day-4" class="headerlink" title="Day_4"></a>Day_4</h1><hr>
+<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/IOTIoT_1.jpg" alt=""></p>
+<a id="more"></a>
+
 <h2 id="工业物联网关"><a href="#工业物联网关" class="headerlink" title="工业物联网关"></a>工业物联网关</h2><h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><p>物联网网关属于物联网架构中的网络层，主要负责</p>
 <ul>
 <li>上行回传</li>
@@ -457,6 +460,67 @@
 <li>兼容第三方库</li>
 </ul>
 <h3 id="API接口"><a href="#API接口" class="headerlink" title="API接口"></a>API接口</h3><p>开放的API屏蔽底层差异，让应用开发者只需关注上层应用开发，井且友好的接口设计使得已熟悉在L inux系统上开发应用的开发者，能够非常平滑的切换到Huawei LiteOS系统上开发，同时由于Huawei L iteOS系统的精简内核特性，使得开发者更容易理解内核</p>
+<h1 id="Day-6"><a href="#Day-6" class="headerlink" title="Day_6"></a>Day_6</h1><h2 id="物联网在智慧城市的应用"><a href="#物联网在智慧城市的应用" class="headerlink" title="物联网在智慧城市的应用"></a>物联网在智慧城市的应用</h2><ul>
+<li>路灯管理<ul>
+<li>管理策略</li>
+<li>状态检测</li>
+</ul>
+</li>
+<li>停车管理<ul>
+<li>智慧停车</li>
+<li>室外停车</li>
+</ul>
+</li>
+<li>井盖管理<ul>
+<li>UNB</li>
+</ul>
+</li>
+<li>智能水务</li>
+<li>垃圾桶管理</li>
+</ul>
+<h2 id="物联网在消费电子的应用"><a href="#物联网在消费电子的应用" class="headerlink" title="物联网在消费电子的应用"></a>物联网在消费电子的应用</h2><ul>
+<li>白色家电</li>
+<li>提高用户体验</li>
+<li>提高产品的口碑度</li>
+<li>提高厂家的服务能力与质量</li>
+</ul>
+<h2 id="物联网在绿色能源的应用"><a href="#物联网在绿色能源的应用" class="headerlink" title="物联网在绿色能源的应用"></a>物联网在绿色能源的应用</h2><p>1.AMI：高级计量架构，数据采集[窄带PLC技术]</p>
+<ul>
+<li>输</li>
+<li>变</li>
+<li>配</li>
+<li>用 </li>
+</ul>
+<p>Hi-PLC<br>网络速度最快，100%的通信可靠性</p>
+<p>2.智能楼宇</p>
+<p>采集数据控制空调，窗帘，灯光达到节能的效果</p>
+<ul>
+<li>不牺牲舒适度为前提<ul>
+<li>温度</li>
+<li>湿度</li>
+<li>光照</li>
+<li>风速</li>
+<li>运动量</li>
+<li>穿衣</li>
+</ul>
+</li>
+<li>环境最佳节能状态</li>
+</ul>
+<h2 id="物联网在车联网领域的应用"><a href="#物联网在车联网领域的应用" class="headerlink" title="物联网在车联网领域的应用"></a>物联网在车联网领域的应用</h2><p>UBI (Usage Based Insurance )<br>基于驾驶行为而定保费的保险</p>
+<h2 id="物联网在公共安全的应用"><a href="#物联网在公共安全的应用" class="headerlink" title="物联网在公共安全的应用"></a>物联网在公共安全的应用</h2><ol>
+<li><p>平安城市</p>
+<ul>
+<li>智能视频</li>
+<li>人脸检测</li>
+</ul>
+</li>
+<li><p>智能交通</p>
+<ul>
+<li>抓拍</li>
+<li>车牌采集</li>
+</ul>
+</li>
+</ol>
 ]]></content>
       <tags>
         <tag>笔记</tag>
@@ -1349,7 +1413,7 @@
 <pre><code>yum install wget -y</code></pre><p>下载对应当前系统版本的nginx包</p>
 <pre><code>wget http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre><p>由于Nginx不在默认的yum源中，所以需要建立nginx的yum仓库。</p>
 <pre><code>rpm -ivh nginx-release-centos-7-0.el7.ngx.noarch.rpm</code></pre><p>安装好yum源后，可以查看一下。</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">[<span class="symbol">root@</span>root ~]# yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds <span class="keyword">from</span> cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">repo id                                repo name                                                            status</span><br><span class="line">base/<span class="number">7</span>/x86_64                          CentOS<span class="number">-7</span> - Base - mirrors.aliyun.com                                 <span class="number">10</span>,<span class="number">097</span></span><br><span class="line">epel/x86_64                            Extra Packages <span class="keyword">for</span> Enterprise Linux <span class="number">7</span> - x86_64                       <span class="number">13</span>,<span class="number">524</span></span><br><span class="line">extras/<span class="number">7</span>/x86_64                        CentOS<span class="number">-7</span> - Extras - mirrors.aliyun.com                                  <span class="number">323</span></span><br><span class="line">nginx/x86_64                           nginx repo                                                              <span class="number">172</span></span><br><span class="line">updates/<span class="number">7</span>/x86_64                       CentOS<span class="number">-7</span> - Updates - mirrors.aliyun.com                               <span class="number">1</span>,<span class="number">446</span></span><br><span class="line">repolist: <span class="number">25</span>,<span class="number">562</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">yum repolist</span><br><span class="line">Loaded plugins: fastestmirror</span><br><span class="line">Loading mirror speeds <span class="keyword">from</span> cached hostfile</span><br><span class="line"> * base: mirrors.aliyun.com</span><br><span class="line"> * extras: mirrors.aliyun.com</span><br><span class="line"> * updates: mirrors.aliyun.com</span><br><span class="line">repo id                                repo name                                                            status</span><br><span class="line">base/<span class="number">7</span>/x86_64                          CentOS<span class="number">-7</span> - Base - mirrors.aliyun.com                                 <span class="number">10</span>,<span class="number">097</span></span><br><span class="line">epel/x86_64                            Extra Packages <span class="keyword">for</span> Enterprise Linux <span class="number">7</span> - x86_64                       <span class="number">13</span>,<span class="number">524</span></span><br><span class="line">extras/<span class="number">7</span>/x86_64                        CentOS<span class="number">-7</span> - Extras - mirrors.aliyun.com                                  <span class="number">323</span></span><br><span class="line">nginx/x86_64                           nginx repo                                                              <span class="number">172</span></span><br><span class="line">updates/<span class="number">7</span>/x86_64                       CentOS<span class="number">-7</span> - Updates - mirrors.aliyun.com                               <span class="number">1</span>,<span class="number">446</span></span><br><span class="line">repolist: <span class="number">25</span>,<span class="number">562</span></span><br></pre></td></tr></table></figure>
 
 <p>可以发现Nginx repo 已经安装到本机了。</p>
 <p>由于下载过程中yum的官方源太慢了，这里把yum源换成了阿里云的。</p>
