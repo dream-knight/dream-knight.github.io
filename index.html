@@ -445,10 +445,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-08 17:00:57 / 修改时间：19:17:01" itemprop="dateCreated datePublished" datetime="2020-03-08T17:00:57+08:00">2020-03-08</time>
+              <time title="创建时间：2020-03-08 17:00:57" itemprop="dateCreated datePublished" datetime="2020-03-08T17:00:57+08:00">2020-03-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-15 09:15:54" itemprop="dateModified" datetime="2020-04-15T09:15:54+08:00">2020-04-15</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -472,66 +478,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LakePukaki_EN-AU9412206565_1920x1080%20(1).jpg" alt=""></p>
-<h1 id="数据库系统原理"><a href="#数据库系统原理" class="headerlink" title="数据库系统原理"></a>数据库系统原理</h1><h2 id="第1章-数据库系统概述"><a href="#第1章-数据库系统概述" class="headerlink" title="第1章 数据库系统概述"></a>第1章 数据库系统概述</h2><h3 id="1-1数据库的基本概念"><a href="#1-1数据库的基本概念" class="headerlink" title="1.1数据库的基本概念"></a>1.1数据库的基本概念</h3><ul>
-<li><strong>数据Data</strong></li>
-</ul>
-<p>数据库的存储对象，描述事物的符号记录</p>
-<ul>
-<li><strong>数据库(Database,简记为DB)</strong></li>
-</ul>
-<p>DB是<strong>长期存储</strong>在计算机内的、<strong>在组织的</strong>、统一管理的相关数据的集合。DB能为各种用户<strong>共享</strong>，具有<strong>较小冗余度</strong>、数据间联系紧密而又有较高的数据<strong>独立性</strong>和<strong>易拓展</strong>的特点。</p>
-<ul>
-<li><strong>数据库管理系统(DBMS)</strong></li>
-</ul>
-<p>DBMS是一个管理数据库的系统软件,它应具有以下功能:</p>
-<ul>
-<li>数据库定义功能 (提供数据定义语言DDL,即Data Definition Language.用户通过它可以定义数据库中的数据对象)</li>
-<li>数据库操纵功能 (提供数据操纵语言DML, 即Data Manipulation Language.用户通过它可以操zing数据库中的数据,实现增删改查等数据库基本操作)</li>
-<li>数据库的运行管理功能 (提供DCL, 数据库在建立,运用和维护时间由DBMS统一管理,负责数据的安全性,完整性,多用户对数据的并发使用及发生故障后的系统恢复)</li>
-<li>数据库的建立和维护功能 (一般包括数据库初始数据的输入,转换功能,数据库的转储,恢复功能,数据库的重组织功能和性能监视,分析功能)</li>
-</ul>
-<ul>
-<li><strong>数据库系统(DBS)</strong></li>
-</ul>
-<p>指在计算机系统换种引入数据库后构成的计算机应用系统,其中包括:</p>
-<ul>
-<li>数据库(及相关硬件)</li>
-<li>数据库管理员(DBA)和用户</li>
-<li>软件(主要包括操作系统,各种宿主语言,使用程序以及数据库管理系统)</li>
-</ul>
-<blockquote>
-<p>用户-&gt;应用系统-&gt;应用开发工具-&gt;DBMS-&gt;操作系统-&gt;DB</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%95%B0%E6%8D%AE%E5%BA%931.png" alt=""></p>
-<p>其特点为: <strong>数据结构化,数据共享,冗余度低,可控,独立性高</strong></p>
-<h3 id="1-2数据模型"><a href="#1-2数据模型" class="headerlink" title="1.2数据模型"></a>1.2数据模型</h3><p>在设计数据库的过程中,通常是将客观事物进行抽象转变为数据模型.<br>这里的大概过程为: 客观事物-&gt;概念模型(E-R图)-&gt;数据模型</p>
-<ul>
-<li>实体（Entity）：<br>客观存在并可相互区别的事物称为实体。<br>可以是具体的人、事、物或抽象的概念。</li>
-<li>属性（Attribute）：<br>实体所具有的某一特性称为属性。<br>一个实体可以由若干个属性来刻画。  </li>
-<li>码（Key）：<br>唯一标识实体的属性集称为码。</li>
-<li>实体型（Entity Type）：<br>用实体名及其属性名集合来抽象和刻画同类实体称为<br>实体型</li>
-<li>实体集（Entity Set）：<br>同一类型实体的集合称为实体集</li>
-</ul>
-<p><strong>实体与属性</strong>: 客观上可以相互区分的事物就是实体,一个实体通常具有若干个特征,其中的每一个特征就称为实体的一个属性.</p>
-<p><strong>实体集之间的联系</strong>: 分为实体集内部的联系和实体集之间的联系.</p>
-<ul>
-<li>有一对一(1:1)：如果实体集E1中每个实体至多与实体集E2中的一个实体有联系，反之亦然，那么实体集E1和E2的联系称为”一对一联系“，记为”1：1“。 例子：飞机的座位和乘客之间是1：1联系。</li>
-<li>一对多(1:n)：如果实体集E1中的每个实体可以与实体集E2中任意个（零个或多个）实体间有联系，而E2中每个实体至多和E1中的一个实体有联系，那么称E1对E2的联系是”一对多的联系“，记为”1：N“。 例子：工厂里车间和工人之间是1：N联系。</li>
-<li>多对多(n:n)：如果实体集E1中每个实体可以与实体集E2中任意个（零个或多个）实体间有联系，反之亦然，那么称E1和E2的联系是”多对多联系“，记为”M：N“。 例子：学校里学生和课程之间是M:N联系。</li>
-</ul>
-<p>常见的数据模型:</p>
-<ul>
-<li>层次模型（Hierarchical Model）(可以理解为有向树,简单易操作,缺点为插入删除操作时限制较多)</li>
-<li>网状模型（Network Model）(可以理解为有向图,能够更直接的描述现实世界,但其DDL及其复杂)</li>
-<li>关系模型（Relational Model)(最为主流,数据为一张二维表.缺点为查询不够效率)</li>
-<li>面向对象数据模型（Object Oriented Data Model）(具有很强的模型扩展能力,节省开销,但尚不成熟)</li>
-<li>对象关系数据模型（Object Relational Data Model）</li>
-<li>半结构化数据模型（Semistruture Data Model）</li>
-</ul>
-<h3 id="1-3数据库系统三级结构"><a href="#1-3数据库系统三级结构" class="headerlink" title="1.3数据库系统三级结构"></a>1.3数据库系统三级结构</h3><p>从数据库管理系统的角度看,数据库系统通常采用三级模式结构: 内模式, 概念模式, 外模式</p>
-<p>三级模式结构:</p>
-
+          <h1 id="数据库系统原理"><a href="#数据库系统原理" class="headerlink" title="数据库系统原理"></a>数据库系统原理</h1><p><img src="https://raw.githubusercontent.com/dream-knight/Blog_Picture_Bed/master/img/LakePukaki_EN-AU9412206565_1920x1080%20(1).jpg" alt=""></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
